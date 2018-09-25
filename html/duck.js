@@ -15,16 +15,17 @@ function myMove() {
     var elem = document.getElementById("duck"); 
     firstMove = setInterval(first, 10);
 
+    secondMove = setInterval(second, 10);
     for (let index = 0; index < 4; index++) {
         pickRandom();
         // alert(destX + "  " + destY);
-        secondMove = setInterval(second, 10);   
+        second();
     }
 
 
 
         function pickRandom() {
-            destY = Math.random() * (99 - 30) + 30;
+            destY = Math.random() * (90 - 30) + 30;
             destX = Math.random() * (99 - 0) + 0;
         }
 
@@ -55,6 +56,35 @@ function myMove() {
                         posX -= 0.1; 
                         posY -= 0.1;
                         changePosition();
+                    }
+                    else if(posX > destX && posY < destY){
+                        posX -= 0.1; 
+                        posY += 0.1;
+                        changePosition();
+                    }
+                    else if(posX < destX && posY > destY){
+                        posX += 0.1; 
+                        posY -= 0.1;
+                        changePosition();
+                    }
+                    else if(posX == destX && posY > destY){
+                        posY -= 0.1;
+                        changePosition();
+                    }
+                    else if(posX == destX && posY < destY){
+                        posY += 0.1;
+                        changePosition();
+                    }
+                    else if(posX < destX && posY == destY){
+                        posX += 0.1;
+                        changePosition();
+                    }
+                    else if(posX > destX && posY == destY){
+                        posX -= 0.1;
+                        changePosition();
+                    }
+                    else{
+                        alert("CHUJ");
                     }
                     
                 }
