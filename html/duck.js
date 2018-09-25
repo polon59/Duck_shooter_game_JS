@@ -1,7 +1,10 @@
 var changeCounter = 0;
+var duck1 = document.getElementById("duck1");
+var i = 0;
 
 function changeAnimations() {
     changeAnimation("duck1");
+    flapWings();
     changeAnimation("duck2");
     changeAnimation("duck3");
     changeCounter ++;
@@ -23,7 +26,7 @@ function changeAnimation(duckID) {
         90%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
         100% {left:" + getRandom("width") +"%; bottom: 100%;}\
     }";
-    // if (CSSRule.KEYFRAMES_RULE) {
+    // if (CSSRule.KEYFRAMES_RULE) {p
         style.sheet.insertRule(rule, 0);
     // } else if (CSSRule.WEBKIT_KEYFRAMES_RULE) { // WebKit
     //     style.sheet.insertRule("@-webkit-keyframes" + rule, 0);
@@ -46,4 +49,18 @@ function getRandom(valueName) {
     
 }
 
+function flapWings(){
+var duckToRightSideImages = ["../resources/sprites/duck/bok1.png", 
+                            "../resources/sprites/duck/bok2.png",
+                            "../resources/sprites/duck/bok3.png"]
 
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToRightSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToRightSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+}
