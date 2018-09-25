@@ -27,21 +27,28 @@
     bottom: 20%;
     position: absolute;
     height: 50px;
+    width: 70px;
     animation-name: example;
-    animation-duration: 8s;
+    animation-duration: 20s;
     animation-iteration-count: infinite;
 }
 
 #duck1{
     animation-name: duck1;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 
 #duck2{
     animation-name: duck2;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 
 #duck3{
     animation-name: duck3;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 /* left 48%, bottom 30 */
 
