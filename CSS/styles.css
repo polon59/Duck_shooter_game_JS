@@ -2,12 +2,6 @@
     height: 100%;
 }
 
-
-p{
-    color: red;
-}
-
-
 .sky { 
     background-image: url("../resources/sprites/background/sky1.png");
     height: 100%; 
@@ -26,7 +20,6 @@ p{
 .bushes img{
     height: 100%;
     width: 100%;
-    
 }
 
 .duck{
@@ -35,20 +28,31 @@ p{
     position: absolute;
     height: 50px;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 8s;
     animation-iteration-count: infinite;
-    
+}
+
+#duck1{
+    animation-name: duck1;
+}
+
+#duck2{
+    animation-name: duck2;
+}
+
+#duck3{
+    animation-name: duck3;
 }
 /* left 48%, bottom 30 */
 
 
-@keyframes example {
+/* @keyframes example {
     0%   {background-color:red; left: 48%; bottom: 20%;}
     25%  {left:48%; bottom:30%;}
     50%  {background-color:blue; left:30%; bottom:40%;}
     75%  {background-color:green; left:50%; bottom:60%;}
     100% {background-color:rgb(0, 0, 0); left: 48%; bottom: 100%;}
-}
+} */
 
 
 

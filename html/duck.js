@@ -1,12 +1,16 @@
+var changeCounter = 0;
+
+function changeAnimations() {
+    changeAnimation("duck1");
+    changeAnimation("duck2");
+    changeAnimation("duck3");
+    changeCounter ++;
+}
 
 
-
-
-
-
-function changeAnimation() {
-    var style = document.documentElement.appendChild(document.createElement("style")),
-    rule = "@keyframes example {\
+function changeAnimation(duckID) {
+    var style = document.documentElement.appendChild(document.createElement("style"));
+    rule = "@keyframes " + duckID + "{\
         0%   {left: " + getRandom("width") + "%; bottom: 20%;}\
         10%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
         20%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
@@ -33,7 +37,7 @@ function getRandom(valueName) {
         randomValue = Math.floor(Math.random() * (90 - 1 + 1)) + 1;
         // return Math.floor(Math.random() * (95 - 5 + 1)) + 5;
     } else {
-        randomValue = Math.floor(Math.random() * (80 - 30 + 1)) + 40;
+        randomValue = Math.floor(Math.random() * (70 - 35 + 1)) + 40;
         // return Math.floor(Math.random() * (80 - 40 + 1)) + 20;
     }
     console.log(valueName + "  " + randomValue );
