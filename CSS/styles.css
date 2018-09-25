@@ -29,23 +29,28 @@ p{
     
 }
 
-
 .duck{
     left: 48%;
     bottom: 20%;
     position: absolute;
-    animation-name: example;
+    height: 50px;
+    /* animation-name: example;
     animation-duration: 5s;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
+    
 }
+/* left 48%, bottom 30 */
 
-@keyframes example {
+
+/* @keyframes example {
     0%   {background-color:red; left: 48%; bottom: 20%;}
-    25%  {background-color:yellow; left:48%; bottom:30%;}
+    25%  {left:48%; bottom:30%;}
     50%  {background-color:blue; left:30%; bottom:40%;}
     75%  {background-color:green; left:50%; bottom:60%;}
     100% {background-color:rgb(0, 0, 0); left: 48%; bottom: 100%;}
-}
+} */
+
+
 
 .duck img{
     height: 50px;
