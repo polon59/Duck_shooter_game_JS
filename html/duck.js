@@ -27,26 +27,25 @@ function start() {
 //     }
 // }
 
-// function changeDucksImages() {
-//     document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
-//     duckDirections[duckDirectionsIndex] + ".png')";
-//     duckDirectionsIndex ++;
-//     if (duckDirectionsIndex == duckDirections.length) {
-//         duckDirectionsIndex = 0;
-//     }
-//     console.log(duckDirectionsIndex);
-// }
+    function changeDucksImages() {
+        document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
+        duckDirections[duckDirectionsIndex] + ".png')";
+        duckDirectionsIndex ++;
+        if (duckDirectionsIndex == duckDirections.length) {
+            duckDirectionsIndex = 0;
+        }
+        console.log(duckDirectionsIndex);
+    }
 
 function changeAnimations() {
-    changeAnimation("duck1");
-    flapWings();
-    changeAnimation("duck2");
-    changeAnimation("duck3");
+    changeDirection("duck1");
+    //flapWingsToLeftDown();
+    changeDirection("duck2");
     changeCounter ++;
 }
 
 
-function changeAnimation(duckID) {
+function changeDirection(duckID) {
     style = document.documentElement.appendChild(document.createElement("style"));
     rule = "@keyframes " + duckID + "{\
         0%   {left: " + getRandomWidth(duckID,30,60) + "%; bottom:" + getRandomHeight(duckID,20,20) + "%;}\
@@ -71,22 +70,24 @@ function changeAnimation(duckID) {
 function getRandomWidth(duckID,min,max) {
     var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    // if (generatedWidth > previousWidth){
-    //     duckDirections.push("left");
-    // } else {
-    //     duckDirections.push("right");
+    if (generatedWidth > previousWidth){
+        duckDirections.push("left");
+    } else {
+        duckDirections.push("right");
     previousWidth = generatedWidth;
 
     return generatedWidth;
+    }
 }
 
 
 function getRandomHeight(duckID,min,max) {
     var generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;
+    var heightDifference = generatedHeight - previousHeight;
 
-    if (generatedHeight > previousHeight){
+    if (heightDifference > 10){
         duckDirections[duckDirections.length-1] += "up";
-    } else {
+    } else if (heightDifference < -10) {
         duckDirections[duckDirections.length-1] += "down";
     }
 
@@ -98,10 +99,10 @@ function getRandomHeight(duckID,min,max) {
     
 }
 
-function flapWings(){
-var duckToRightSideImages = ["../resources/sprites/duck/right1.png", 
-                            "../resources/sprites/duck/right2.png",
-                            "../resources/sprites/duck/right3.png"]
+function flapWingsToRight(){
+    var duckToRightSideImages = ["../resources/sprites/duck/right1.png", 
+                                 "../resources/sprites/duck/right2.png",
+                                 "../resources/sprites/duck/right3.png"]
 
     setInterval(function(){
         duck1.style.backgroundImage = "none";
@@ -113,3 +114,85 @@ var duckToRightSideImages = ["../resources/sprites/duck/right1.png",
         } 
     }, 330);
 }
+
+function flapWingsToLeft(){
+    var duckToLeftSideImages = ["../resources/sprites/duck/left1.png", 
+                                "../resources/sprites/duck/left2.png",
+                                "../resources/sprites/duck/left3.png"]
+
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToLeftSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToLeftSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+}
+
+function flapWingsToRightUp(){
+    var duckToRightUpSideImages = ["../resources/sprites/duck/rightup1.png", 
+                                    "../resources/sprites/duck/rightup2.png",
+                                    "../resources/sprites/duck/rightup3.png"]
+
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToRightUpSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToRightUpSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+}
+
+function flapWingsToLeftUp(){
+    var duckToLeftUpSideImages = ["../resources/sprites/duck/leftup1.png", 
+                                  "../resources/sprites/duck/leftup2.png",
+                                  "../resources/sprites/duck/leftup3.png"]
+
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToLeftUpSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToLeftUpSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+}
+
+function flapWingsToRightDown(){
+    var duckToRightDownSideImages = ["../resources/sprites/duck/rightdown1.png", 
+                                    "../resources/sprites/duck/rightdown2.png",
+                                    "../resources/sprites/duck/rightdown3.png"]
+
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToRightDownSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToRightDownSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+
+}
+
+function flapWingsToLeftDown(){
+    var duckToLeftDownSideImages = ["../resources/sprites/duck/leftdown1.png", 
+                                    "../resources/sprites/duck/leftdown2.png",
+                                    "../resources/sprites/duck/leftdown3.png"]
+
+    setInterval(function(){
+        duck1.style.backgroundImage = "none";
+        duck1.style.backgroundSize = "100%";
+        duck1.style.backgroundImage = "url(" + duckToLeftDownSideImages[i] + ")";
+        i = i+1;
+        if(i == duckToLeftDownSideImages.length){
+            i = 0;
+        } 
+    }, 330);
+}
+
