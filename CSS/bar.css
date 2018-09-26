@@ -30,6 +30,7 @@
 }
 
 .duckImage{
+    margin-top: 1vw;
     width: 6.3%;
     height: 20px;
     background-image: url("../resources/sprites/scoreImages/hit/duckwhite.png");
