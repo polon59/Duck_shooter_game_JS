@@ -1,7 +1,3 @@
-.body, html {
-    
-}
-
 body{
     max-height: 100%;
     margin: 0;
@@ -20,7 +16,6 @@ body{
     position: relative;
     height: 100%; 
     z-index: 1;
-    /* overflow: hidden; */
     background-image: url("../resources/sprites/background/bushes.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -51,14 +46,6 @@ body{
     background-size: 100%;
 }
 
-.duck img{
-    opacity: 0;
-    background-size: 100%;
-    width: 78px;
-    height: 73px;
-}
-
-
 .row
 {
     position: fixed;
@@ -80,15 +67,12 @@ body{
 
 #shots{
     background-image: url("../resources/sprites/scoreImages/shot.png");
-    /* background-size: 100%; */
 }
 
 #hit{
     background-image: url("../resources/sprites/scoreImages/hit.png");
-    /* background-size: 100%; */
 }
 
 #score{
     background-image: url("../resources/sprites/scoreImages/score.png");
-    /* background-size: 100%; */
 }
