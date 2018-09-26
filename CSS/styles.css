@@ -15,7 +15,7 @@ body{
 .bushes{
     position: relative;
     height: 100%; 
-    z-index: 1;
+    /* z-index: 1; */
     background-image: url("../resources/sprites/background/bushes.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -29,50 +29,28 @@ body{
     animation-name: example;
     animation-duration: 20s;
     animation-iteration-count: infinite;
+    /* z-index: 1; */
 }
+
+/* .duck div{
+    width: 78px;
+    height: 73px;
+    z-index: 1;
+} */
 
 #duck1{
     animation-name: duck1;
-    background-size: 100%;
     width: 78px;
     height: 73px;
-    background-image: url("../resources/sprites/duck/bok1.png");
+    background-image: url("../resources/sprites/duck/right1.png");
     background-size: 100%;
 }
 
 #duck2{
     animation-name: duck2;
-    background-image: url("../resources/sprites/duck/right.png");
+    background-image: url("../resources/sprites/duck/right1.png");
     background-size: 100%;
+    width: 78px;
+    height: 73px;
 }
 
-.row
-{
-    position: fixed;
-    bottom: 0;
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0;
-    height: 10%;
-}
-
-.rowCell{
-    text-align: center;
-    display: table-cell;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100%;
-}
-
-#shots{
-    background-image: url("../resources/sprites/scoreImages/shot/shot2.png");
-}
-
-#hit{
-    background-image: url("../resources/sprites/scoreImages/hit.png");
-}
-
-#score{
-    background-image: url("../resources/sprites/scoreImages/score.png");
-}

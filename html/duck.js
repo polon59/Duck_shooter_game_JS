@@ -41,7 +41,7 @@ function changeAnimations() {
     changeAnimation("duck1");
     flapWings();
     changeAnimation("duck2");
-    changeAnimation("duck3");
+    // changeAnimation("duck3");
     changeCounter ++;
 }
 
@@ -90,7 +90,7 @@ function getRandomHeight(duckID,min,max) {
         duckDirections[duckDirections.length-1] += "down";
     }
 
-    console.log(duckDirections[duckDirections.length-1]);
+    // console.log(duckDirections[duckDirections.length-1]);
     previousHeight = generatedHeight;
     
     return generatedHeight;

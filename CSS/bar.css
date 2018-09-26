@@ -1,0 +1,30 @@
+.row
+{
+    position: fixed;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+    height: 10%;
+}
+
+.rowCell{
+    text-align: center;
+    display: table-cell;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+#shots{
+    background-image: url("../resources/sprites/scoreImages/shot/shot2.png");
+}
+
+#hit{
+    background-image: url("../resources/sprites/scoreImages/hit.png");
+}
+
+#score{
+    background-image: url("../resources/sprites/scoreImages/score.png");
+}
