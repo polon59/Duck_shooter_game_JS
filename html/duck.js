@@ -3,22 +3,28 @@ var duckDirections = [];
 var duckDirectionsIndex = 0;
 
 
-var previousWidth = null;
-var previousHeight = null;
+var previousWidth = 0;
+var previousHeight = 0;
 
+var flyRight, flyLeft, flyRightUp, flyRightDown, flyLeftUp, flyLeftDown;
 
 var changeCounter = 0;
 var duck1 = document.getElementById("duck1");
+var myVar;
 var i = 0;
-
-var myVar = 0;
 
 function start() {
     clearInterval(myVar);
     duckDirections = [];
+      
     changeAnimations();
-    // myVar = setInterval(changeDucksImages, 2000);
-    // var myVar = setTimeout(changeDucksImages, 1000);   
+    myVar = setInterval(changeDucksImages, 2000);
+    myVar = setTimeout(changeDucksImages(duckDirections), 10); 
+    //var myVar = setInterval(changeDucksImages, 2000);
+    //changeAnimations();
+    //jednocześnie changeDucksImages(duckDirections) co każda zmiana
+    // var myVar = setInterval(changeDucksImages, 2000);
+    //  var myVar = setTimeout(changeDucksImages(duckDirections), 10);   
 }
 
 // function removeIntervalImgChange(params) {
@@ -28,27 +34,48 @@ function start() {
 // }
 
     function changeDucksImages() {
-        document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
-        duckDirections[duckDirectionsIndex] + ".png')";
-        duckDirectionsIndex ++;
-        if (duckDirectionsIndex == duckDirections.length) {
-            duckDirectionsIndex = 0;
+        if(duckDirections.length > 3){
+            //console.log(duckDirections);
+            if(duckDirections[duckDirectionsIndex] == "right"){
+                flapWingsToRight();
+                //console.log("right");
+            }else if(duckDirections[duckDirectionsIndex]  == "left"){
+                flapWingsToLeft();
+                //console.log("lenft");
+            }else if(duckDirections[duckDirectionsIndex]  == "rightup"){
+                flapWingsToRightUp();
+                //console.log("ru");
+            }else if(duckDirections[duckDirectionsIndex]  == "leftup"){
+                flapWingsToLeftUp();
+                //console.log("lu");
+            }else if(duckDirections[duckDirectionsIndex]  == "rightdown"){
+                flapWingsToRightDown();
+                //console.log("rd");
+            }else{flapWingsToLeftDown(); 
+                //console.log("BURDEL");
+            
+            }
+            duckDirectionsIndex++;
+            if(duckDirectionsIndex == duckDirections.length+2){
+                duckDirectionsIndex = 0;
+            }
         }
-        console.log(duckDirectionsIndex);
+       // console.log(duckDirectionsIndex);
     }
 
 function changeAnimations() {
     changeDirection("duck1");
-    //flapWingsToLeftDown();
-    changeDirection("duck2");
-    changeCounter ++;
+    changeDucksImages();
+    duckDirections = [];
+    //changeCounter ++;
 }
+
 
 
 function changeDirection(duckID) {
     style = document.documentElement.appendChild(document.createElement("style"));
     rule = "@keyframes " + duckID + "{\
-        0%   {left: " + getRandomWidth(duckID,30,60) + "%; bottom:" + getRandomHeight(duckID,20,20) + "%;}\
+        0%   {left: " + getRandomWidth(duckID,30,60) + "%; bottom:" + 20 + "%;}\
         10%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
         20%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
         30%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
@@ -68,30 +95,34 @@ function changeDirection(duckID) {
 }
 
 function getRandomWidth(duckID,min,max) {
-    var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;
+    var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;;
+    //var widthDifference = generatedWidth - previousWidth;
 
-    if (generatedWidth > previousWidth){
+
+    if (generatedWidth < previousWidth){
         duckDirections.push("left");
-    } else {
+    }else{
         duckDirections.push("right");
-    previousWidth = generatedWidth;
-
-    return generatedWidth;
     }
+    previousWidth = generatedWidth;
+    return generatedWidth;
 }
+
 
 
 function getRandomHeight(duckID,min,max) {
     var generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;
     var heightDifference = generatedHeight - previousHeight;
-
+    if(duckDirections.length > 3){
     if (heightDifference > 10){
         duckDirections[duckDirections.length-1] += "up";
+        //console.log(duckDirections);
     } else if (heightDifference < -10) {
         duckDirections[duckDirections.length-1] += "down";
-    }
+    }}
 
     console.log(duckDirections[duckDirections.length-1]);
+    
     previousHeight = generatedHeight;
     
     return generatedHeight;
@@ -100,11 +131,17 @@ function getRandomHeight(duckID,min,max) {
 }
 
 function flapWingsToRight(){
+ 
+    // clearInterval(flyLeft); 
+    // clearInterval(flyRightUp);  
+    // clearInterval(flyRightDown);  
+    // clearInterval(flyLeftUp);
+    // clearInterval(flyLeftDown);
     var duckToRightSideImages = ["../resources/sprites/duck/right1.png", 
                                  "../resources/sprites/duck/right2.png",
                                  "../resources/sprites/duck/right3.png"]
 
-    setInterval(function(){
+    flyRight = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToRightSideImages[i] + ")";
@@ -116,11 +153,17 @@ function flapWingsToRight(){
 }
 
 function flapWingsToLeft(){
+
+    // clearInterval(flyRight); 
+    // clearInterval(flyRightUp);  
+    // clearInterval(flyRightDown);  
+    // clearInterval(flyLeftUp);
+    // clearInterval(flyLeftDown);
     var duckToLeftSideImages = ["../resources/sprites/duck/left1.png", 
                                 "../resources/sprites/duck/left2.png",
                                 "../resources/sprites/duck/left3.png"]
 
-    setInterval(function(){
+    flyLeft = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToLeftSideImages[i] + ")";
@@ -132,11 +175,17 @@ function flapWingsToLeft(){
 }
 
 function flapWingsToRightUp(){
+
+    // clearInterval(flyRight); 
+    // clearInterval(flyLeft);   
+    // clearInterval(flyRightDown);  
+    // clearInterval(flyLeftUp);
+    // clearInterval(flyLeftDown);
     var duckToRightUpSideImages = ["../resources/sprites/duck/rightup1.png", 
                                     "../resources/sprites/duck/rightup2.png",
                                     "../resources/sprites/duck/rightup3.png"]
 
-    setInterval(function(){
+    flyRightUp = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToRightUpSideImages[i] + ")";
@@ -148,11 +197,16 @@ function flapWingsToRightUp(){
 }
 
 function flapWingsToLeftUp(){
+
+    // clearInterval(flyRight); 
+    // clearInterval(flyLeft); 
+    // clearInterval(flyRightUp);  
+    // clearInterval(flyLeftDown);
     var duckToLeftUpSideImages = ["../resources/sprites/duck/leftup1.png", 
                                   "../resources/sprites/duck/leftup2.png",
                                   "../resources/sprites/duck/leftup3.png"]
 
-    setInterval(function(){
+    flyLeftUp = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToLeftUpSideImages[i] + ")";
@@ -164,11 +218,17 @@ function flapWingsToLeftUp(){
 }
 
 function flapWingsToRightDown(){
+
+    // clearInterval(flyRight); 
+    // clearInterval(flyLeft); 
+    // clearInterval(flyRightUp);    
+    // clearInterval(flyLeftUp)
+    // clearInterval(flyLeftDown);
     var duckToRightDownSideImages = ["../resources/sprites/duck/rightdown1.png", 
                                     "../resources/sprites/duck/rightdown2.png",
                                     "../resources/sprites/duck/rightdown3.png"]
 
-    setInterval(function(){
+    flyRightDown = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToRightDownSideImages[i] + ")";
@@ -181,11 +241,18 @@ function flapWingsToRightDown(){
 }
 
 function flapWingsToLeftDown(){
+
+    // clearInterval(flyRight); 
+    // clearInterval(flyLeft); 
+    // clearInterval(flyRightUp);  
+    // clearInterval(flyRightDown);  
+    // clearInterval(flyLeftUp);
+
     var duckToLeftDownSideImages = ["../resources/sprites/duck/leftdown1.png", 
                                     "../resources/sprites/duck/leftdown2.png",
                                     "../resources/sprites/duck/leftdown3.png"]
 
-    setInterval(function(){
+    flyLeftDown = setInterval(function(){
         duck1.style.backgroundImage = "none";
         duck1.style.backgroundSize = "100%";
         duck1.style.backgroundImage = "url(" + duckToLeftDownSideImages[i] + ")";
