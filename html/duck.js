@@ -17,7 +17,7 @@ function start() {
     clearInterval(myVar);
     duckDirections = [];
     changeAnimations();
-    myVar = setInterval(changeDucksImages, 2000);
+    // myVar = setInterval(changeDucksImages, 2000);
     // var myVar = setTimeout(changeDucksImages, 1000);   
 }
 
@@ -27,15 +27,15 @@ function start() {
 //     }
 // }
 
-function changeDucksImages() {
-    document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
-    duckDirections[duckDirectionsIndex] + ".png')";
-    duckDirectionsIndex ++;
-    if (duckDirectionsIndex == duckDirections.length) {
-        duckDirectionsIndex = 0;
-    }
-    console.log(duckDirectionsIndex);
-}
+// function changeDucksImages() {
+//     document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
+//     duckDirections[duckDirectionsIndex] + ".png')";
+//     duckDirectionsIndex ++;
+//     if (duckDirectionsIndex == duckDirections.length) {
+//         duckDirectionsIndex = 0;
+//     }
+//     console.log(duckDirectionsIndex);
+// }
 
 function changeAnimations() {
     changeAnimation("duck1");
@@ -71,13 +71,10 @@ function changeAnimation(duckID) {
 function getRandomWidth(duckID,min,max) {
     var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    if (generatedWidth > previousWidth){
-        duckDirections.push("left");
-    } else {
-        duckDirections.push("right");
-
-
-    }
+    // if (generatedWidth > previousWidth){
+    //     duckDirections.push("left");
+    // } else {
+    //     duckDirections.push("right");
     previousWidth = generatedWidth;
 
     return generatedWidth;
@@ -102,9 +99,9 @@ function getRandomHeight(duckID,min,max) {
 }
 
 function flapWings(){
-var duckToRightSideImages = ["../resources/sprites/duck/bok1.png", 
-                            "../resources/sprites/duck/bok2.png",
-                            "../resources/sprites/duck/bok3.png"]
+var duckToRightSideImages = ["../resources/sprites/duck/right1.png", 
+                            "../resources/sprites/duck/right2.png",
+                            "../resources/sprites/duck/right3.png"]
 
     setInterval(function(){
         duck1.style.backgroundImage = "none";

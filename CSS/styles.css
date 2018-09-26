@@ -35,7 +35,10 @@
 
 #duck1{
     animation-name: duck1;
-    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
+    width: 78px;
+    height: 73px;
+    background-image: url("../resources/sprites/duck/bok1.png");
     background-size: 100%;
 }
 
