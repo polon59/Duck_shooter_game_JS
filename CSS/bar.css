@@ -30,6 +30,7 @@
 }
 
 .duckImage{
+    float: left;
     margin-top: 1vw;
     width: 6.3%;
     height: 20px;
