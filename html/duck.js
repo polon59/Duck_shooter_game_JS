@@ -1,6 +1,41 @@
+var style;
+var duckDirections = [];
+var duckDirectionsIndex = 0;
+
+
+var previousWidth = null;
+var previousHeight = null;
+
+
 var changeCounter = 0;
 var duck1 = document.getElementById("duck1");
 var i = 0;
+
+var myVar = 0;
+
+function start() {
+    clearInterval(myVar);
+    duckDirections = [];
+    changeAnimations();
+    myVar = setInterval(changeDucksImages, 2000);
+    // var myVar = setTimeout(changeDucksImages, 1000);   
+}
+
+// function removeIntervalImgChange(params) {
+//     if (myVar != 0) {
+//         clearInterval(myVar);
+//     }
+// }
+
+function changeDucksImages() {
+    document.getElementById("duck1").style.backgroundImage = "url('../resources/sprites/duck/" + 
+    duckDirections[duckDirectionsIndex] + ".png')";
+    duckDirectionsIndex ++;
+    if (duckDirectionsIndex == duckDirections.length) {
+        duckDirectionsIndex = 0;
+    }
+    console.log(duckDirectionsIndex);
+}
 
 function changeAnimations() {
     changeAnimation("duck1");
@@ -12,19 +47,19 @@ function changeAnimations() {
 
 
 function changeAnimation(duckID) {
-    var style = document.documentElement.appendChild(document.createElement("style"));
+    style = document.documentElement.appendChild(document.createElement("style"));
     rule = "@keyframes " + duckID + "{\
-        0%   {left: " + getRandom("width") + "%; bottom: 20%;}\
-        10%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        20%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        30%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        40%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        50%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        60%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        70%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        80%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        90%  {left:" + getRandom("width") +"%; bottom:" + getRandom("height") + "%;}\
-        100% {left:" + getRandom("width") +"%; bottom: 100%;}\
+        0%   {left: " + getRandomWidth(duckID,30,60) + "%; bottom:" + getRandomHeight(duckID,20,20) + "%;}\
+        10%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        20%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        30%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        40%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        50%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        60%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        70%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        80%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        90%  {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,35,70) + "%;}\
+        100% {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,100,100) + "%;}\
     }";
     // if (CSSRule.KEYFRAMES_RULE) {p
         style.sheet.insertRule(rule, 0);
@@ -33,18 +68,35 @@ function changeAnimation(duckID) {
     // }
 }
 
+function getRandomWidth(duckID,min,max) {
+    var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;
 
-function getRandom(valueName) {
-    var randomValue = 0;
-    if (valueName == "width") {
-        randomValue = Math.floor(Math.random() * (90 - 1 + 1)) + 1;
-        // return Math.floor(Math.random() * (95 - 5 + 1)) + 5;
+    if (generatedWidth > previousWidth){
+        duckDirections.push("left");
     } else {
-        randomValue = Math.floor(Math.random() * (70 - 35 + 1)) + 40;
-        // return Math.floor(Math.random() * (80 - 40 + 1)) + 20;
+        duckDirections.push("right");
+
+
     }
-    console.log(valueName + "  " + randomValue );
-    return randomValue;
+    previousWidth = generatedWidth;
+
+    return generatedWidth;
+}
+
+
+function getRandomHeight(duckID,min,max) {
+    var generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (generatedHeight > previousHeight){
+        duckDirections[duckDirections.length-1] += "up";
+    } else {
+        duckDirections[duckDirections.length-1] += "down";
+    }
+
+    console.log(duckDirections[duckDirections.length-1]);
+    previousHeight = generatedHeight;
+    
+    return generatedHeight;
 
     
 }

@@ -35,14 +35,20 @@
 
 #duck1{
     animation-name: duck1;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 
 #duck2{
     animation-name: duck2;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 
 #duck3{
     animation-name: duck3;
+    background-image: url("../resources/sprites/duck/right.png");
+    background-size: 100%;
 }
 /* left 48%, bottom 30 */
 
