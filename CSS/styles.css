@@ -24,7 +24,7 @@ body{
 .duck{
     left: 48%;
     bottom: 20%;
-    background-image: url("../resources/sprites/duck/bok1.png");
+    background-image: url("../resources/sprites/duck/right1.png");
     position: absolute;
     animation-name: example;
     animation-duration: 20s;
