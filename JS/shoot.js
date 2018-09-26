@@ -26,13 +26,16 @@ function shoot(){
         playSound(shootSound);
         subtractShoots();
         shotNumber--;
-        changeShootBoxImage();
+        changeShootBoxImage(null);
 
     }
     
 }
 
-function changeShootBoxImage() {
+function changeShootBoxImage(value) {
+    if (value != null) {
+        shotNumber = value;
+    }
     var path = "url('../resources/sprites/scoreImages/shot/shot" + shotNumber +".png')";
     document.getElementById("shots").style.backgroundImage = path;
 }

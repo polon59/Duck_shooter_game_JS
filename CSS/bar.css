@@ -14,7 +14,7 @@
     display: table-cell;
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 100%;
+    /* height: 100%; */
 }
 
 #shots{
@@ -22,7 +22,18 @@
 }
 
 #hit{
-    background-image: url("../resources/sprites/scoreImages/hit.png");
+    background-image: url("../resources/sprites/scoreImages/hit/hit.png");
+}
+
+.hitMenuOpt{
+    float: left;
+}
+
+.duckImage{
+    width: 6.3%;
+    height: 20px;
+    background-image: url("../resources/sprites/scoreImages/hit/duckwhite.png");
+    background-size: 100% 100%;
 }
 
 #score{
