@@ -65,6 +65,7 @@ function changeDirection(duckID) {
         100% {left:" + getRandomWidth(duckID,1,90) +"%; bottom:" + getRandomHeight(duckID,100,100) + "%;}\
     }";
     style.sheet.insertRule(rule, 0);
+    document.getElementById(duckID).style.animationDuration = "20s";
 
 }
 
@@ -107,8 +108,6 @@ function falldown(duckID,currentWidth,currentHeight) {
     var style = document.documentElement.appendChild(document.createElement("style"));
     var duck = document.getElementById(duckID);
 
-
-
     rule = "@keyframes " + duckID + "{\
         0%   {left: " + (currentWidth) + "; top:" + currentHeight + ";}\
         100% {left:" + (currentWidth) +"; top:" + 500 + ";}\
@@ -117,6 +116,4 @@ function falldown(duckID,currentWidth,currentHeight) {
     style.sheet.insertRule(rule, 0);
     duck.style.animationDuration = "3s";
     duck.style.animationIterationCount = "infinite";
-    // document.getElementById(duckID).style = "animation-name:"+duckID+"fall";
 }
-// 50%   {left:" + currentWidth +"; bottom:" + 40 + "%;}\
