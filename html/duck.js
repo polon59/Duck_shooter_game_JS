@@ -19,34 +19,25 @@ function start() {
 }
 
 
-// function changeDucksImages() {
-//     if(duckDirections.length > 3){
-//         if(duckDirections[duckDirectionsIndex] == "right"){
-//             flapWingsToRight();
-//         }else if(duckDirections[duckDirectionsIndex]  == "left"){
-//             flapWingsToLeft();
-//         }else if(duckDirections[duckDirectionsIndex]  == "rightup"){
-//             flapWingsToRightUp();
-//         }else if(duckDirections[duckDirectionsIndex]  == "leftup"){
-//             flapWingsToLeftUp();
-//         }else if(duckDirections[duckDirectionsIndex]  == "rightdown"){
-//             flapWingsToRightDown();
-//         }else{flapWingsToLeftDown(); 
-        
-//         }
-//         duckDirectionsIndex++;
-//         if(duckDirectionsIndex == duckDirections.length+2){
-//             duckDirectionsIndex = 0;
-//         }
-//     }
-// }
-
 function changeAnimations() {
     changeDirection("duck1");
     changeDirection("duck2");
-    // changeDucksImages();
-    // duckDirections = [];
-    //changeCounter ++;
+}
+
+
+function flyOut(duckID) {
+    var duck = document.getElementById(duckID);
+    var duckCurrentHeight = duck1.offsetTop;
+    var duckCurrentWidth = duck2.offsetLeft;
+
+    var style = document.documentElement.appendChild(document.createElement("style"));
+
+    rule = "@keyframes " + duckID + "{\
+        0%   {left: " + duckCurrentWidth + "%; top:" + duckCurrentHeight + ";}\
+        100% {left:" + 0 +"%; top:" + duckCurrentHeight + "%;}\
+    }";
+    style.sheet.insertRule(rule, 0);
+
 }
 
 

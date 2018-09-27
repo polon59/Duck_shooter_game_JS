@@ -17,7 +17,7 @@ function resetKilledDucksNumber() {
 
 function dupa(params) {
     if (shotNumber == 10) {
-        alert("gameOver");
+        start();
     }else {
         shoot();
     }
@@ -33,16 +33,15 @@ function playSound(sound) {
 function shoot(){
     if (magRounds == 0) {
         playSound(emptyMag);
-    }else {
+        flyOut("duck1");
+        flyOut("duck2");
+    }
+    else{
         playSound(shootSound);
         subtractShoots();
         shotNumber++;
         magRounds--;
         changeShootBoxImage();
-
-        if (magRounds == 0) {
-            alert("KONIEC tury (pusto)");
-        } 
     }
     
 }
@@ -85,10 +84,10 @@ function subtractShoots() {
         changeHitBoxImage();
 
         if (killedDucks == 2) {
-            alert("TAK");
-            changeShootBoxImage(3);
+            start();
         }
     }
+    
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
         playSound(hit);
         killedDucks++;
@@ -96,8 +95,7 @@ function subtractShoots() {
         changeHitBoxImage();
 
         if (killedDucks == 2) {
-            alert("TAK");
-            changeShootBoxImage(3);
+            start();
         }
     }
     else{

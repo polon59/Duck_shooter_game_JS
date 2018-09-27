@@ -9,6 +9,7 @@ dog.addEventListener("animationend",startSniffing)
 
 function hideDog() {
     dog.style.visibility = "hidden";
+    start();
 }
 
 function startSniffing() {
