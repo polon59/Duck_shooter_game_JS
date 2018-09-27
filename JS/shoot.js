@@ -5,7 +5,7 @@ var duckHitSound = new Audio('../resources/sounds/shoot.wav');
 var hit = new Audio('../resources/sounds/hit.wav');
 var miss = new Audio('../resources/sounds/miss.wav');
 var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
-var magRounds = 3;
+var magRounds = 4;
 var shotNumber = 0;
 var killedDucks = 0;
 
@@ -15,52 +15,41 @@ function resetKilledDucksNumber() {
 }
 
 
-function dupa(params) {
-    if (shotNumber == 10) {
-        start();
-    }else {
-        shoot();
-    }
-}
-
-
 function playSound(sound) {
     sound.currentTime = 0;
     sound.play();
 }
    
 
+function resetMagRounds() {
+    magRounds = 4;
+    changeShootBoxImage();
+}
+
 function shoot(){
-    if (magRounds == 0) {
+    if (magRounds == 1) {
         playSound(emptyMag);
-        flyOut("duck1");
-        flyOut("duck2");
+        flyOut();
     }
     else{
+        magRounds--;
+        changeShootBoxImage();
         playSound(shootSound);
         subtractShoots();
         shotNumber++;
-        magRounds--;
-        changeShootBoxImage();
+        
     }
+
     
 }
 
 function changeHitBoxImage() {
-    // var path = "url('../resources/sprites/scoreImages/hit/duckred.png');"
-    //  document.getElementById("hitbox4").style.backgroundImage = path;
+    console.log("SN: " + shotNumber)
     var elementId = "hitbox" + shotNumber;
-     document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";
-    
-    //console.log("KKKKKKKKKKKKKKKKKKURWAAAAAAAAAAAAAAAA   " + "hitbox"+shotNumber)
-
-    // }
+    document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";
 }
 
-function changeShootBoxImage(value) {
-    if (value != null) {
-        magRounds = value;
-    }
+function changeShootBoxImage() {
     var path = "url('../resources/sprites/scoreImages/shot/shot" + magRounds +".png')";
     document.getElementById("shots").style.backgroundImage = path;
 }
@@ -83,7 +72,9 @@ function subtractShoots() {
         falldown("duck1",duck1x,duck1y);
         changeHitBoxImage();
 
-        if (killedDucks == 2) {
+        console.log(killedDucks);
+
+        if (killedDucks >= 2) {
             start();
         }
     }
@@ -94,7 +85,9 @@ function subtractShoots() {
         falldown("duck2",duck2x,duck2y);
         changeHitBoxImage();
 
-        if (killedDucks == 2) {
+        console.log(killedDucks);
+
+        if (killedDucks >= 2) {
             start();
         }
     }

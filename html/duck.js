@@ -9,13 +9,12 @@ var myVar;
 var i = 0;
 
 function start() {
-    // clearInterval(myVar);
     duckDirections = [];
     resetKilledDucksNumber();
+    resetMagRounds();
     changeAnimations();
     resetDuck("duck1");
     resetDuck("duck2");
-    // myVar = setInterval(changeDucksImages, 2000);
 }
 
 
@@ -25,19 +24,27 @@ function changeAnimations() {
 }
 
 
-function flyOut(duckID) {
-    var duck = document.getElementById(duckID);
-    var duckCurrentHeight = duck1.offsetTop;
-    var duckCurrentWidth = duck2.offsetLeft;
+function flyOut() {
+    var duck1 = document.getElementById("duck1");
+    var duck2 = document.getElementById("duck2");
+    flyOutSingleDuck(duck1, "duck1");
+    flyOutSingleDuck(duck2, "duck2");
+    duck1.addEventListener("animationend", start);
+}
+
+function flyOutSingleDuck(duck,duckID) {
+    var duckCurrentHeight = duck.offsetTop;
+    var duckCurrentWidth = duck.offsetLeft;
 
     var style = document.documentElement.appendChild(document.createElement("style"));
 
-    rule = "@keyframes " + duckID + "{\
-        0%   {left: " + duckCurrentWidth + "%; top:" + duckCurrentHeight + ";}\
-        100% {left:" + 0 +"%; top:" + duckCurrentHeight + "%;}\
+    rule = "@keyframes " + duckID + "flyout{\
+        0%   {left: " + duckCurrentWidth + "; top:" + duckCurrentHeight + ";}\
+        100% {left:" + -100 +"; top:" + duckCurrentHeight + ";}\
     }";
     style.sheet.insertRule(rule, 0);
-
+    duck.style.animationName = duckID+"flyout";
+    duck.style.animationDuration = "2s";
 }
 
 
@@ -85,12 +92,10 @@ function getRandomHeight(duckID,min,max) {
     if(duckDirections.length > 3){
     if (heightDifference > 10){
         duckDirections[duckDirections.length-1] += "up";
-        //console.log(duckDirections);
     } else if (heightDifference < -10) {
         duckDirections[duckDirections.length-1] += "down";
     }}
 
-    console.log(duckDirections[duckDirections.length-1]);
     
     previousHeight = generatedHeight;
     

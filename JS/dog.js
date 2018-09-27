@@ -31,7 +31,6 @@ function startSniffing2() {
 }
 
 function startJump() {
-    console.log("TO sie kameruje")
     dog.style.animationDuration = "0.7s";
     dog.style.animationName = "dogJump";
     dog.style.backgroundImage = 'url("../resources/sprites/dog/pawelJumper.gif")';
