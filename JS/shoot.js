@@ -6,14 +6,13 @@ var hit = new Audio('../resources/sounds/hit.wav');
 var miss = new Audio('../resources/sounds/miss.wav');
 var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
 var magRounds = 3;
-var shotNumber = 0;
+var shotNumber = -1;
 
 
 function dupa(params) {
     if (shotNumber == 10) {
         alert("gameOver");
     } else {
-        shotNumber++;
         shoot();
     }
 }
@@ -32,6 +31,7 @@ function shoot(){
     } else {
         playSound(shootSound);
         subtractShoots();
+        shotNumber++;
         magRounds--;
         changeShootBoxImage(null);
     }
@@ -39,9 +39,11 @@ function shoot(){
 }
 
 function changeHitBoxImage() {
-    var path = "url('../resources/sprites/scoreImages/hit/duckred.png');"
-     document.getElementById("hitbox4").style.backgroundImage = path;
-
+    // var path = "url('../resources/sprites/scoreImages/hit/duckred.png');"
+    //  document.getElementById("hitbox4").style.backgroundImage = path;
+    var elementId = "hitbox" + shotNumber;
+     document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";
+    
     console.log("KKKKKKKKKKKKKKKKKKURWAAAAAAAAAAAAAAAA   " + "hitbox"+shotNumber)
 
     // }
