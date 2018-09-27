@@ -13,9 +13,9 @@ body{
 
 
 .bushes{
+    z-index: 1;
     position: relative;
     height: 100%; 
-    /* z-index: 1; */
     background-image: url("../resources/sprites/background/bushes.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -26,17 +26,7 @@ body{
     bottom: 20%;
     background-image: url("../resources/sprites/duck/right1.png");
     position: absolute;
-    /* animation-name: example; */
-    /* animation-duration: 20s;
-    animation-iteration-count: infinite; */
-    /* z-index: 1; */
 }
-
-/* .duck div{
-    width: 78px;
-    height: 73px;
-    z-index: 1;
-} */
 
 #duck1{
     animation-name: duck1;
@@ -56,5 +46,55 @@ body{
     background-size: 100%;
     width: 78px;
     height: 73px;
+}
+
+
+#dog{
+    z-index: 3;
+    width: 10vw;
+    height: 6vw;
+    left: 0%;
+    bottom: 18%;
+    background-image: url("../resources/sprites/dog/dogeWalking.gif");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation-name: dogWalk1;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+
+/* 4s */
+@keyframes dogWalk1 {
+    0%   {left:0%; bottom:18%;}
+    100% {left:20%; bottom:18%;}
+}
+
+@keyframes dogSniff1 {
+    0%   {left:20%; bottom:18%;}
+    100% {left:20%; bottom:18%;}
+}
+
+/* 4s */
+@keyframes dogWalk2 {
+    0%   {left:20%; bottom:18%;}
+    100% {left:40%; bottom:18%;}
+}
+
+@keyframes dogSniff2 {
+    0%   {left:40%; bottom:18%;}
+    100% {left:40%; bottom:18%;}
+}
+
+
+/* 0.7 */
+@keyframes dogJump {
+    0%  {left:45%; bottom:18%;}
+    25%  {left:45%; bottom:25%;}
+    50%  {left:47%; bottom:30%;}
+    75%  {left:50%; bottom:35%;}
+    100% {left:52%; bottom:32%;}
 }
 
