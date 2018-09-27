@@ -31,7 +31,7 @@ function flyOut() {
     var duck2 = document.getElementById("duck2");
     flyOutSingleDuck(duck1, "duck1");
     flyOutSingleDuck(duck2, "duck2");
-    var gtfo = setTimeout(start, 2000);
+    var gtfo = setTimeout(start, 500);
 }
 
 function flyOutSingleDuck(duck,duckID) {
@@ -42,11 +42,11 @@ function flyOutSingleDuck(duck,duckID) {
 
     rule = "@keyframes " + duckID + "flyout{\
         0%   {left: " + duckCurrentWidth + "; top:" + duckCurrentHeight + ";}\
-        100% {left:" + -100 +"; top:" + duckCurrentHeight + ";}\
+        100% {left:" + 105 +"%; top:" + duckCurrentHeight + ";}\
     }";
     style.sheet.insertRule(rule, 0);
     duck.style.animationName = duckID+"flyout";
-    duck.style.animationDuration = "2s";
+    duck.style.animationDuration = "0.5s";
 }
 
 
@@ -68,7 +68,7 @@ function changeDirection(duckID) {
     }";
     style.sheet.insertRule(rule, 0);
     document.getElementById(duckID).style.animationName = duckID;
-    document.getElementById(duckID).style.animationDuration = "20s";
+    document.getElementById(duckID).style.animationDuration = "10s";
     document.getElementById(duckID).style.animationIterationCount = "infinite";
     
 }
