@@ -13,6 +13,8 @@ function start() {
     duckDirections = [];
       
     changeAnimations();
+    resetDuck("duck1");
+    resetDuck("duck2");
     // myVar = setInterval(changeDucksImages, 2000);
 }
 
@@ -108,6 +110,7 @@ function getRandomHeight(duckID,min,max) {
 function falldown(duckID,currentWidth,currentHeight) {
     var style = document.documentElement.appendChild(document.createElement("style"));
     var duck = document.getElementById(duckID);
+    
 
     rule = "@keyframes " + duckID + "fall{\
         0%   {left: " + (currentWidth) + "; top:" + currentHeight + ";}\
@@ -117,6 +120,13 @@ function falldown(duckID,currentWidth,currentHeight) {
     style.sheet.insertRule(rule, 0);
     duck.style.animationName = duckID + "fall";
     duck.style.animationDuration = "1s";
+    duck.style.backgroundImage = "url('../resources/sprites/duck/falling.gif')";
     // duck.style.backgroundImage = "url('../resources/sprites/duck/fallingleft.png');";
     duck.style.animationIterationCount = 1;
+}
+
+function resetDuck(duckID){
+   // var style = document.documentElement.appendChild(document.createElement("style"));
+    var duck = document.getElementById(duckID);
+    duck.style.backgroundImage = "url('../resources/sprites/duck/right1.png')";
 }
