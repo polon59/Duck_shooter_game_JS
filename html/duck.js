@@ -29,7 +29,7 @@ function flyOut() {
     var duck2 = document.getElementById("duck2");
     flyOutSingleDuck(duck1, "duck1");
     flyOutSingleDuck(duck2, "duck2");
-    duck1.addEventListener("animationend", start);
+    var gtfo = setTimeout(start, 2000);
 }
 
 function flyOutSingleDuck(duck,duckID) {
@@ -67,7 +67,7 @@ function changeDirection(duckID) {
     style.sheet.insertRule(rule, 0);
     document.getElementById(duckID).style.animationName = duckID;
     document.getElementById(duckID).style.animationDuration = "20s";
-
+    var gtfo = setTimeout(start, 20000);
 }
 
 function getRandomWidth(duckID,min,max) {

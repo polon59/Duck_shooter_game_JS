@@ -27,6 +27,9 @@ function resetMagRounds() {
 }
 
 function shoot(){
+    if (shotNumber == 10) {
+        alert("KONIETZ")
+    }
     if (magRounds == 1) {
         playSound(emptyMag);
         flyOut();
@@ -44,7 +47,6 @@ function shoot(){
 }
 
 function changeHitBoxImage() {
-    console.log("SN: " + shotNumber)
     var elementId = "hitbox" + shotNumber;
     document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";
 }
