@@ -11,7 +11,7 @@ var i = 0;
 function start() {
     // clearInterval(myVar);
     duckDirections = [];
-      
+    resetKilledDucksNumber();
     changeAnimations();
     resetDuck("duck1");
     resetDuck("duck2");

@@ -7,12 +7,18 @@ var miss = new Audio('../resources/sounds/miss.wav');
 var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
 var magRounds = 3;
 var shotNumber = 0;
+var killedDucks = 0;
+
+
+function resetKilledDucksNumber() {
+    killedDucks = 0;
+}
 
 
 function dupa(params) {
     if (shotNumber == 10) {
         alert("gameOver");
-    } else {
+    }else {
         shoot();
     }
 }
@@ -22,18 +28,21 @@ function playSound(sound) {
     sound.currentTime = 0;
     sound.play();
 }
-
+   
 
 function shoot(){
     if (magRounds == 0) {
         playSound(emptyMag);
-        changeShootBoxImage(3); //FOR TESTING
-    } else {
+    }else {
         playSound(shootSound);
         subtractShoots();
         shotNumber++;
         magRounds--;
-        changeShootBoxImage(null);
+        changeShootBoxImage();
+
+        if (magRounds == 0) {
+            alert("KONIEC tury (pusto)");
+        } 
     }
     
 }
@@ -70,16 +79,26 @@ function subtractShoots() {
     var duck2y = duck2.offsetTop;
 
     if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
-        // duck1.click();
         playSound(hit);
+        killedDucks++;
         falldown("duck1",duck1x,duck1y);
         changeHitBoxImage();
+
+        if (killedDucks == 2) {
+            alert("TAK");
+            changeShootBoxImage(3);
+        }
     }
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
-        // duck2.click();
         playSound(hit);
+        killedDucks++;
         falldown("duck2",duck2x,duck2y);
         changeHitBoxImage();
+
+        if (killedDucks == 2) {
+            alert("TAK");
+            changeShootBoxImage(3);
+        }
     }
     else{
         playSound(miss);
