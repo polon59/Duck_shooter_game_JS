@@ -26,9 +26,9 @@ body{
     bottom: 20%;
     background-image: url("../resources/sprites/duck/right1.png");
     position: absolute;
-    animation-name: example;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
+    /* animation-name: example; */
+    /* animation-duration: 20s;
+    animation-iteration-count: infinite; */
     /* z-index: 1; */
 }
 
@@ -40,6 +40,8 @@ body{
 
 #duck1{
     animation-name: duck1;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
     width: 78px;
     height: 73px;
     background-image: url("../resources/sprites/duck/right1.png");
@@ -48,6 +50,8 @@ body{
 
 #duck2{
     animation-name: duck2;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
     background-image: url("../resources/sprites/duck/right1.png");
     background-size: 100%;
     width: 78px;

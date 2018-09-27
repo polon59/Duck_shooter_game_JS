@@ -58,10 +58,12 @@ function subtractShoots() {
     if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
         // duck1.click();
         playSound(hit);
+        falldown("duck1",duck1x,duck1y)
     }
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
         // duck2.click();
         playSound(hit);
+        falldown("duck2",duck2x,duck2y)
     }
     else{
         playSound(miss);
