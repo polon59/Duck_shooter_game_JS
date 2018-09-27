@@ -9,12 +9,14 @@ var myVar;
 var i = 0;
 
 function start() {
+    // var gtfo = setTimeout(start, 20000);
     duckDirections = [];
     resetKilledDucksNumber();
     resetMagRounds();
     changeAnimations();
     resetDuck("duck1");
     resetDuck("duck2");
+    
 }
 
 
@@ -67,7 +69,8 @@ function changeDirection(duckID) {
     style.sheet.insertRule(rule, 0);
     document.getElementById(duckID).style.animationName = duckID;
     document.getElementById(duckID).style.animationDuration = "20s";
-    var gtfo = setTimeout(start, 20000);
+    document.getElementById(duckID).style.animationIterationCount = "infinite";
+    
 }
 
 function getRandomWidth(duckID,min,max) {

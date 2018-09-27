@@ -46,9 +46,13 @@ function shoot(){
     
 }
 
-function changeHitBoxImage() {
+function changeHitBoxImage(shot) {
     var elementId = "hitbox" + shotNumber;
-    document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";
+    if (shot == "miss") {
+        document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckblack.png')";                
+    } else {
+        document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";        
+    }
 }
 
 function changeShootBoxImage() {
@@ -72,12 +76,12 @@ function subtractShoots() {
         playSound(hit);
         killedDucks++;
         falldown("duck1",duck1x,duck1y);
-        changeHitBoxImage();
+        changeHitBoxImage("hit");
 
         console.log(killedDucks);
 
         if (killedDucks >= 2) {
-            start();
+            var gtfo = setTimeout(start, 1000);
         }
     }
     
@@ -85,16 +89,17 @@ function subtractShoots() {
         playSound(hit);
         killedDucks++;
         falldown("duck2",duck2x,duck2y);
-        changeHitBoxImage();
+        changeHitBoxImage("hit");
 
         console.log(killedDucks);
 
         if (killedDucks >= 2) {
-            start();
+            var gtfo = setTimeout(start, 1000);
         }
     }
     else{
         playSound(miss);
+        changeHitBoxImage("miss");
     }
 
 }
