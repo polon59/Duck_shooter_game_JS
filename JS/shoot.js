@@ -28,7 +28,8 @@ function resetMagRounds() {
 
 function shoot(){
     if (shotNumber == 10) {
-        alert("KONIETZ")
+        alert("Game over");
+        resetHitBoxImages();
     }
     if (magRounds == 1) {
         playSound(emptyMag);
@@ -42,18 +43,33 @@ function shoot(){
         shotNumber++;
         
     }
-
-    
 }
 
-function changeHitBoxImage(shot) {
-    var elementId = "hitbox" + shotNumber;
-    if (shot == "miss") {
-        document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckblack.png')";                
-    } else {
-        document.getElementById(elementId).style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";        
+
+function resetHitBoxImages() {
+    shotNumber = 0;
+
+    while (shotNumber < 10) {
+        changeHitBoxImage("reset");
+        shotNumber++;
+    }
+    shotNumber = 0;
+}
+
+
+function changeHitBoxImage(mode) {
+    var hitBox = document.getElementById("hitbox" + shotNumber);
+
+    if (mode == "miss") {
+        hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckblack.png')";                
+    }else if (mode == "reset"){
+        hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckwhite.png')";
+        console.log("RESET");
+    }else {
+        hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";        
     }
 }
+
 
 function changeShootBoxImage() {
     var path = "url('../resources/sprites/scoreImages/shot/shot" + magRounds +".png')";
