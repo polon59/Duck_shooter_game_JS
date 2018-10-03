@@ -28,7 +28,7 @@ function resetMagRounds() {
 
 function shoot(){
     if (shotNumber == 10) {
-        alert("Game over");
+        // alert("Game over");
         resetHitBoxImages();
     }
     if (magRounds == 1) {
@@ -72,7 +72,7 @@ function changeHitBoxImage(mode) {
 
 
 function changeShootBoxImage() {
-    var path = "url('../resources/sprites/scoreImages/shot/shot" + magRounds +".png')";
+    var path = `url('../resources/sprites/scoreImages/shot/shot${magRounds}.png')`;
     document.getElementById("shots").style.backgroundImage = path;
 }
 
