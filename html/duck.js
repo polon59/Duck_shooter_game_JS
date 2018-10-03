@@ -9,7 +9,6 @@ var myVar;
 var i = 0;
 
 function start() {
-    // var gtfo = setTimeout(start, 20000);
     duckDirections = [];
     resetKilledDucksNumber();
     resetMagRounds();
@@ -40,12 +39,13 @@ function flyOutSingleDuck(duck,duckID) {
 
     var style = document.documentElement.appendChild(document.createElement("style"));
 
-    rule = "@keyframes " + duckID + "flyout{\
-        0%   {left: " + duckCurrentWidth + "; top:" + duckCurrentHeight + ";}\
-        100% {left:" + 105 +"%; top:" + duckCurrentHeight + ";}\
-    }";
+    rule = `@keyframes " + duckID + "flyout{\
+        0%   {left: ${duckCurrentWidth}; top: ${duckCurrentHeight};}
+        100% {left: 105%; top: ${duckCurrentHeight};}
+    }`;
+    
     style.sheet.insertRule(rule, 0);
-    duck.style.animationName = duckID+"flyout";
+    duck.style.animationName = `${duckID}flyout`;
     duck.style.animationDuration = "0.5s";
 }
 
