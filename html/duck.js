@@ -39,11 +39,11 @@ function flyOutSingleDuck(duck,duckID) {
 
     var style = document.documentElement.appendChild(document.createElement("style"));
 
-    rule = `@keyframes " + duckID + "flyout{\
+    rule = `@keyframes ${duckID}flyout{
         0%   {left: ${duckCurrentWidth}; top: ${duckCurrentHeight};}
         100% {left: 105%; top: ${duckCurrentHeight};}
     }`;
-    
+
     style.sheet.insertRule(rule, 0);
     duck.style.animationName = `${duckID}flyout`;
     duck.style.animationDuration = "0.5s";
