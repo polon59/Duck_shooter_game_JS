@@ -53,6 +53,16 @@ function flyOutSingleDuck(duck,duckID) {
 
 function changeDirection(duckID) {
     var style = document.documentElement.appendChild(document.createElement("style"));
+    var rule = createRule(duckID);
+    style.sheet.insertRule(rule, 0);
+
+    document.getElementById(duckID).style.animationName = duckID;
+    document.getElementById(duckID).style.animationDuration = "10s";
+    document.getElementById(duckID).style.animationIterationCount = "infinite";
+}
+
+
+function createRule(duckID) {
     rule = `@keyframes ${duckID}{
         0%   {left: ${getRandomWidth(duckID,30,60)}%; bottom: 20%;}
         10%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
@@ -66,12 +76,9 @@ function changeDirection(duckID) {
         90%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
         100% {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,100,100)}%;}
     }`;
-    style.sheet.insertRule(rule, 0);
-    document.getElementById(duckID).style.animationName = duckID;
-    document.getElementById(duckID).style.animationDuration = "10s";
-    document.getElementById(duckID).style.animationIterationCount = "infinite";
-    
+    return rule;
 }
+
 
 function getRandomWidth(duckID,min,max) {
     var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;;
