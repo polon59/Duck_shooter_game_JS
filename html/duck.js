@@ -90,43 +90,33 @@ function getRandomWidth(duckID,min,max) {
 }
 
 
-
 function getRandomHeight(duckID,min,max) {
-    var generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;
-    // var heightDifference = generatedHeight - previousHeight;
-
-    // if (duckDirections.length > 3){
-    //     if (heightDifference > 10){
-    //         duckDirections[duckDirections.length-1] += "up";
-    //     }
-    //     else if (heightDifference < -10) {
-    //         duckDirections[duckDirections.length-1] += "down";
-    //     }
-    // }
-
-    
-    // previousHeight = generatedHeight;
-    
-    return generatedHeight;   
+    return generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;   
 }
 
 
 function falldown(duckID,currentWidth,currentHeight) {
-    var style = document.documentElement.appendChild(document.createElement("style"));
     var duck = document.getElementById(duckID);
 
-    rule = `@keyframes ${duckID}fall{
-            0%   {left: ${currentWidth} ; top: ${currentHeight};}
-            100% {left: ${currentWidth} ; top: 500;}
-            }`;
-
-
-    style.sheet.insertRule(rule, 0);
+    createFalldownRule(duckID, currentWidth, currentHeight) 
     duck.style.animationName = `${duckID}fall`;
     duck.style.animationDuration = "1s";
     duck.style.backgroundImage = "url('../resources/sprites/duck/falling.gif')";
     duck.style.animationIterationCount = 1;
 }
+
+
+function createFalldownRule(duckID, currentWidth, currentHeight) {
+    var style = document.documentElement.appendChild(document.createElement("style"));
+
+    rule = `@keyframes ${duckID}fall{
+        0%   {left: ${currentWidth} ; top: ${currentHeight};}
+        100% {left: ${currentWidth} ; top: 500;}
+        }`;
+
+    style.sheet.insertRule(rule, 0);
+}
+
 
 function resetDuckImage(duckID){
     var duck = document.getElementById(duckID);
