@@ -8,9 +8,9 @@ var myVar;
 var i = 0;
 
 function start() {
-    resetKilledDucksNumber();
-    resetMagRounds();
     changeAnimations();
+    resetMagRounds();
+    resetKilledDucksNumber();
 }
 
 
@@ -26,7 +26,7 @@ function flyOut() {
     
     var duck1 = document.getElementById("duck1");
     var duck2 = document.getElementById("duck2");
-    var goBack = setTimeout(start, 500);
+    // var goBack = setTimeout(start, 500);
 
     flyOutSingleDuck(duck1, "duck1");
     flyOutSingleDuck(duck2, "duck2");

@@ -5,7 +5,7 @@ var duckHitSound = new Audio('../resources/sounds/shoot.wav');
 var hit = new Audio('../resources/sounds/hit.wav');
 var miss = new Audio('../resources/sounds/miss.wav');
 var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
-var magRounds = 4;
+var magRounds = 3;
 var shotNumber = 0;
 var killedDucks = 0;
 
@@ -22,25 +22,32 @@ function playSound(sound) {
    
 
 function resetMagRounds() {
-    magRounds = 4;
+    magRounds = 3;
     changeShootBoxImage();
 }
+
 
 function shoot(){
     if (shotNumber == 10) {
         // alert("Game over");
         resetHitBoxImages();
     }
-    if (magRounds == 1) {
-        playSound(emptyMag);
+    // if (magRounds == 1) {
+    //     playSound(emptyMag);
+    //     flyOut();
+    // }
+
+    magRounds--;
+    changeShootBoxImage();
+    playSound(shootSound);
+    subtractShoots();
+    shotNumber++;
+
+    if (magRounds == 0) {
         flyOut();
-    }
-    else{
-        magRounds--;
-        changeShootBoxImage();
-        playSound(shootSound);
-        subtractShoots();
-        shotNumber++;
+        var goBack = setTimeout(start, 500);
+        playSound(emptyMag);
+        
         
     }
 }
