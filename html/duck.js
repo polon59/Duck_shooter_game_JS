@@ -52,7 +52,6 @@ function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
     }`;
 
     style.sheet.insertRule(rule, 0);
-    
 }
 
 
@@ -87,16 +86,7 @@ function createRule(duckID) {
 
 
 function getRandomWidth(duckID,min,max) {
-    var generatedWidth = Math.floor(Math.random() * (max - min + 1)) + min;;
-    //var widthDifference = generatedWidth - previousWidth;
-
-    // if (generatedWidth < previousWidth){
-    //     duckDirections.push("left");
-    // }else{
-    //     duckDirections.push("right");
-    // }
-    // previousWidth = generatedWidth;
-    return generatedWidth;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
