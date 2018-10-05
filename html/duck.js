@@ -22,18 +22,31 @@ function changeAnimations() {
 }
 
 
-function flyOut() {
-    
-    var duck1 = document.getElementById("duck1");
-    var duck2 = document.getElementById("duck2");
+function flyOut(duck1o, duck2o) {
+    // var duck1 = document.getElementById("duck1");
+    // var duck2 = document.getElementById("duck2");
     // var goBack = setTimeout(start, 500);
+    // flyOutSingleDuck(duck1, "duck1");
+    // flyOutSingleDuck(duck2, "duck2");
 
-    flyOutSingleDuck(duck1, "duck1");
-    flyOutSingleDuck(duck2, "duck2");
+    if (duck1o.isAlive) {
+        flyOutSingleDuck(duck1o);
+        console.log("Duck 1 is alive");
+    }
+    if (duck2o.isAlive) {
+        flyOutSingleDuck(duck2o);
+        console.log("Duck 2 is alive");
+    }
+
+
+
 }
 
 
-function flyOutSingleDuck(duck,duckID) {
+function flyOutSingleDuck(duckO) {
+    var duckID = duckO.id;
+    var duck = document.getElementById(duckID);
+
     var duckCurrentHeight = duck.offsetTop;
     var duckCurrentWidth = duck.offsetLeft;
 
@@ -41,6 +54,16 @@ function flyOutSingleDuck(duck,duckID) {
     duck.style.animationName = `${duckID}flyout`;
     duck.style.animationDuration = "0.5s";
 }
+
+
+// function flyOutSingleDuck(duck,duckID) {
+//     var duckCurrentHeight = duck.offsetTop;
+//     var duckCurrentWidth = duck.offsetLeft;
+
+//     createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight)
+//     duck.style.animationName = `${duckID}flyout`;
+//     duck.style.animationDuration = "0.5s";
+// }
 
 
 function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
@@ -100,7 +123,7 @@ function falldown(duckID,currentWidth,currentHeight) {
 
     createFalldownRule(duckID, currentWidth, currentHeight) 
     duck.style.animationName = `${duckID}fall`;
-    duck.style.animationDuration = "1s";
+    duck.style.animationDuration = "0.5s";
     duck.style.backgroundImage = "url('../resources/sprites/duck/falling.gif')";
     duck.style.animationIterationCount = 1;
 }

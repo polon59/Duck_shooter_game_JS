@@ -9,6 +9,9 @@ var magRounds = 3;
 var shotNumber = 0;
 var killedDucks = 0;
 
+duck1o =  {id:"duck1", isAlive:true};
+duck2o =  {id:"duck2", isAlive:true};
+
 
 function resetKilledDucksNumber() {
     killedDucks = 0;
@@ -27,15 +30,20 @@ function resetMagRounds() {
 }
 
 
+function startNewRound(timeout) {
+    // flyOut(duck1o, duck2o);
+    var goBack = setTimeout(start, timeout);
+    playSound(emptyMag);
+    duck1o.isAlive = true;
+    duck2o.isAlive = true;
+
+}
+
+
 function shoot(){
     if (shotNumber == 10) {
-        // alert("Game over");
         resetHitBoxImages();
     }
-    // if (magRounds == 1) {
-    //     playSound(emptyMag);
-    //     flyOut();
-    // }
 
     magRounds--;
     changeShootBoxImage();
@@ -43,13 +51,13 @@ function shoot(){
     subtractShoots();
     shotNumber++;
 
-    if (magRounds == 0) {
-        flyOut();
-        var goBack = setTimeout(start, 500);
-        playSound(emptyMag);
-        
-        
+    if (magRounds == 0 || killedDucks >= 2) {
+        flyOut(duck1o, duck2o);
+        startNewRound(500);
     }
+    // if (killedDucks >= 2) {
+    //     startNewRound(500);
+    // }
 }
 
 
@@ -71,7 +79,6 @@ function changeHitBoxImage(mode) {
         hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckblack.png')";                
     }else if (mode == "reset"){
         hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckwhite.png')";
-        console.log("RESET");
     }else {
         hitBox.style.backgroundImage = "url('../resources/sprites/scoreImages/hit/duckred.png')";        
     }
@@ -96,28 +103,29 @@ function subtractShoots() {
     var duck2y = duck2.offsetTop;
 
     if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
+        duck1o.isAlive = false;
         playSound(hit);
         killedDucks++;
         falldown("duck1",duck1x,duck1y);
         changeHitBoxImage("hit");
 
-        console.log(killedDucks);
-
         if (killedDucks >= 2) {
-            var gtfo = setTimeout(start, 1000);
+            // startNewRound(1000);
+            // var gtfo = setTimeout(start, 1000);
         }
     }
     
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
+        duck2o.isAlive = false;
         playSound(hit);
         killedDucks++;
         falldown("duck2",duck2x,duck2y);
         changeHitBoxImage("hit");
 
-        console.log(killedDucks);
 
         if (killedDucks >= 2) {
-            var gtfo = setTimeout(start, 1000);
+            // startNewRound(1000);
+            // var gtfo = setTimeout(start, 1000);
         }
     }
     else{
