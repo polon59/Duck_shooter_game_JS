@@ -31,9 +31,8 @@ function resetMagRounds() {
 }
 
 
-function startNewRound(timeout) {
-    // flyOut(duck1, duck2);
-    var goBack = setTimeout(start, timeout);
+function startNewRound() {
+    var goBack = setTimeout(start, 500);
     playSound(emptyMag);
     duck1.isAlive = true;
     duck2.isAlive = true;
@@ -46,6 +45,7 @@ function shoot(){
         resetHitBoxImages();
     }
 
+
     magRounds--;
     changeShootBoxImage();
     playSound(shootSound);
@@ -54,11 +54,10 @@ function shoot(){
 
     if (magRounds == 0 || killedDucks >= 2) {
         flyOut(duck1, duck2);
-        startNewRound(500);
+        startNewRound();
     }
-    // if (killedDucks >= 2) {
-    //     startNewRound(500);
-    // }
+    
+    
 }
 
 
