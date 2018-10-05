@@ -1,16 +1,17 @@
-var duck1element = document.getElementById("duck1");
-var duck2element = document.getElementById("duck2");
-var shootSound = new Audio('../resources/sounds/shoot.wav');
-var duckHitSound = new Audio('../resources/sounds/shoot.wav');
 var hit = new Audio('../resources/sounds/hit.wav');
 var miss = new Audio('../resources/sounds/miss.wav');
 var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
+var shootSound = new Audio('../resources/sounds/shoot.wav');
+var duckHitSound = new Audio('../resources/sounds/shoot.wav');
+
+var duck1element = document.getElementById("duck1");
+var duck2element = document.getElementById("duck2");
 var magRounds = 3;
 var shotNumber = 0;
 var killedDucks = 0;
 
-duck1o =  {id:"duck1", isAlive:true};
-duck2o =  {id:"duck2", isAlive:true};
+var duck1 =  {id:"duck1", isAlive:true};
+var duck2 =  {id:"duck2", isAlive:true};
 
 
 function resetKilledDucksNumber() {
@@ -31,11 +32,11 @@ function resetMagRounds() {
 
 
 function startNewRound(timeout) {
-    // flyOut(duck1o, duck2o);
+    // flyOut(duck1, duck2);
     var goBack = setTimeout(start, timeout);
     playSound(emptyMag);
-    duck1o.isAlive = true;
-    duck2o.isAlive = true;
+    duck1.isAlive = true;
+    duck2.isAlive = true;
 
 }
 
@@ -52,7 +53,7 @@ function shoot(){
     shotNumber++;
 
     if (magRounds == 0 || killedDucks >= 2) {
-        flyOut(duck1o, duck2o);
+        flyOut(duck1, duck2);
         startNewRound(500);
     }
     // if (killedDucks >= 2) {
@@ -103,7 +104,7 @@ function subtractShoots() {
     var duck2y = duck2element.offsetTop;
 
     if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
-        duck1o.isAlive = false;
+        duck1.isAlive = false;
         playSound(hit);
         killedDucks++;
         falldown("duck1",duck1x,duck1y);
@@ -116,7 +117,7 @@ function subtractShoots() {
     }
     
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
-        duck2o.isAlive = false;
+        duck2.isAlive = false;
         playSound(hit);
         killedDucks++;
         falldown("duck2",duck2x,duck2y);
