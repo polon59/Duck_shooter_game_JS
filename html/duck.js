@@ -1,11 +1,3 @@
-var duckDirectionsIndex = 0;
-
-var previousWidth = 0;
-var previousHeight = 0;
-
-var changeCounter = 0;
-var myVar;
-var i = 0;
 
 function start() {
     changeAnimations();
@@ -23,7 +15,7 @@ function changeAnimations() {
 
 
 function flyOut(duck1, duck2) {
-    
+
    if (duck1.isAlive) {
         flyOutSingleDuck(duck1);
         console.log("Duck 1 is alive");
