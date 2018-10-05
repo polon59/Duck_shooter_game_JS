@@ -36,7 +36,6 @@ function startNewRound() {
     playSound(emptyMag);
     duck1.isAlive = true;
     duck2.isAlive = true;
-
 }
 
 
@@ -45,19 +44,17 @@ function shoot(){
         resetHitBoxImages();
     }
 
-
     magRounds--;
     changeShootBoxImage();
     playSound(shootSound);
     subtractShoots();
     shotNumber++;
 
+
     if (magRounds == 0 || killedDucks >= 2) {
         flyOut(duck1, duck2);
         startNewRound();
     }
-    
-    
 }
 
 
@@ -91,10 +88,9 @@ function changeShootBoxImage() {
 }
 
 
-
 function subtractShoots() {
-    var duckWidth = 78;
-    var duckHeight = 73;
+    let duckWidth = 78;
+    let duckHeight = 73;
     var x = event.clientX;
     var y = event.clientY;
     var duck1x = duck1element.offsetLeft;
@@ -108,11 +104,6 @@ function subtractShoots() {
         killedDucks++;
         falldown("duck1",duck1x,duck1y);
         changeHitBoxImage("hit");
-
-        if (killedDucks >= 2) {
-            // startNewRound(1000);
-            // var gtfo = setTimeout(start, 1000);
-        }
     }
     
     else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
@@ -121,12 +112,7 @@ function subtractShoots() {
         killedDucks++;
         falldown("duck2",duck2x,duck2y);
         changeHitBoxImage("hit");
-
-
-        if (killedDucks >= 2) {
-            // startNewRound(1000);
-            // var gtfo = setTimeout(start, 1000);
-        }
+        
     }
     else{
         playSound(miss);
