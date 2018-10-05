@@ -71,7 +71,7 @@ function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
 
     rule = `@keyframes ${duckID}flyout{
         0%   {left: ${duckCurrentWidth}; top: ${duckCurrentHeight};}
-        100% {left: 101%; top: ${duckCurrentHeight};}
+        100% {left: ${duckCurrentWidth}; top: 0%;}
     }`;
 
     style.sheet.insertRule(rule, 0);
