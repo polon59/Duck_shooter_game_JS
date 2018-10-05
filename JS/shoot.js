@@ -98,14 +98,10 @@ function subtractShoots() {
 
     if (checkIfHit(mouseX,mouseY,duck1x,duck1y)) {
         duck1.isAlive = false;
-        falldown("duck1",duck1x,duck1y);
-        
+        falldown("duck1",duck1x,duck1y); 
     }
-    
     else if(checkIfHit(mouseX,mouseY,duck2x,duck2y)){
         duck2.isAlive = false;
-        // playSound(hit);
-        // killedDucks++;
         falldown("duck2",duck2x,duck2y);
     }
     else{
@@ -113,6 +109,7 @@ function subtractShoots() {
         changeHitBoxImage("miss");
     }
 }
+
 
 function checkIfHit(mouseX,mouseY,duckX,duckY) {
     let duckWidth = 78;
