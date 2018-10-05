@@ -18,11 +18,9 @@ function flyOut(duck1, duck2) {
 
    if (duck1.isAlive) {
         flyOutSingleDuck(duck1);
-        console.log("Duck 1 is alive");
     }
     if (duck2.isAlive) {
         flyOutSingleDuck(duck2);
-        console.log("Duck 2 is alive");
     }
 }
 
