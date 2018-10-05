@@ -1,5 +1,5 @@
-var duck1 = document.getElementById("duck1");
-var duck2 = document.getElementById("duck2");
+var duck1element = document.getElementById("duck1");
+var duck2element = document.getElementById("duck2");
 var shootSound = new Audio('../resources/sounds/shoot.wav');
 var duckHitSound = new Audio('../resources/sounds/shoot.wav');
 var hit = new Audio('../resources/sounds/hit.wav');
@@ -97,10 +97,10 @@ function subtractShoots() {
     var duckHeight = 73;
     var x = event.clientX;
     var y = event.clientY;
-    var duck1x = duck1.offsetLeft;
-    var duck1y = duck1.offsetTop;
-    var duck2x = duck2.offsetLeft;
-    var duck2y = duck2.offsetTop;
+    var duck1x = duck1element.offsetLeft;
+    var duck1y = duck1element.offsetTop;
+    var duck2x = duck2element.offsetLeft;
+    var duck2y = duck2element.offsetTop;
 
     if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
         duck1o.isAlive = false;
