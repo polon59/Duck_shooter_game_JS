@@ -23,13 +23,8 @@ function changeAnimations() {
 
 
 function flyOut(duck1, duck2) {
-    // var duck1 = document.getElementById("duck1");
-    // var duck2 = document.getElementById("duck2");
-    // var goBack = setTimeout(start, 500);
-    // flyOutSingleDuck(duck1, "duck1");
-    // flyOutSingleDuck(duck2, "duck2");
-
-    if (duck1.isAlive) {
+    
+   if (duck1.isAlive) {
         flyOutSingleDuck(duck1);
         console.log("Duck 1 is alive");
     }
