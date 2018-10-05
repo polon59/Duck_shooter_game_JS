@@ -89,34 +89,43 @@ function changeShootBoxImage() {
 
 
 function subtractShoots() {
-    let duckWidth = 78;
-    let duckHeight = 73;
-    var x = event.clientX;
-    var y = event.clientY;
+    var mouseX = event.clientX;
+    var mouseY = event.clientY;
     var duck1x = duck1element.offsetLeft;
     var duck1y = duck1element.offsetTop;
     var duck2x = duck2element.offsetLeft;
     var duck2y = duck2element.offsetTop;
 
-    if ((x>=duck1x) && (x <= duck1x+73) && (y >= duck1y) && (y <= duck1y+78)) {
+    if (checkIfHit(mouseX,mouseY,duck1x,duck1y)) {
         duck1.isAlive = false;
-        playSound(hit);
-        killedDucks++;
         falldown("duck1",duck1x,duck1y);
-        changeHitBoxImage("hit");
+        
     }
     
-    else if((x>=duck2x) && (x <= duck2x+73) && (y >= duck2y) && (y <= duck2y+78)){
+    else if(checkIfHit(mouseX,mouseY,duck2x,duck2y)){
         duck2.isAlive = false;
-        playSound(hit);
-        killedDucks++;
+        // playSound(hit);
+        // killedDucks++;
         falldown("duck2",duck2x,duck2y);
-        changeHitBoxImage("hit");
-        
     }
     else{
         playSound(miss);
         changeHitBoxImage("miss");
     }
+}
 
+function checkIfHit(mouseX,mouseY,duckX,duckY) {
+    let duckWidth = 78;
+    let duckHeight = 73;
+
+    if ((mouseX>=duckX) && (mouseX <= duckX+duckHeight) && 
+    (mouseY >= duckY) && (mouseY <= duckY+duckWidth)){
+        changeHitBoxImage("hit");        
+        playSound(hit);
+        killedDucks++;
+        return true;
+    }
+    else{
+        return false;
+    }
 }
