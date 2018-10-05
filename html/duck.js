@@ -22,48 +22,35 @@ function changeAnimations() {
 }
 
 
-function flyOut(duck1o, duck2o) {
+function flyOut(duck1, duck2) {
     // var duck1 = document.getElementById("duck1");
     // var duck2 = document.getElementById("duck2");
     // var goBack = setTimeout(start, 500);
     // flyOutSingleDuck(duck1, "duck1");
     // flyOutSingleDuck(duck2, "duck2");
 
-    if (duck1o.isAlive) {
-        flyOutSingleDuck(duck1o);
+    if (duck1.isAlive) {
+        flyOutSingleDuck(duck1);
         console.log("Duck 1 is alive");
     }
-    if (duck2o.isAlive) {
-        flyOutSingleDuck(duck2o);
+    if (duck2.isAlive) {
+        flyOutSingleDuck(duck2);
         console.log("Duck 2 is alive");
     }
-
-
-
 }
 
 
-function flyOutSingleDuck(duckO) {
-    var duckID = duckO.id;
-    var duck = document.getElementById(duckID);
+function flyOutSingleDuck(duck) {
+    var duckID = duck.id;
+    var duckElement = document.getElementById(duckID);
 
-    var duckCurrentHeight = duck.offsetTop;
-    var duckCurrentWidth = duck.offsetLeft;
+    var duckCurrentHeight = duckElement.offsetTop;
+    var duckCurrentWidth = duckElement.offsetLeft;
 
     createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight)
-    duck.style.animationName = `${duckID}flyout`;
-    duck.style.animationDuration = "0.5s";
+    duckElement.style.animationName = `${duckID}flyout`;
+    duckElement.style.animationDuration = "0.5s";
 }
-
-
-// function flyOutSingleDuck(duck,duckID) {
-//     var duckCurrentHeight = duck.offsetTop;
-//     var duckCurrentWidth = duck.offsetLeft;
-
-//     createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight)
-//     duck.style.animationName = `${duckID}flyout`;
-//     duck.style.animationDuration = "0.5s";
-// }
 
 
 function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
