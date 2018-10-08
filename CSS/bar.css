@@ -52,6 +52,8 @@
 
 #score{
     background-image: url("../resources/sprites/scoreImages/score.png");
+    text-align: center;
+    vertical-align: middle;
 }
 
 
