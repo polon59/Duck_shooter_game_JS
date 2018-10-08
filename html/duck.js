@@ -1,3 +1,11 @@
+var animationSpeed = 10;
+
+
+function changeAnimationSpeed() {
+    animationSpeed -= 0.5;
+}
+
+
 
 function start() {
     changeAnimations();
@@ -57,7 +65,7 @@ function changeFlyAnimation(duckID) {
     style.sheet.insertRule(rule, 0);
 
     document.getElementById(duckID).style.animationName = duckID;
-    document.getElementById(duckID).style.animationDuration = "10s";
+    document.getElementById(duckID).style.animationDuration = `${animationSpeed}s`;
     document.getElementById(duckID).style.animationIterationCount = "infinite";
 }
 

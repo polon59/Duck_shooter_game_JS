@@ -84,8 +84,13 @@ function changeHitBoxImage(mode) {
 
 
 function changeShootBoxImage() {
-    var path = `url('../resources/sprites/scoreImages/shot/shot${magRounds}.png')`;
-    document.getElementById("shots").style.backgroundImage = path;
+    if (magRounds<0) {
+        var path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
+        document.getElementById("shots").style.backgroundImage = path;
+    }else{
+        var path = `url('../resources/sprites/scoreImages/shot/shot${magRounds}.png')`;
+        document.getElementById("shots").style.backgroundImage = path;
+    }
 }
 
 
