@@ -1,19 +1,23 @@
 var currentLevel = 1;
 var currentPoints = 0;
+var successfulShots = 0;
+var levelDisplay = document.getElementById("levelCount");
+var pointsDisplay = document.getElementById("scoreCount");
 
 
 function levelUp() {
     if (currentLevel < 10) {
         currentLevel ++;
         changeAnimationSpeed();
-        document.getElementById("pointsCount").innerHTML = currentLevel;
+        levelDisplay.innerHTML = currentLevel;
     } else {
-        document.getElementById("pointsCount").innerHTML = "MAX";
+        levelDisplay.innerHTML = "MAX";
     }
     
 }
 
-function addPoints(value) {
-    currentPoints += value;
+function addPoints() {
+    currentPoints += 10+currentLevel;
+    pointsDisplay.innerHTML = currentPoints;
 
 }

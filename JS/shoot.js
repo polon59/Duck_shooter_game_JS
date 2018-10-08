@@ -126,6 +126,7 @@ function checkIfHit(mouseX,mouseY,duckX,duckY) {
         changeHitBoxImage("hit");        
         playSound(hit);
         killedDucks++;
+        addPoints();
         return true;
     }
     else{
