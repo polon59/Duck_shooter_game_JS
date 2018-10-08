@@ -52,28 +52,25 @@
     </div>
 
 
-    <div class="overlay">
+    <div id="overlay">
         <div class="resultsBox">
             <h3>Game Over!</h3>
             <table>
             <tr>
                 <td>YOUR POINTS</td>
-                <td></td>
+                <td id="pointsSummary"></td>
             </tr>
             <tr>
                 <td>ROUND</td>
-                <td></td>
+                <td id="roundSummary"></td>
             </tr>
             <tr>
                 <td>SUCCESSFUL SHOTS</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>POINTS</td>
-                <td></td>
+                <td id="shotsSummary"></td>
             </tr>
 
         </table>
+        <input type="button" value="Play again" onClick="window.location.reload()">
         </div>
     </div>
 

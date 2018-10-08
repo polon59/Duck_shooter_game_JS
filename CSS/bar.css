@@ -51,7 +51,7 @@
     z-index: 3;
 }
 
-.overlay{
+#overlay{
     position: absolute;
     top: 0;
     width: 100%;
@@ -59,6 +59,7 @@
     background-color: rgba(0, 0, 0, 0.781);
     z-index: 7;
     text-align: center;
+    display: none;
 }
 
 .resultsBox{

@@ -22,10 +22,17 @@ function addPoints() {
     successfulShots += 1;
     currentPoints += 10+currentLevel;
     pointsDisplay.innerHTML = currentPoints;
-
 }
 
 
 function finishGame(params) {
-    alert("Killed : " + successfulShots)
+    displaySummary();
+    document.getElementById("overlay").style.display = "block";
+}
+
+function displaySummary() {
+    document.getElementById("pointsSummary").innerHTML = currentPoints;
+    document.getElementById("roundSummary").innerHTML = currentLevel;
+    document.getElementById("shotsSummary").innerHTML = successfulShots;
+    
 }
