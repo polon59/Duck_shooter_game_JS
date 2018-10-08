@@ -56,7 +56,7 @@ body{
     width: 10vw;
     height: 6vw;
     left: 0%;
-    bottom: 18%;
+    bottom: 20%;
     background-image: url("../resources/sprites/dog/dogeWalking.gif");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -70,30 +70,30 @@ body{
 
 /* 4s */
 @keyframes dogWalk1 {
-    0%   {left:0%; bottom:18%;}
-    100% {left:20%; bottom:18%;}
+    0%   {left:0%; bottom:20%;}
+    100% {left:20%; bottom:20%;}
 }
 
 @keyframes dogSniff1 {
-    0%   {left:20%; bottom:18%;}
-    100% {left:20%; bottom:18%;}
+    0%   {left:20%; bottom:20%;}
+    100% {left:20%; bottom:20%;}
 }
 
 /* 4s */
 @keyframes dogWalk2 {
-    0%   {left:20%; bottom:18%;}
-    100% {left:40%; bottom:18%;}
+    0%   {left:20%; bottom:20%;}
+    100% {left:40%; bottom:20%;}
 }
 
 @keyframes dogSniff2 {
-    0%   {left:40%; bottom:18%;}
-    100% {left:40%; bottom:18%;}
+    0%   {left:40%; bottom:20%;}
+    100% {left:40%; bottom:20%;}
 }
 
 
 /* 0.7 */
 @keyframes dogJump {
-    0%  {left:45%; bottom:18%;}
+    0%  {left:45%; bottom:20%;}
     25%  {left:45%; bottom:25%;}
     50%  {left:47%; bottom:30%;}
     75%  {left:50%; bottom:35%;}

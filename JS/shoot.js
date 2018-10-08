@@ -42,6 +42,7 @@ function startNewRound() {
 function shoot(){
     if (shotNumber == 10) {
         resetHitBoxImages();
+        levelUp();
     }
 
     magRounds--;
