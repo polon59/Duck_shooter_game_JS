@@ -69,6 +69,8 @@
     background-color: rgb(255, 255, 255);
     width: 50%; margin: auto;
     padding: 2vw;
+    animation-name: fadeIn;
+    animation-duration: 2s;
 }
 
 th{
@@ -90,4 +92,10 @@ td{
 table{
     width: 50%; margin: auto;
     padding: 2vw;
+}
+
+@keyframes fadeIn{
+    0% {display: none; opacity: 0;}
+    1% {display: block;opacity: 0;}
+    100% {display: block;opacity: 1;}
 }

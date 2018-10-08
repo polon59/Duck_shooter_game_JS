@@ -7,10 +7,10 @@ var pointsDisplay = document.getElementById("scoreCount");
 
 function levelUp() {
     currentLevel ++;
-    if (currentLevel < 10) {
+    if (currentLevel < 5) {
         changeAnimationSpeed();
         levelDisplay.innerHTML = currentLevel;
-    } else if (currentLevel == 10){
+    } else if (currentLevel == 5){
         levelDisplay.innerHTML = "MAX";
     }
     else{
