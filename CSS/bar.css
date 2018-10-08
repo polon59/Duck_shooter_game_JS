@@ -53,3 +53,12 @@
 #score{
     background-image: url("../resources/sprites/scoreImages/score.png");
 }
+
+
+
+#pointsCounter{
+    left: 17%;
+    bottom: 13.5%;
+    position: absolute;
+    z-index: 3;
+}
