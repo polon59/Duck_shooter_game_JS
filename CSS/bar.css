@@ -29,16 +29,6 @@
     float: left;
 }
 
-
-/* #hitRow div{
-    float: left;
-    margin-top: 1vw;
-    width: 6.3%;
-    height: 20px;
-    background-image: url("../resources/sprites/scoreImages/hit/duckwhite.png");
-    background-size: 100% 100%;
-} */
-
 .duckImage{
     float: left;
     margin-top: 1vw;

@@ -6,18 +6,26 @@ var pointsDisplay = document.getElementById("scoreCount");
 
 
 function levelUp() {
+    currentLevel ++;
     if (currentLevel < 10) {
-        currentLevel ++;
         changeAnimationSpeed();
         levelDisplay.innerHTML = currentLevel;
-    } else {
+    } else if (currentLevel == 10){
         levelDisplay.innerHTML = "MAX";
     }
-    
+    else{
+        finishGame();
+    }
 }
 
 function addPoints() {
+    successfulShots += 1;
     currentPoints += 10+currentLevel;
     pointsDisplay.innerHTML = currentPoints;
 
+}
+
+
+function finishGame(params) {
+    alert("Killed : " + successfulShots)
 }
