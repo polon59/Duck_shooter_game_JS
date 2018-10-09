@@ -5,14 +5,19 @@ function changeAnimationSpeed() {
     animationSpeed -= 0.5;
 }
 
-
-
 function start() {
     changeAnimations();
     resetMagRounds();
     resetKilledDucksNumber();
 }
 
+function resetDuckImage(duckID){
+    var duck = document.getElementById(duckID);
+    duck.style.backgroundImage = "url('../resources/sprites/duck/right1.png')";
+}
+
+
+//*** FLY IN RANDOM DIRECTIONS:
 
 function changeAnimations() {
     changeFlyAnimation("duck1");
@@ -20,43 +25,6 @@ function changeAnimations() {
     resetDuckImage("duck1");
     resetDuckImage("duck2");
 }
-
-
-function flyOut(duck1, duck2) {
-
-   if (duck1.isAlive) {
-        flyOutSingleDuck(duck1);
-    }
-    if (duck2.isAlive) {
-        flyOutSingleDuck(duck2);
-    }
-}
-
-
-function flyOutSingleDuck(duck) {
-    var duckID = duck.id;
-    var duckElement = document.getElementById(duckID);
-
-    var duckCurrentHeight = duckElement.offsetTop;
-    var duckCurrentWidth = duckElement.offsetLeft;
-
-    createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight)
-    duckElement.style.animationName = `${duckID}flyout`;
-    duckElement.style.animationDuration = "0.5s";
-}
-
-
-function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
-    var style = document.documentElement.appendChild(document.createElement("style"));
-
-    rule = `@keyframes ${duckID}flyout{
-        0%   {left: ${duckCurrentWidth}; top: ${duckCurrentHeight};}
-        100% {left: ${duckCurrentWidth}; top: 0%;}
-    }`;
-
-    style.sheet.insertRule(rule, 0);
-}
-
 
 
 function changeFlyAnimation(duckID) {
@@ -104,6 +72,50 @@ function getRandomHeight(duckID,min,max) {
 }
 
 
+//*** FLY OUT:
+
+function flyOut(duck1, duck2) {
+
+   if (duck1.isAlive) {
+        flyOutSingleDuck(duck1);
+    }
+    if (duck2.isAlive) {
+        flyOutSingleDuck(duck2);
+    }
+}
+
+
+function flyOutSingleDuck(duck) {
+    var duckID = duck.id;
+    var duckElement = document.getElementById(duckID);
+    var duckCurrentHeight = duckElement.offsetTop;
+    var duckCurrentWidth = duckElement.offsetLeft;
+
+    createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight)
+    setupFlyOutAnimation(duckElement, duckID);
+}
+
+
+function setupFlyOutAnimation(duckElement, duckID) {
+    duckElement.style.animationName = `${duckID}flyout`;
+    duckElement.style.animationDuration = "0.5s";
+}
+
+
+function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
+    var style = document.documentElement.appendChild(document.createElement("style"));
+
+    rule = `@keyframes ${duckID}flyout{
+        0%   {left: ${duckCurrentWidth}; top: ${duckCurrentHeight};}
+        100% {left: ${duckCurrentWidth}; top: 0%;}
+    }`;
+
+    style.sheet.insertRule(rule, 0);
+}
+
+
+//*** FALL DOWN:
+
 function falldown(duckID,currentWidth,currentHeight) {
     var duck = document.getElementById(duckID);
 
@@ -113,6 +125,7 @@ function falldown(duckID,currentWidth,currentHeight) {
     duck.style.backgroundImage = "url('../resources/sprites/duck/falling.gif')";
     duck.style.animationIterationCount = 1;
 }
+
 
 
 function createFalldownRule(duckID, currentWidth, currentHeight) {
@@ -127,7 +140,3 @@ function createFalldownRule(duckID, currentWidth, currentHeight) {
 }
 
 
-function resetDuckImage(duckID){
-    var duck = document.getElementById(duckID);
-    duck.style.backgroundImage = "url('../resources/sprites/duck/right1.png')";
-}
