@@ -72,6 +72,7 @@ function getRandomHeight(duckID,min,max) {
 }
 
 
+
 //*** FLY OUT:
 
 function flyOut(duck1, duck2) {
@@ -114,18 +115,23 @@ function createFlyOutRule(duckID, duckCurrentWidth, duckCurrentHeight) {
 }
 
 
+
 //*** FALL DOWN:
 
 function falldown(duckID,currentWidth,currentHeight) {
     var duck = document.getElementById(duckID);
 
-    createFalldownRule(duckID, currentWidth, currentHeight) 
+    createFalldownRule(duckID, currentWidth, currentHeight);
+    setupFallDownAnimation(duck, duckID);
+}
+
+
+function setupFallDownAnimation(duck, duckID){
     duck.style.animationName = `${duckID}fall`;
     duck.style.animationDuration = "0.5s";
     duck.style.backgroundImage = "url('../resources/sprites/duck/falling.gif')";
     duck.style.animationIterationCount = 1;
 }
-
 
 
 function createFalldownRule(duckID, currentWidth, currentHeight) {
