@@ -46,28 +46,28 @@ function setupFlyAnimation(duck, duckID) {
 
 function createRule(duckID) {
     rule = `@keyframes ${duckID}{
-        0%   {left: ${getRandomWidth(duckID,30,60)}%; bottom: 20%;}
-        10%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        20%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        30%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        40%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        50%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        60%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        70%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        80%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        90%  {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,35,85)}%;}
-        100% {left: ${getRandomWidth(duckID,10,90)}%; bottom: ${getRandomHeight(duckID,100,100)}%;}
+        0%   {left: ${getRandomWidth(30,60)}%; bottom: 20%;}
+        10%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        20%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        30%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        40%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        50%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        60%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        70%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        80%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        90%  {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(35,85)}%;}
+        100% {left: ${getRandomWidth(10,90)}%; bottom: ${getRandomHeight(100,100)}%;}
     }`;
     return rule;
 }
 
 
-function getRandomWidth(duckID,min,max) {
+function getRandomWidth(min,max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
-function getRandomHeight(duckID,min,max) {
+function getRandomHeight(min,max) {
     return generatedHeight = Math.floor(Math.random() * (max - min + 1)) + min;   
 }
 
