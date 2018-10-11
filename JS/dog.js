@@ -1,4 +1,5 @@
 var dog1 = document.getElementById("dog1");
+var dog2 = document.getElementById("dog2");
 dog1.addEventListener("animationend",startSniffing)
 
 // walkOut();
@@ -35,4 +36,18 @@ function startJump() {
     dog1.style.animationName = "dogJump";
     dog1.style.backgroundImage = 'url("../resources/sprites/dog/pawelJumper.gif")';
     dog1.addEventListener("animationend", hideDog);
+}
+
+
+
+function showDog2(killedDucks) {
+    dog2.classList.remove("easingOut");
+    dog2.classList.add("easingOut");
+    if (killedDucks == 0) {
+        dog2.backgroundImage = 'url("../resources/sprites/dog/bk.gif")';
+    } else if(killedDucks == 1) {
+        dog2.backgroundImage = 'url("../resources/sprites/dog/gotOne.png")';
+    } else{
+        dog2.backgroundImage = 'url("../resources/sprites/dog/gotTwo.png")';
+    }
 }
