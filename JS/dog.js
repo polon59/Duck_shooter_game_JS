@@ -41,13 +41,14 @@ function startJump() {
 
 
 function showDog2(killedDucks) {
-    dog2.classList.remove("easingOut");
+    // dog2.style.webkitAnimationPlayState = "running";
     dog2.classList.add("easingOut");
+
     if (killedDucks == 0) {
-        dog2.backgroundImage = 'url("../resources/sprites/dog/bk.gif")';
+        dog2.style.backgroundImage = 'url("../resources/sprites/dog/bk.gif")';
     } else if(killedDucks == 1) {
-        dog2.backgroundImage = 'url("../resources/sprites/dog/gotOne.png")';
+        dog2.style.backgroundImage = 'url("../resources/sprites/dog/gotOne.png")';
     } else{
-        dog2.backgroundImage = 'url("../resources/sprites/dog/gotTwo.png")';
+        dog2.style.backgroundImage = 'url("../resources/sprites/dog/gotTwo.png")';
     }
 }

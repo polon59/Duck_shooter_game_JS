@@ -100,6 +100,7 @@ function flyOutSingleDuck(duck) {
 function setupFlyOutAnimation(duckElement, duckID) {
     duckElement.style.animationName = `${duckID}flyout`;
     duckElement.style.animationDuration = "0.5s";
+    duckElement.style.animationIterationCount = "1";
 }
 
 

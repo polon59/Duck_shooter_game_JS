@@ -32,6 +32,7 @@ function resetMagRounds() {
 
 
 function startNewRound() {
+    var dog2 = document.getElementById("dog2").classList.remove("easingOut");
     var goBack = setTimeout(start, 500);
     playSound(emptyMag);
     duck1.isAlive = true;
@@ -51,10 +52,11 @@ function shoot(){
     subtractShoots();
     shotNumber++;
 
-
     if (magRounds == 0 || killedDucks >= 2) {
         flyOut(duck1, duck2);
-        startNewRound();
+        showDog2(killedDucks);   
+        setTimeout(startNewRound,3000);
+        //startNewRound();
     }
 }
 
