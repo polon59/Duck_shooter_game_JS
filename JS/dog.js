@@ -41,7 +41,6 @@ function startJump() {
 
 
 function showDog2(killedDucks) {
-    // dog2.style.webkitAnimationPlayState = "running";
     dog2.classList.add("easingOut");
 
     if (killedDucks == 0) {

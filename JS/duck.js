@@ -15,7 +15,7 @@ function start() {
 
 function resetDuckImage(duckID){
     var duck = document.getElementById(duckID);
-    duck.style.backgroundImage = "url('../resources/sprites/duck/right1.png')";
+    duck.style.backgroundImage = "url('../resources/sprites/duck/flyingright.gif')";
 }
 
 

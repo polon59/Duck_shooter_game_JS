@@ -32,18 +32,26 @@ function resetMagRounds() {
 
 
 function startNewRound() {
-    var dog2 = document.getElementById("dog2").classList.remove("easingOut");
     var goBack = setTimeout(start, 500);
-    playSound("empty");
     duck1.isAlive = true;
     duck2.isAlive = true;
+
+    playSound("empty");
+    document.getElementById("dog2").classList.remove("easingOut");
+    document.getElementById("levelBox").style.display = "none";
+    // hideLevelUpBox();
 }
 
 
 function shoot(){
     if (shotNumber == 10) {
+        disableShooting();
+        flyOut(duck1, duck2);
+        playSound("level");
+
         resetHitBoxImages();
         levelUp();
+        setTimeout(startNewRound,3000);
     }
 
     magRounds--;
