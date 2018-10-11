@@ -22,12 +22,15 @@ function playSound(name) {
         sound = hit;
     }else if (name == "gotOne"){
         sound = gotOne;
+        duck.pause();
+        duck.currentTime = 0;
     }else if (name == "gotZero"){
         sound = gotZero;
+        duck.pause();
+        duck.currentTime = 0;
     }else{
         sound = duck;
     }
-
 
     sound.currentTime = 0;
     sound.play();

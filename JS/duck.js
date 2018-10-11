@@ -6,6 +6,7 @@ function changeAnimationSpeed() {
 }
 
 function start() {
+    playSound("duck");
     enableShooting();
     changeAnimations();
     resetMagRounds();
