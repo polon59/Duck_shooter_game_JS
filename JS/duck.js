@@ -6,6 +6,7 @@ function changeAnimationSpeed() {
 }
 
 function start() {
+    enableShooting();
     changeAnimations();
     resetMagRounds();
     resetKilledDucksNumber();

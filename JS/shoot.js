@@ -1,11 +1,23 @@
 var duck1element = document.getElementById("duck1");
 var duck2element = document.getElementById("duck2");
+var shootBlocker = document.getElementById("shootBlocker");
 var magRounds = 3;
 var shotNumber = 0;
 var killedDucks = 0;
 
 var duck1 =  {id:"duck1", isAlive:true};
 var duck2 =  {id:"duck2", isAlive:true};
+
+
+
+function enableShooting() {
+    shootBlocker.style.display = "none";
+}
+
+
+function disableShooting() {
+    shootBlocker.style.display = "block";
+}
 
 
 function resetKilledDucksNumber() {
@@ -41,6 +53,7 @@ function shoot(){
     shotNumber++;
 
     if (magRounds == 0 || killedDucks >= 2) {
+        disableShooting();
         flyOut(duck1, duck2);
         showDog2(killedDucks);   
         setTimeout(startNewRound,3000);
