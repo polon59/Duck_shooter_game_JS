@@ -1,7 +1,23 @@
+@font-face {
+    font-family: asset;
+    src: url('https://fonts.googleapis.com/css?family=Asset');
+}
+
+h3{
+    color: white;
+    /* font-family: 'Asset', cursive; */
+}
+
+h2{
+    color: white;
+    /* font-family: 'Asset', cursive; */
+}
+
 
 body{
     max-height: 100%;
     margin: 0;
+    font-family: 'Asset', cursive;
 }
 
 .sky { 
