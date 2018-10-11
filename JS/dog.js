@@ -46,9 +46,13 @@ function showDog2(killedDucks) {
 
     if (killedDucks == 0) {
         dog2.style.backgroundImage = 'url("../resources/sprites/dog/bk.gif")';
+        playSound("gotZero");
+
     } else if(killedDucks == 1) {
         dog2.style.backgroundImage = 'url("../resources/sprites/dog/gotOne.png")';
+        playSound("gotOne");
     } else{
         dog2.style.backgroundImage = 'url("../resources/sprites/dog/gotTwo.png")';
+        playSound("gotOne");
     }
 }

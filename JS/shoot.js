@@ -1,9 +1,3 @@
-var hit = new Audio('../resources/sounds/hit.wav');
-var miss = new Audio('../resources/sounds/miss.wav');
-var emptyMag = new Audio('../resources/sounds/emptyMag.wav');
-var shootSound = new Audio('../resources/sounds/shoot.wav');
-var duckHitSound = new Audio('../resources/sounds/shoot.wav');
-
 var duck1element = document.getElementById("duck1");
 var duck2element = document.getElementById("duck2");
 var magRounds = 3;
@@ -17,12 +11,6 @@ var duck2 =  {id:"duck2", isAlive:true};
 function resetKilledDucksNumber() {
     killedDucks = 0;
 }
-
-
-function playSound(sound) {
-    sound.currentTime = 0;
-    sound.play();
-}
    
 
 function resetMagRounds() {
@@ -34,7 +22,7 @@ function resetMagRounds() {
 function startNewRound() {
     var dog2 = document.getElementById("dog2").classList.remove("easingOut");
     var goBack = setTimeout(start, 500);
-    playSound(emptyMag);
+    playSound("empty");
     duck1.isAlive = true;
     duck2.isAlive = true;
 }
@@ -48,7 +36,7 @@ function shoot(){
 
     magRounds--;
     changeShootBoxImage();
-    playSound(shootSound);
+    playSound("shoot");
     subtractShoots();
     shotNumber++;
 
@@ -56,7 +44,6 @@ function shoot(){
         flyOut(duck1, duck2);
         showDog2(killedDucks);   
         setTimeout(startNewRound,3000);
-        //startNewRound();
     }
 }
 
@@ -113,7 +100,7 @@ function subtractShoots() {
         falldown("duck2",duck2x,duck2y);
     }
     else{
-        playSound(miss);
+        playSound("miss");
         changeHitBoxImage("miss");
     }
 }
@@ -126,7 +113,7 @@ function checkIfHit(mouseX,mouseY,duckX,duckY) {
     if ((mouseX>=duckX) && (mouseX <= duckX+duckHeight) && 
     (mouseY >= duckY) && (mouseY <= duckY+duckWidth)){
         changeHitBoxImage("hit");        
-        playSound(hit);
+        playSound("hit");
         killedDucks++;
         addPoints();
         return true;
