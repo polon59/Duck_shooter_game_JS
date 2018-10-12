@@ -51,7 +51,7 @@ function shoot(){
 
         resetHitBoxImages();
         levelUp();
-        setTimeout(startNewRound,3000);
+        setTimeout(startNewRound,2000);
     }
 
     magRounds--;
@@ -64,7 +64,7 @@ function shoot(){
         disableShooting();
         flyOut(duck1, duck2);
         showDog2(killedDucks);   
-        setTimeout(startNewRound,3000);
+        setTimeout(startNewRound,2000);
     }
 }
 
