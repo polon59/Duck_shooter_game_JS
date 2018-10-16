@@ -6,6 +6,7 @@ var gotOne = new Audio('../resources/sounds/gotOne.wav');
 var gotZero = new Audio('../resources/sounds/gotZero.wav');
 var duck = new Audio('../resources/sounds/duck.wav');
 var level = new Audio('../resources/sounds/level.mp3');
+var intro = new Audio('../resources/sounds/intro.mp3');
 
 
 
@@ -31,7 +32,10 @@ function playSound(name) {
         sound = gotZero;
         duck.pause();
         duck.currentTime = 0;
-    }else{
+    }else if (name == "intro"){
+        sound = intro;
+    }
+    else{
         sound = duck;
     }
 
