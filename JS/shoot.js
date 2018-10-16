@@ -32,13 +32,12 @@ function resetMagRounds() {
 
 
 function startNewRound() {
-    var goBack = setTimeout(start, 500);
+    // var goBack = setTimeout(start, 500);
     duck1.isAlive = true;
     duck2.isAlive = true;
-
-    playSound("empty");
     document.getElementById("dog2").classList.remove("easingOut");
     document.getElementById("levelBox").style.display = "none";
+    start();
 }
 
 
