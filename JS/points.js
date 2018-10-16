@@ -41,6 +41,7 @@ function addPoints() {
 
 function finishGame(params) {
     displaySummary();
+    addNewrecord(currentPoints);
     document.getElementById("overlay").style.display = "block";
 }
 
