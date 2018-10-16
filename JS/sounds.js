@@ -8,6 +8,7 @@ var duck = new Audio('../resources/sounds/duck.wav');
 var level = new Audio('../resources/sounds/level.mp3');
 var intro = new Audio('../resources/sounds/intro.mp3');
 var dogwalk = new Audio('../resources/sounds/dogwalk.mp3')
+var duckfall = new Audio('../resources/sounds/duckfall.wav')
 
 
 
@@ -16,27 +17,40 @@ function playSound(name) {
 
     if (name == "shoot") {
         sound = shootSound;
-    }else if (name == "dogwalk"){
+    }
+    else if (name == "duckfall"){
+        sound = duckfall;
+    }
+    else if (name == "dogwalk"){
+        intro.pause();
         sound = dogwalk;
-    }else if (name == "miss") {
+    }
+    else if (name == "miss") {
         sound = miss;
-    }else if (name == "level") {
+    }
+    else if (name == "level") {
         sound = level;
-    }else if (name == "empty") {
+    }
+    else if (name == "empty") {
         sound = emptyMag;
-    }else if (name == "hit"){
+    }
+    else if (name == "hit"){
         sound = hit;
-    }else if (name == "gotOne"){
+    }
+    else if (name == "gotOne"){
         sound = gotOne;
         duck.pause();
         duck.currentTime = 0;
-    }else if (name == "gotZero"){
+    }
+    else if (name == "gotZero"){
         sound = gotZero;
         duck.pause();
         duck.currentTime = 0;
-    }else if (name == "intro"){
+    }
+    else if (name == "intro"){
         sound = intro;
-    }else{
+    }
+    else{
         sound = duck;
     }
 
