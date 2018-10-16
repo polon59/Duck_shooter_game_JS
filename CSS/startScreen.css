@@ -1,6 +1,6 @@
-/* .cursorChange:hover{
-    cursor: ;
-} */
+.cursorChange:hover{
+    cursor: pointer;
+}
 
 #startScreen{
     position: absolute;
