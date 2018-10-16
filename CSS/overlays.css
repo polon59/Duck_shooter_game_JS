@@ -24,6 +24,13 @@
     text-align: left;
 }
 
+#highScores h2{
+    color:rgb(0, 226, 0);
+}
+
+.levelSelectItem{
+    float: left;
+}
 
 
 /* END SCREEN */

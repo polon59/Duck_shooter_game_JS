@@ -1,6 +1,8 @@
 var currentLevel = 1;
 var currentPoints = 0;
 var successfulShots = 0;
+var levelNumber = 5;
+var levelSelectBox = document.getElementById("levelSelect");
 var levelDisplay = document.getElementById("levelCount");
 var pointsDisplay = document.getElementById("scoreCount");
 var levelBox = document.getElementById("levelBox");
@@ -10,11 +12,11 @@ var levelBoxP = document.getElementById("levelBoxP");
 function levelUp() {
     currentLevel ++;
 
-    if (currentLevel <= 5) {
+    if (currentLevel <= levelNumber) {
         changeAnimationSpeed();
         levelDisplay.innerHTML = currentLevel;
         levelBoxP.innerHTML = `LEVEL: ${currentLevel}`
-    } else if (currentLevel == 5){
+    } else if (currentLevel == levelNumber){
         levelDisplay.innerHTML = "MAX";
     }
     else{
@@ -47,4 +49,21 @@ function displaySummary() {
     document.getElementById("roundSummary").innerHTML = currentLevel;
     document.getElementById("shotsSummary").innerHTML = successfulShots;
     
+}
+
+levelSelect
+
+function levelSelectAdd() {
+    if (levelNumber < 10) {
+        levelNumber ++;
+        levelSelectBox.innerHTML = levelNumber;
+    }
+}
+
+
+function levelSelectSubtract() {
+    if (levelNumber > 1) {
+        levelNumber ++;
+        levelSelectBox.innerHTML = levelNumber;
+    }
 }
