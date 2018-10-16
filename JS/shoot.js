@@ -39,21 +39,10 @@ function startNewRound() {
     playSound("empty");
     document.getElementById("dog2").classList.remove("easingOut");
     document.getElementById("levelBox").style.display = "none";
-    // hideLevelUpBox();
 }
 
 
 function shoot(){
-    if (shotNumber == 10) {
-        disableShooting();
-        flyOut(duck1, duck2);
-        playSound("level");
-
-        resetHitBoxImages();
-        levelUp();
-        setTimeout(startNewRound,2000);
-    }
-
     magRounds--;
     changeShootBoxImage();
     playSound("shoot");
@@ -61,11 +50,30 @@ function shoot(){
     shotNumber++;
 
     if (magRounds == 0 || killedDucks >= 2) {
-        disableShooting();
-        flyOut(duck1, duck2);
-        showDog2(killedDucks);   
-        setTimeout(startNewRound,2000);
+        finishRound();
     }
+
+    if (shotNumber == 10) {
+        finishLevel();
+    }
+}
+
+
+function finishLevel() {
+    disableShooting();
+    flyOut(duck1, duck2);
+    playSound("level");
+    resetHitBoxImages();
+    levelUp();
+    setTimeout(startNewRound,3000);
+}
+
+
+function finishRound(params) {
+    disableShooting();
+    flyOut(duck1, duck2);
+    showDog2(killedDucks);   
+    setTimeout(startNewRound,3000);
 }
 
 

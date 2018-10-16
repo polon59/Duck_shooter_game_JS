@@ -25,6 +25,9 @@
 }
 
 
+
+/* END SCREEN */
+
 #overlay{
     position: absolute;
     top: 0;
@@ -68,6 +71,9 @@ table{
     padding: 2vw;
 }
 
+
+/* SHOOT BLOCKER */
+
 #shootBlocker{
     position: absolute;
     top: 0;
@@ -75,21 +81,4 @@ table{
     height: 100%;
     z-index: 4;
     display: block;
-}
-
-#levelBox{
-    display: none;
-    z-index: 3;
-    position: absolute;
-    top: 15%;
-    left: 45%;
-    width: 15%;
-    height: 15%;
-    border-radius: 15px;
-    background-color: black;
-    border: 5px solid white;
-    animation-name: flash;
-    animation-duration: 0.3s;
-    animation-iteration-count: infinite;
-    text-align: center;
 }

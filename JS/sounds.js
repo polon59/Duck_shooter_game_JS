@@ -5,7 +5,7 @@ var shootSound = new Audio('../resources/sounds/shoot.wav');
 var gotOne = new Audio('../resources/sounds/gotOne.wav');
 var gotZero = new Audio('../resources/sounds/gotZero.wav');
 var duck = new Audio('../resources/sounds/duck.wav');
-var level = new Audio('../resources/sounds/level.wav');
+var level = new Audio('../resources/sounds/level.mp3');
 
 
 
