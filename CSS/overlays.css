@@ -14,13 +14,6 @@
     left: 30%;
 }
 
-/* #startButton{
-    position: absolute;
-    top: 55%;
-    left: 38%;
-    color: white;
-} */
-
 #startButton h2:hover{
     color: red;
 }
