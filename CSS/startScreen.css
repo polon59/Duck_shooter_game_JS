@@ -1,5 +1,6 @@
 .cursorChange:hover{
     cursor: pointer;
+    color: green;
 }
 
 #startScreen{
