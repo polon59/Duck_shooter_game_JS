@@ -6,12 +6,14 @@
     z-index: 20;
     background-image: url("../resources/sprites/background/startBackground.jpg");
     background-size: 100% 100%;
+    text-align: center;
 }
 
 #startScreenContent{
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 30%;
+    text-align: left;
 }
 
 /* START BUTTON */
@@ -22,8 +24,8 @@
 
 /* LEVEL SELECT */
 
-levelSelectMenu{
-    width: 100;
+#levelSelectMenu{
+    min-height: 50px;
 }
 
 .levelSelectItem{
@@ -35,22 +37,21 @@ levelSelectMenu{
     color: red;
     margin-left: 3vw;
     margin-right: 3vw;
+    font-family: Courier New, Courier, monospace;
 }
 
 
 /* HIGH SCORES */
-
-#highScores td{
-    color: rgb(0, 190, 238);
-    border: none;
-    text-align: left;
-}
-
 #highScores h2{
     color:rgb(0, 226, 0);
 }
 
+/*  */
 
+#startScreenFooter{
+    position: absolute;
+    bottom: 0;
+}
 
 
 /* END SCREEN */
