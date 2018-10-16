@@ -8,16 +8,29 @@
     background-size: 100% 100%;
 }
 
-#startButton{
+#startScreenContent{
+    position: absolute;
+    top: 55%;
+    left: 30%;
+}
+
+/* #startButton{
     position: absolute;
     top: 55%;
     left: 38%;
     color: white;
-}
+} */
 
 #startButton h2:hover{
     color: red;
 }
+
+#highScores td{
+    color: rgb(0, 190, 238);
+    border: none;
+    text-align: left;
+}
+
 
 #overlay{
     position: absolute;
