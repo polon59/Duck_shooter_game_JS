@@ -1,6 +1,11 @@
 var dog1 = document.getElementById("dog1");
 var dog2 = document.getElementById("dog2");
-dog1.addEventListener("animationend",startSniffing)
+
+
+function startDogWalkout() {
+    dog1.style.animationName = "dogWalk1";
+    dog1.addEventListener("animationend",startSniffing);
+}
 
 // walkOut();
 

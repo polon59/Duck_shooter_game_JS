@@ -10,11 +10,11 @@ var levelBoxP = document.getElementById("levelBoxP");
 function levelUp() {
     currentLevel ++;
 
-    if (currentLevel < 5) {
+    if (currentLevel < 3) {
         changeAnimationSpeed();
         levelDisplay.innerHTML = currentLevel;
         levelBoxP.innerHTML = `LEVEL: ${currentLevel}`
-    } else if (currentLevel == 5){
+    } else if (currentLevel == 3){
         levelDisplay.innerHTML = "MAX";
     }
     else{

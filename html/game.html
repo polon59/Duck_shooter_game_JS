@@ -4,10 +4,21 @@
     <link rel="shortcut icon" type="image/x-icon" href="../resources/sprites/duck/right1.png" />
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="../CSS/bar.css">
+    <link rel="stylesheet" href="../CSS/overlays.css">
     <link href="https://fonts.googleapis.com/css?family=Asset" rel="stylesheet">
     
 </head>
 <body>
+
+    <div id="startScreen">
+        <div id="startButton" onclick="startGame()">
+            <h2>START GAME</h2>
+        </div>
+    </div>
+
+
+
+
     <div class="sky" onclick="shoot()">
 
         <div id="duck1" class="duck">
@@ -66,26 +77,27 @@
         <div class="resultsBox">
             <h3 style="color:black">Game Over!</h3>
             <table>
-            <tr>
-                <td>YOUR POINTS</td>
-                <td id="pointsSummary"></td>
-            </tr>
-            <tr>
-                <td>ROUND</td>
-                <td id="roundSummary"></td>
-            </tr>
-            <tr>
-                <td>SUCCESSFUL SHOTS</td>
-                <td id="shotsSummary"></td>
-            </tr>
+                <tr>
+                    <td>YOUR POINTS</td>
+                    <td id="pointsSummary"></td>
+                </tr>
+                <tr>
+                    <td>ROUND</td>
+                    <td id="roundSummary"></td>
+                </tr>
+                <tr>
+                    <td>SUCCESSFUL SHOTS</td>
+                    <td id="shotsSummary"></td>
+                </tr>
 
-        </table>
+            </table>
 
         <input type="button" value="Play again" onClick="window.location.reload()">
         
         </div>
     </div>
 
+    <script src="../JS/startGame.js"></script>
     <script src="../JS/duck.js"></script>
     <script src="../JS/shoot.js"></script>
     <script src="../JS/dog.js"></script>

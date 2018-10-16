@@ -5,12 +5,10 @@
 
 h3{
     color: white;
-    /* font-family: 'Asset', cursive; */
 }
 
 h2{
     color: white;
-    /* font-family: 'Asset', cursive; */
 }
 
 
@@ -78,7 +76,7 @@ body{
     left: 0%;
     bottom: 20%;
     background-image: url("../resources/sprites/dog/dogeWalking.gif");
-    animation-name: dogWalk1;
+    /* animation-name: dogWalk1; */
     animation-duration: 2s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
