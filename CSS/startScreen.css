@@ -23,8 +23,12 @@
 
 /* START BUTTON */
 
-#startButton h2:hover{
+#startButton h2{
     color: red;
+}
+
+#startButton h2:hover{
+    color: rgb(255, 255, 255);
 }
 
 
@@ -50,6 +54,17 @@
 /* HIGH SCORES */
 #highScores h2{
     color:rgb(0, 226, 0);
+}
+
+/* #highScores ul{
+    padding: 0;
+} */
+
+
+#highScores li{
+    color: rgb(0, 129, 0);
+    /* list-style-type: upper-roman; */
+    /* text-align: center; */
 }
 
 
