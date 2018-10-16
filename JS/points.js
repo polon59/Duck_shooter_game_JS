@@ -63,7 +63,7 @@ function levelSelectAdd() {
 
 function levelSelectSubtract() {
     if (levelNumber > 1) {
-        levelNumber ++;
+        levelNumber --;
         levelSelectBox.innerHTML = levelNumber;
     }
 }

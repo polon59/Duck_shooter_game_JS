@@ -14,9 +14,31 @@
     left: 30%;
 }
 
+/* START BUTTON */
+
 #startButton h2:hover{
     color: red;
 }
+
+/* LEVEL SELECT */
+
+levelSelectMenu{
+    width: 100;
+}
+
+.levelSelectItem{
+    float: left;
+    color: darkmagenta;
+}
+
+.levelSelectArrow{
+    color: red;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+
+/* HIGH SCORES */
 
 #highScores td{
     color: rgb(0, 190, 238);
@@ -28,9 +50,7 @@
     color:rgb(0, 226, 0);
 }
 
-.levelSelectItem{
-    float: left;
-}
+
 
 
 /* END SCREEN */
