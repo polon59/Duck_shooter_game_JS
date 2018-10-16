@@ -7,15 +7,17 @@ var gotZero = new Audio('../resources/sounds/gotZero.wav');
 var duck = new Audio('../resources/sounds/duck.wav');
 var level = new Audio('../resources/sounds/level.mp3');
 var intro = new Audio('../resources/sounds/intro.mp3');
+var dogwalk = new Audio('../resources/sounds/dogwalk.mp3')
 
 
 
 function playSound(name) {
     var sound;
 
-
     if (name == "shoot") {
         sound = shootSound;
+    }else if (name == "dogwalk"){
+        sound = dogwalk;
     }else if (name == "miss") {
         sound = miss;
     }else if (name == "level") {
@@ -34,8 +36,7 @@ function playSound(name) {
         duck.currentTime = 0;
     }else if (name == "intro"){
         sound = intro;
-    }
-    else{
+    }else{
         sound = duck;
     }
 

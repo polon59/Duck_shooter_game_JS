@@ -5,6 +5,7 @@ var dog2 = document.getElementById("dog2");
 function startDogWalkout() {
     dog1.style.animationName = "dogWalk1";
     dog1.addEventListener("animationend",startSniffing);
+    playSound("dogwalk");
 }
 
 // walkOut();
