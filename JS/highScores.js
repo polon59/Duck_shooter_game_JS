@@ -25,7 +25,7 @@ function sortHighScores(params) {
 function displayHighScores(params) {
 
     for (let index = 0; index < highScores.length; index++) {
-        document.getElementById(`highScore${index}`).innerHTML = "\t\t" + highScores[index];
+        document.getElementById(`highScore${index}`).innerHTML = highScores[index];
     }
    
 }
