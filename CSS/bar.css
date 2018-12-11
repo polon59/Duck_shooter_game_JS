@@ -62,7 +62,12 @@
     margin: 0;
     margin-right: 5%;
     margin-left: 50%;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
 }
 
 
