@@ -46,10 +46,21 @@
 }
 
 #pointsCounter{
-    left: 17%;
-    bottom: 13.3%;
+    text-align: right;
+    left: 7%;
+    bottom: 15%;
+    background-image: url("../resources/sprites/scoreImages/round.png");
+    background-size: 100% 100%;
+    width: 15vw;
+    height: 5vh;
     position: absolute;
     z-index: 3;
+}
+
+
+#levelCount{
+    margin: 0;
+    margin-right: 1vw;
 }
 
 
