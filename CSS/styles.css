@@ -16,6 +16,8 @@ body{
     max-height: 100%;
     margin: 0;
     font-family: 'Asset', cursive;
+    content: url("../resources/sprites/duck/flyingright.gif") url("../resources/sprites/duck/falling.gif") ;
+    
 }
 
 .sky { 
