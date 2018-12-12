@@ -5,9 +5,43 @@ class Dog{
     }
 
     launchWalkoutAnimation(){
-        $(this.dogId).css("background-image", "url(../resources/sprites/dog/dogeWalking.gif)")
-        .animate({left: "20%",}, 2000)
-        .css("background-image", "url(../resources/sprites/dog/snif.gif)");
+        let walkBackground = "url(../resources/sprites/dog/dogeWalking.gif)";
+        let sniffBackground = "url(../resources/sprites/dog/snif.gif)";
+        let stopBackground = "url(../resources/sprites/dog/found.png)";
+        let jumpBackground = "url(../resources/sprites/dog/pawelJumper.gif)";
+
+        $(this.dogId)
+        .css("background-image", walkBackground)
+        .animate({left: "20%",}, 2000 ,function(){
+            $(this).css("background-image", sniffBackground)
+        })
+        .animate({left: "20%",}, 1000 ,function(){
+            $(this).css("background-image", walkBackground);
+        })
+        .animate({left: "40%",}, 2000 ,function(){
+            $(this).css("background-image", sniffBackground);
+        })
+        .animate({left: "40%",}, 1000 ,function(){
+            $(this).css("background-image", stopBackground);
+        })
+        .animate({left: "40%",}, 500 ,function(){
+            $(this).css("background-image", jumpBackground)
+            .css("animation-name", "dogJump")
+        })
+        .animate({opacity: "40%",}, 700 ,function(){
+            $(this).css("background-image", jumpBackground)
+            .css("animation-name", "dogJump")
+            .delay(700)
+            .css("display", "none");
+        })
+        
+        // .animate({left: "50%", bottom:"34%"}, 400 ,function(){
+        //     $(this).css("animation-name", "none");
+        // })
+
+        
+        // .css("background-image", "url(../resources/sprites/dog/dogeWalking.gif)")
+        // .animate({left: "+=20%",}, 2000);
     }
 
 }
