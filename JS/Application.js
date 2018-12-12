@@ -7,6 +7,7 @@ function launchStartAnimation() {
     // startScreen.hideStartScreen();
     document.getElementById("startScreen").style.display = "none";
     dog1.launchWalkoutAnimation();
+    setTimeout(function(){alert("JUŻ")}, 7300);
 }
 
 function startGame() {
