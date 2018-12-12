@@ -3,6 +3,7 @@ First project created with Vanilla JavaScript. Inspired by popular 'Duck Hunt' g
 developed and published by Nintendo in 1984.
 
 ### How to play:
+Select number of levels on main menu panel.
 The ducks appear one or two at a time, and the player is given three shots to shoot them down. 
 The player receives points upon shooting each duck. High scores are stored in browser Local Storage.
 
