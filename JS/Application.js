@@ -1,6 +1,9 @@
 
+
+launchApplication();
+
 function launchApplication() {
-    let game = new Game();
+    var game = new Game();
     game.startGame();
 }
 

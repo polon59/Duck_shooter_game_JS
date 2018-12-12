@@ -9,8 +9,10 @@ class Game{
 
     startGame(){
         document.getElementById("startScreen").style.display = "none";
-        this.dog1.launchWalkoutAnimation();
-        setTimeout(() => this.startDucksFlight(), 7300);
+        // this.dog1.launchWalkoutAnimation();
+        // setTimeout(() => this.startDucksFlight(), 7300);
+
+        this.startDucksFlight();
     }
 
 
