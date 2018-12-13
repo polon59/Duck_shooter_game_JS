@@ -45,9 +45,12 @@ body{
     background-image: url("../resources/sprites/duck/flyleft.gif");
     position: absolute;
     animation-timing-function: linear;
+    width: 78px;
+    height: 73px;
+    background-size: 100%;
 }
 
-#duck1{
+/* #duck1{
     animation-name: duck1;
     animation-duration: 10s;
     animation-iteration-count: infinite;
@@ -63,7 +66,7 @@ body{
     background-size: 100%;
     width: 78px;
     height: 73px;
-}
+} */
 
 .dog{
     background-size: 100% 100%;
