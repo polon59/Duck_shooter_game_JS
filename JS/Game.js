@@ -3,9 +3,7 @@ class Game{
     constructor(){
         this.dog1 = new Dog("dog1");
         this.dog2 = new Dog("dog2");
-        this.ducks = this.createDucks(15);
-        this.duck1 = new Duck("duck1");
-        this.duck2 = new Duck("duck2");
+        this.ducks = this.createDucks(3);
         this.shotHandler = new ShotHandler();
     }
 
@@ -15,13 +13,14 @@ class Game{
         // setTimeout(() => this.startDucksFlight(), 7300);
         this.startNewRound();
         $("#sky").click(this.shoot.bind(this));
-
         
     }
 
+
     shoot(){
-        this.shotHandler.checkIfHitSuccessful(this.duck1, this.duck2);
+        this.shotHandler.checkIfHitSuccessful(this.ducks);
     }
+
 
     startNewRound(){
         this.startDucksFlight();
@@ -33,11 +32,6 @@ class Game{
         this.ducks.forEach(duck => {
             duck.startFlight();
         });
-
-        // this.duck1.startFlight();
-        // this.duck2.startFlight();
-        // console.log(this.duck1.currentWidth);
-
     }
 
 

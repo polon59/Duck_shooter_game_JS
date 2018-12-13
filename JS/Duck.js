@@ -50,10 +50,10 @@ class Duck{
             $(this.duckId)
             .css("background-image", "url(../resources/sprites/duck/flyright.gif)");
             console.log(destHeight - this.currentHeight);
-            if(destHeight - this.currentHeight > 10){
+            if(destHeight - this.currentHeight > 20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyrightup.gif)");}
-            if(destHeight - this.currentHeight < -10){
+            if(destHeight - this.currentHeight < -20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyrightdown.gif)");
             
@@ -64,10 +64,10 @@ class Duck{
             $(this.duckId)
             .css("background-image", "url(../resources/sprites/duck/flyleft.gif)");
 
-            if(destHeight - this.currentHeight > 10){
+            if(destHeight - this.currentHeight > 20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyleftup.gif)");}
-            if(destHeight - this.currentHeight < -10){
+            if(destHeight - this.currentHeight < -20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyleftdown.gif)");
             
