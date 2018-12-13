@@ -45,17 +45,18 @@ class Duck{
 
     changeDuckBackground(destWidth, destHeight){
         if (destWidth > this.currentWidth) {
-            console.log("PRAWO " + this.currentWidth + "..." + destWidth);
+            //console.log("PRAWO " + this.currentWidth + "..." + destWidth);
+            //debugger
             $(this.duckId)
             .css("background-image", "url(../resources/sprites/duck/flyright.gif)");
             console.log(destHeight - this.currentHeight);
             if(destHeight - this.currentHeight > 10){
                 $(this.duckId)
-                .css("background-image", "url(../resources/sprites/duck/flyrightup.gif)");
+                .css("background-image", "url(../resources/sprites/duck/flyrightup.gif)");}
             if(destHeight - this.currentHeight < -10){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyrightdown.gif)");
-            }
+            
             }
         } else {
             console.log(destHeight - this.currentHeight);
@@ -65,11 +66,11 @@ class Duck{
 
             if(destHeight - this.currentHeight > 10){
                 $(this.duckId)
-                .css("background-image", "url(../resources/sprites/duck/flyleftup.gif)");
+                .css("background-image", "url(../resources/sprites/duck/flyleftup.gif)");}
             if(destHeight - this.currentHeight < -10){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyleftdown.gif)");
-            }
+            
             }
         }
     }
