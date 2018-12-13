@@ -1,10 +1,12 @@
 class Game{
 
-    constructor(){
+    constructor(numberOfDucks){
         this.dog1 = new Dog("dog1");
         this.dog2 = new Dog("dog2");
-        this.ducks = this.createDucks(3);
+        this.ducksKilledInRound = 0;
         this.shotHandler = new ShotHandler();
+        this.numberOfDucks = numberOfDucks;
+        this.ducks = this.createDucks(numberOfDucks);
     }
 
     startGame(){
@@ -18,11 +20,23 @@ class Game{
 
 
     shoot(){
-        this.shotHandler.checkIfHitSuccessful(this.ducks);
+        let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducks);
+        this.ducksKilledInRound += successfulHits;
+
+        if (this.ducksKilledInRound == this.numberOfDucks) {
+            this.finishRound();
+        }
+
+    }
+
+
+    finishRound(){
+        alert("All ducks are dead");
     }
 
 
     startNewRound(){
+        this.ducksKilledInRound = 0;
         this.startDucksFlight();
         this.shotHandler.enableShooting();
     }
