@@ -5,7 +5,7 @@ class Game{
         this.dog2 = new Dog("dog2");
         this.duck1 = new Duck("duck1");
         this.duck2 = new Duck("duck2");
-        this.shotHandler = new ShotHandler();
+        this.shotHandler = new ShotHandler(this);
     }
 
     startGame(){
