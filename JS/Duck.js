@@ -2,44 +2,57 @@ class Duck{
 
     constructor(id){
         this.duckId = `#${id}`;
-        this.wasShot = false;
+        this.isAlive = true;
         this.moveCount = 0;
         this.duckFlight;
+        this.currentWidth = 48;
     }
 
 
     startFlight(){
-        this.duckFlight = setInterval(() => this.fly("random"), 1000);
-
-        // this.fly("away");
+        this.duckFlight = setInterval(() => this.fly(), 1000);
     }
-
 
 
     fallDown(){
-        clearInterval(this.duckFlight);
-        $(this.duckId).stop()
-        .css("background-image", "url(../resources/sprites/duck/falling.gif)")
-        .animate({bottom: `10%`,}, 500 ,function(){});
+        if (this.isAlive) {
+            clearInterval(this.duckFlight);
+            $(this.duckId).stop()
+            .css("background-image", "url(../resources/sprites/duck/falling.gif)")
+            .animate({bottom: `10%`,}, 500 ,function(){});
+        }
     }
 
 
-    fly(direction){
-        if (this.moveCount == 10) {
-            clearInterval(this.duckFlight);
-            direction = "top";
-        }
-
+    fly(){
+        let destWidth = this.getRandomWidth(10,85);
+        let destHeight = this.getRandomHeight(35,85);
         this.moveCount++;
 
-        let destHeight = 100;
-        let destWidth = this.getRandomWidth(10,85);
+        if (this.moveCount == 10) {
+            clearInterval(this.duckFlight);
+            destHeight = 100;
+        }
 
-        if (direction == "random") {
-            destHeight = this.getRandomHeight(35,85);
-        } 
 
+        this.changeDuckBackground(destWidth);
+        
+        
         $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000 ,function(){})
+        this.currentWidth = destWidth;
+    }
+
+
+    changeDuckBackground(destWidth){
+        if (destWidth > this.currentWidth) {
+            console.log("PRAWO " + this.currentWidth + "..." + destWidth);
+            $(this.duckId)
+            .css("background-image", "url(../resources/sprites/duck/right1.png)");
+        } else {
+            console.log("LEWO " + this.currentWidth + "..." + destWidth);
+            $(this.duckId)
+            .css("background-image", "url(../resources/sprites/duck/left1.png)");
+        }
     }
 
 
