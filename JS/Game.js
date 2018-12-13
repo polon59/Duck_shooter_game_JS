@@ -33,6 +33,7 @@ class Game{
         
         if (pressedKeyCode === 13) {
             this.duck1.fallDown();
+            this.duck2.fallDown();
         } 
     }
 
