@@ -13,6 +13,7 @@ class Game{
         // setTimeout(() => this.startDucksFlight(), 7300);
 
         this.startDucksFlight();
+        document.onkeydown = this.checkKey.bind(this);
     }
 
 
@@ -20,6 +21,19 @@ class Game{
         this.duck1.startFlight();
         this.duck2.startFlight();
 
+    }
+
+
+    checkKey(e){
+
+        e = e || window.event;
+        let pressedKeyCode = e.keyCode;
+
+        console.log("STOP");
+        
+        if (pressedKeyCode === 13) {
+            this.duck1.fallDown();
+        } 
     }
 
 

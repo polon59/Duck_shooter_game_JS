@@ -3,33 +3,44 @@ class Duck{
     constructor(id){
         this.duckId = `#${id}`;
         this.wasShot = false;
+        this.moveCount = 0;
+        this.duckFlight;
     }
 
 
     startFlight(){
-        for (let index = 0; index < 10; index++) {
-            this.fly("random");
-        }
-        this.fly("away");
+        this.duckFlight = setInterval(() => this.fly("random"), 1000);
+
+        // this.fly("away");
+    }
+
+
+
+    fallDown(){
+        clearInterval(this.duckFlight);
+        $(this.duckId).stop()
+        .css("background-image", "url(../resources/sprites/duck/falling.gif)")
+        .animate({bottom: `10%`,}, 500 ,function(){});
     }
 
 
     fly(direction){
+        if (this.moveCount == 10) {
+            clearInterval(this.duckFlight);
+            direction = "top";
+        }
+
+        this.moveCount++;
+
         let destHeight = 100;
         let destWidth = this.getRandomWidth(10,85);
-        
+
         if (direction == "random") {
             destHeight = this.getRandomHeight(35,85);
         } 
 
         $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000 ,function(){})
     }
-
-
-    // flyOut(){
-    //     let destWidth = this.getRandomWidth(10,90);
-    //     $(this.duckId).animate({bottom: `100%`, left: `${destWidth}%`}, 1000)
-    // }
 
 
     getRandomWidth(min,max) {
