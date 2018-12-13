@@ -5,6 +5,11 @@ class ShotHandler{
         this.ammo = 3;
     }
 
+    
+    getAmmoNumber(){
+        return this.ammo;
+    }
+
 
     checkIfHitSuccessful(ducks){
         let mouseX = event.clientX;
@@ -15,7 +20,7 @@ class ShotHandler{
         ducks.forEach(duck => {
             let duckPosition = $(duck.duckId).offset();
 
-            if(this.isShotOnDuck(mouseX,mouseY,duckPosition)){
+            if(this.isShotOnDuck(mouseX,mouseY,duckPosition) && duck.isAlive){
                 duck.fallDown();
                 numberOfHits++;
             }   
@@ -38,6 +43,7 @@ class ShotHandler{
         }
         return false;
     }
+
 
 
     enableShooting(){

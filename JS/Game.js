@@ -22,16 +22,22 @@ class Game{
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducks);
         this.ducksKilledInRound += successfulHits;
-
-        if (this.ducksKilledInRound == this.numberOfDucks) {
-            this.finishRound();
-        }
+        this.checkIfRoundIsFinished();
 
     }
 
 
+    checkIfRoundIsFinished(){
+        if (this.ducksKilledInRound == this.numberOfDucks || this.shotHandler.ammo == 0) {
+            this.finishRound();
+        }
+    }
+
+
     finishRound(){
-        alert("All ducks are dead");
+        this.removeRemainingDucks();
+        this.dog2.showDogWithKilledDucks(this.ducksKilledInRound);
+        
     }
 
 
@@ -45,6 +51,15 @@ class Game{
     startDucksFlight(){
         this.ducks.forEach(duck => {
             duck.startFlight();
+        });
+    }
+
+
+    removeRemainingDucks(){
+        this.ducks.forEach(duck => {
+            if (duck.isAlive) {
+                duck.flyOut();
+            }
         });
     }
 
