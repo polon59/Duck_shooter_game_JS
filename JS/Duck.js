@@ -45,11 +45,8 @@ class Duck{
 
     changeDuckBackground(destWidth, destHeight){
         if (destWidth > this.currentWidth) {
-            //console.log("PRAWO " + this.currentWidth + "..." + destWidth);
-            //debugger
             $(this.duckId)
             .css("background-image", "url(../resources/sprites/duck/flyright.gif)");
-            console.log(destHeight - this.currentHeight);
             if(destHeight - this.currentHeight > 20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyrightup.gif)");}
@@ -59,8 +56,6 @@ class Duck{
             
             }
         } else {
-            console.log(destHeight - this.currentHeight);
-            console.log("LEWO " + this.currentWidth + "..." + destWidth);
             $(this.duckId)
             .css("background-image", "url(../resources/sprites/duck/flyleft.gif)");
 

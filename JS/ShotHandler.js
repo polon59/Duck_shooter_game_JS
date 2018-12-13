@@ -4,9 +4,25 @@ class ShotHandler{
         $("#sky").click(this.shot);
     }
 
-    checkIfHitSuccessful(duck1, duck2){
-        duck1.fallDown();
-        duck2.fallDown();
+    checkIfHitSuccessful(ducks){
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        ducks.forEach(duck => {
+            console.log($(duck.duckId).offsetLeft)
+        });
+
+
+
+
+
+
+
+
+
+
+        // duck1.fallDown();
+        // duck2.fallDown();
     }
 
     enableShooting(){
@@ -37,20 +53,20 @@ class ShotHandler{
     // }
     
     
-    // checkIfHit(mouseX,mouseY,duckX,duckY) {
-    //     let duckWidth = 78;
-    //     let duckHeight = 73;
+    checkIfHit(mouseX,mouseY,duckX,duckY) {
+        let duckWidth = 78;
+        let duckHeight = 73;
     
-    //     if ((mouseX>=duckX) && (mouseX <= duckX+duckHeight) && 
-    //     (mouseY >= duckY) && (mouseY <= duckY+duckWidth)){
-    //         changeHitBoxImage("hit");        
-    //         playSound("hit");
-    //         killedDucks++;
-    //         addPoints();
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
+        if ((mouseX>=duckX) && (mouseX <= duckX+duckHeight) && 
+        (mouseY >= duckY) && (mouseY <= duckY+duckWidth)){
+            changeHitBoxImage("hit");        
+            playSound("hit");
+            killedDucks++;
+            addPoints();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
