@@ -5,6 +5,7 @@ class Game{
         this.dog2 = new Dog("dog2");
         this.duck1 = new Duck("duck1");
         this.duck2 = new Duck("duck2");
+        this.shotHandler = new ShotHandler();
     }
 
     startGame(){
@@ -13,6 +14,7 @@ class Game{
         // setTimeout(() => this.startDucksFlight(), 7300);
 
         this.startDucksFlight();
+        this.shotHandler.enableShooting();
         document.onkeydown = this.checkKey.bind(this);
     }
 
