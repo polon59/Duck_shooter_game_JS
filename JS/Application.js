@@ -3,7 +3,7 @@
 launchApplication();
 
 function launchApplication() {
-    var game = new Game(3);
+    var game = new Game(10);
     game.startGame();
 }
 

@@ -29,7 +29,7 @@ class Duck{
             this.stopFlightAnimation();
             $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/falling.gif)")
-                .animate({bottom: `10%`,}, 500 ,function(){});
+                .animate({bottom: `10%`,}, 800 ,function(){});
     }
 
 
