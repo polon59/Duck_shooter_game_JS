@@ -22,6 +22,13 @@ class Duck{
         this.moveCount = 0;
         this.currentWidth = 48;
         this.currentHeight = 20;
+        this.moveToInitialPosition();
+        
+    }
+
+
+    moveToInitialPosition(){
+        $(this.duckId).css("bottom", "20%");
     }
 
 

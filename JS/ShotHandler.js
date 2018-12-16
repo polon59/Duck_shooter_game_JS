@@ -10,6 +10,10 @@ class ShotHandler{
         return this.ammo;
     }
 
+    resetAmmo(){
+        this.ammo = 3;
+    }
+
 
     checkIfHitSuccessful(ducks){
         let mouseX = event.clientX;

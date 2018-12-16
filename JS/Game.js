@@ -34,8 +34,10 @@ class Game{
 
 
     finishRound(){
+        console.log("FINISH");
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
+        setTimeout(() => this.startNewRound(), 2000);
         
     }
 
@@ -52,6 +54,7 @@ class Game{
     startNewRound(){
         this.ducksHandler.startDucksFlight();
         this.shotHandler.enableShooting();
+        this.shotHandler.resetAmmo();
     }
 
 
