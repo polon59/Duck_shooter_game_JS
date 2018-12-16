@@ -1,6 +1,7 @@
 class Duck{
 
-    constructor(id){
+    constructor(id, duckMovesNumber){
+        this.duckMovesNumber = duckMovesNumber;
         this.duckId = `#${id}`;
         this.isAlive = true;
         this.moveCount = 0;
@@ -44,7 +45,7 @@ class Duck{
         let destHeight = this.getRandomHeight(35,85);
         this.moveCount++;
 
-        if (this.moveCount == 10) {
+        if (this.moveCount == this.duckMovesNumber) {
             clearInterval(this.duckFlight);
             destHeight = 100;
         }

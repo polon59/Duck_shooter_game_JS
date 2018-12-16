@@ -1,6 +1,7 @@
 class DucksHandler{
     
-    constructor(numberOfDucks){
+    constructor(numberOfDucks, duckMovesNumber){
+        this.duckMovesNumber = duckMovesNumber;
         this.numberOfDucks = numberOfDucks;
         this.ducks = this.createDucks();
         this.ducksKilledInRound = 0;
@@ -38,7 +39,7 @@ class DucksHandler{
 
         for (let id = 1; id < this.numberOfDucks+1; id++) {
             let currentId = `duck${id}`;
-            ducksList.push(new Duck(currentId));
+            ducksList.push(new Duck(currentId, this.duckMovesNumber));
             $("#sky").append(`<div id="${currentId}" class="duck"></div>`);
         }
 

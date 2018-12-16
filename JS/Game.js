@@ -1,10 +1,10 @@
 class Game{
 
-    constructor(numberOfDucks){
+    constructor(numberOfDucks, duckMovesNumber){
         this.dog1 = new Dog("dog1");
         this.dog2 = new Dog("dog2");
         this.shotHandler = new ShotHandler();
-        this.ducksHandler = new DucksHandler(numberOfDucks);
+        this.ducksHandler = new DucksHandler(numberOfDucks, duckMovesNumber);
     }
 
     startGame(){
