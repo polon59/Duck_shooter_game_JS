@@ -14,20 +14,22 @@ class ShotHandler{
     checkIfHitSuccessful(ducks){
         let mouseX = event.clientX;
         let mouseY = event.clientY;
-        let numberOfHits = 0;
+        let numberOfSuccessfulHits = 0;
         this.ammo--;
 
-        ducks.forEach(duck => {
+        for (let index = 0; index < ducks.length; index++) {
+            let duck = ducks[index];
             let duckPosition = $(duck.duckId).offset();
 
             if(this.isShotOnDuck(mouseX,mouseY,duckPosition) && duck.isAlive){
                 duck.fallDown();
-                numberOfHits++;
+                numberOfSuccessfulHits++;
+                // return here if one hit = one shot
             }   
-        });
+        }
 
         //IF COMBO - DISPLAY MESSAGE
-        return numberOfHits;
+        return numberOfSuccessfulHits;
     }
 
 
