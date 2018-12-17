@@ -22,54 +22,7 @@
 }
 
 
-/* START BUTTON */
 
-#startButton h2{
-    color: red;
-}
-
-#startButton h2:hover{
-    color: rgb(255, 255, 255);
-}
-
-
-/* LEVEL SELECT */
-
-#levelSelectMenu{
-    min-height: 50px;
-}
-
-.levelSelectItem{
-    float: left;
-    color: darkmagenta;
-}
-
-.levelSelectArrow{
-    color: red;
-    margin-left: 3vw;
-    margin-right: 3vw;
-    font-family: Courier New, Courier, monospace;
-}
-
-
-/* HIGH SCORES */
-#highScores h2{
-    color:rgb(0, 226, 0);
-}
-
-/* #highScores ul{
-    padding: 0;
-} */
-
-
-#highScores li{
-    color: rgb(0, 129, 0);
-    /* list-style-type: upper-roman; */
-    /* text-align: center; */
-}
-
-
-/* START SCREEN FOOTER */
 
 #startScreenFooter{
     position: absolute;

@@ -10,7 +10,7 @@ class Game{
     }
 
     startGame(){
-        document.getElementById("startScreen").style.display = "none";
+        // document.getElementById("startScreen").style.display = "none";
         this.dog1.launchWalkoutAnimation();
         setTimeout(() => this.startNewRound(), 7300);
         // this.startNewRound();
