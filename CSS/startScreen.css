@@ -14,11 +14,38 @@
     text-align: center;
 }
 
-#startScreenContent{
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    text-align: left;
+.startScreen__content{
+    position: relative;
+    /* height: 50%; */
+    top: 45%;
+    margin: auto;
+}
+
+#startButton{
+    font-size: x-large;
+    transition: 0.5s ease;
+}
+
+#startButton:hover{
+    letter-spacing: 10px;
+    color: rgb(0, 215, 253);
+    cursor: pointer;
+}
+
+
+.startScreen__content__box{
+    margin: auto;
+    width: 75%;
+    font-size: large;
+    text-align: center;
+}
+
+
+
+
+.arrow:hover{
+    color: red;
+    cursor: pointer;
 }
 
 
