@@ -19,7 +19,7 @@
 
 #shots{
     content: url("../resources/sprites/scoreImages/shot/shot3.png") url("../resources/sprites/scoreImages/shot/shot2.png") url("../resources/sprites/scoreImages/shot/shot1.png") url("../resources/sprites/scoreImages/shot/shot0.png");
-    background-image: url("../resources/sprites/scoreImages/shot/shot3.png");
+    background-image: url("../resources/sprites/scoreImages/shot/shot4.png");
 }
 
 #hit{

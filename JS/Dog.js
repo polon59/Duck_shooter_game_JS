@@ -43,7 +43,14 @@ class Dog{
             $(this.dogId).css("backgroundImage" ,'url(../resources/sprites/dog/gotTwo.png)');
         }
 
-        $(this.dogId).addClass("easingOut");
+        $(this.dogId)
+        .animate({bottom: "35%",}, 600 ,function(){
+        })
+        // change to wait
+        .animate({bottom: "35%",}, 800 ,function(){
+        })
+        .animate({bottom: "15%",}, 600 ,function(){
+        })
     }
 
 }

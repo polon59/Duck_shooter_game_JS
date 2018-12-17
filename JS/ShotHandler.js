@@ -1,8 +1,8 @@
 class ShotHandler{
 
-    constructor(){
-        $("#sky").click(this.shot);
-        this.ammo = 3;
+    constructor(initialAmmo){
+        this.initialAmmo = initialAmmo;
+        this.ammo = initialAmmo;
     }
 
     
@@ -11,7 +11,8 @@ class ShotHandler{
     }
 
     resetAmmo(){
-        this.ammo = 3;
+        this.ammo = this.initialAmmo;
+        this.changeShootBoxImage();
     }
 
 
@@ -20,6 +21,7 @@ class ShotHandler{
         let mouseY = event.clientY;
         let numberOfSuccessfulHits = 0;
         this.ammo--;
+        this.changeShootBoxImage();
 
         for (let index = 0; index < ducks.length; index++) {
             let duck = ducks[index];
@@ -51,9 +53,24 @@ class ShotHandler{
     }
 
 
+    changeShootBoxImage() {
+        if (this.ammo<0) {
+            var path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
+            document.getElementById("shots").style.backgroundImage = path;
+        }else{
+            var path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
+            document.getElementById("shots").style.backgroundImage = path;
+        }
+    }
+
 
     enableShooting(){
         $("#shootBlocker").hide();
+    }
+
+
+    disablehooting(){
+        $("#shootBlocker").show();
     }
 
     

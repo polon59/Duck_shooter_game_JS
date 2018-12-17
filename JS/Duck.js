@@ -36,8 +36,8 @@ class Duck{
             this.isAlive = false;
             this.stopFlightAnimation();
             $(this.duckId)
-                .css("background-image", "url(../resources/sprites/duck/falling.gif)")
-                .animate({bottom: `10%`,}, 800 ,function(){});
+                .animate({bottom: `10%`,}, 800 ,function(){})
+                .css("background-image", "url(../resources/sprites/duck/falling.gif)");
     }
 
 
