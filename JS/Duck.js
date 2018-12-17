@@ -23,7 +23,6 @@ class Duck{
         this.currentWidth = 48;
         this.currentHeight = 20;
         this.moveToInitialPosition();
-        
     }
 
 
@@ -52,14 +51,12 @@ class Duck{
         let destHeight = this.getRandomHeight(35,85);
         this.moveCount++;
 
-        if (this.moveCount == this.duckMovesNumber) {
-            clearInterval(this.duckFlight);
-            destHeight = 100;
-        }
-
+        // if (this.moveCount == this.duckMovesNumber) {
+        //     clearInterval(this.duckFlight);
+        //     destHeight = 100;
+        // }
         this.changeDuckBackground(destWidth, destHeight);
-        
-        $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000 ,function(){})
+        $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000)
         this.currentWidth = destWidth;
         this.currentHeight = destHeight;
     }

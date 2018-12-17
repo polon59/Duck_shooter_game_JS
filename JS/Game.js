@@ -6,15 +6,15 @@ class Game{
         this.duckMovesNumber = duckMovesNumber;
         this.shotHandler = new ShotHandler(initialAmmo);
         this.ducksHandler = new DucksHandler(numberOfDucks, duckMovesNumber);
+        this.newRoundCountdown;
     }
 
     startGame(){
         document.getElementById("startScreen").style.display = "none";
-        this.dog1.launchWalkoutAnimation();
-        setTimeout(() => this.startNewRound(), 7300);
-        // this.startNewRound();
+        // this.dog1.launchWalkoutAnimation();
+        // setTimeout(() => this.startNewRound(), 7300);
+        this.startNewRound();
         $("#sky").click(this.shoot.bind(this));
-        
     }
 
 
@@ -34,6 +34,8 @@ class Game{
 
 
     finishRound(){
+        window.clearTimeout(this.newRoundCountdown);
+
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
@@ -53,6 +55,7 @@ class Game{
 
 
     startNewRound(){
+        this.newRoundCountdown = setTimeout(() => this.finishRound(), this.duckMovesNumber*1000);
         this.ducksHandler.startDucksFlight();
         this.shotHandler.enableShooting();
         this.shotHandler.resetAmmo();

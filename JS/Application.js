@@ -1,9 +1,9 @@
 
-
-launchApplication();
+$(document).ready(launchApplication());
 
 function launchApplication() {
-    var game = new Game(5, 10, 5);
+    // numberOfDucks, duckMovesNumber, initialAmmo
+    var game = new Game(5, 5, 5);
     game.startGame();
 }
 
