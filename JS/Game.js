@@ -11,9 +11,9 @@ class Game{
 
     startGame(){
         document.getElementById("startScreen").style.display = "none";
-        // this.dog1.launchWalkoutAnimation();
-        // setTimeout(() => this.startNewRound(), 7300);
-        this.startNewRound();
+        this.dog1.launchWalkoutAnimation();
+        setTimeout(() => this.startNewRound(), 7300);
+        // this.startNewRound();
         $("#sky").click(this.shoot.bind(this));
     }
 
