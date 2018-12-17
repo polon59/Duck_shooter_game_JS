@@ -33,12 +33,17 @@ class Duck{
 
     fallDown(){
             this.isAlive = false;
+            let this_ = this;
             this.stopFlightAnimation();
-            $(this.duckId)
-                .animate({bottom: `10%`,}, 800 ,function(){})
-                .css("background-image", "url(../resources/sprites/duck/falling.gif)");
-    }
+            $(this.duckId).css("background-image", "url(../resources/sprites/duck/hit.png)")
 
+            setTimeout(function(){
+                $(this_.duckId)
+                    .css("background-image", "url(../resources/sprites/duck/falling.gif)")
+                    .animate({bottom: `10%`,}, 650);
+            },150);
+    }
+    
 
     stopFlightAnimation(){
         clearInterval(this.duckFlight);
@@ -47,14 +52,10 @@ class Duck{
 
 
     fly(){
+        this.moveCount++;
         let destWidth = this.getRandomWidth(10,85);
         let destHeight = this.getRandomHeight(35,85);
-        this.moveCount++;
 
-        // if (this.moveCount == this.duckMovesNumber) {
-        //     clearInterval(this.duckFlight);
-        //     destHeight = 100;
-        // }
         this.changeDuckBackground(destWidth, destHeight);
         $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000)
         this.currentWidth = destWidth;
@@ -92,7 +93,6 @@ class Duck{
             if(destHeight - this.currentHeight < -20){
                 $(this.duckId)
                 .css("background-image", "url(../resources/sprites/duck/flyleftdown.gif)");
-            
             }
         }
     }

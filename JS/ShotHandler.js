@@ -16,6 +16,14 @@ class ShotHandler{
     }
 
 
+    checkIsNoAmmoLeft(){
+        if (this.ammo == 0) {
+            return true;
+        }
+        return false;
+    }
+
+
     checkIfHitSuccessful(ducks){
         let mouseX = event.clientX;
         let mouseY = event.clientY;

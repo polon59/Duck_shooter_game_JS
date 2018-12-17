@@ -6,7 +6,7 @@ class Game{
         this.duckMovesNumber = duckMovesNumber;
         this.shotHandler = new ShotHandler(initialAmmo);
         this.ducksHandler = new DucksHandler(numberOfDucks, duckMovesNumber);
-        this.newRoundCountdown;
+        this.roundEndCountdown;
     }
 
     startGame(){
@@ -27,39 +27,36 @@ class Game{
 
 
     checkIfRoundIsFinished(){
-        if (this.ducksHandler.checkAllDucksAreShot() || this.checkIsNoAmmoLeft()) {
+        if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
             this.finishRound();
         }
     }
 
 
     finishRound(){
-        window.clearTimeout(this.newRoundCountdown);
-
+        this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
         setTimeout(() => this.startNewRound(), 2000);
-        
-    }
-
-
-    // move to shotHandler
-    checkIsNoAmmoLeft(){
-        if (this.shotHandler.ammo == 0) {
-            return true;
-        }
-        return false;
-
     }
 
 
     startNewRound(){
-        this.newRoundCountdown = setTimeout(() => this.finishRound(), this.duckMovesNumber*1000);
+        this.setCountdownToRoundEnd();
         this.ducksHandler.startDucksFlight();
         this.shotHandler.enableShooting();
         this.shotHandler.resetAmmo();
     }
 
 
+    stopCountdownToRoundEnd(){
+        window.clearTimeout(this.roundEndCountdown);
+    }
+
+
+    setCountdownToRoundEnd(){
+        let timeToRoundEnd = this.duckMovesNumber*1000;
+        this.roundEndCountdown = setTimeout(() => this.finishRound(), timeToRoundEnd);
+    }
 }
