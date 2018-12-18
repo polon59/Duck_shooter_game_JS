@@ -1,14 +1,12 @@
 
-$(document).ready(launchApplication());
+// $(document).ready(displayMenu());
+
+var startScreen = new StartScreen();
 
 function launchApplication() {
-    // numberOfDucks, duckMovesNumber, initialAmmo
-    let startScreen = new StartScreen();
-    let numberOfDucks;
-    let duckMovesNumber;
-    let initialAmmo;
-
-    // var game = new Game(5, 5, 5);
-    // game.startGame();
+    let gameParameters = startScreen.getGameParametersFromUserSelect();
+    let game = new Game(gameParameters.ducksNumber, gameParameters.movesNumber, gameParameters.initialAmmo);
+    startScreen.hideStartScreen();
+    game.startGame();
 }
 

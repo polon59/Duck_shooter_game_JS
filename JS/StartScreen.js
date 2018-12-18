@@ -13,7 +13,7 @@ class StartScreen{
         this.availableModes.push(
             {name:"CUSTOM", difficulty:"EASY", ammunition:5, ducks:2},
             {name:"CLASSIC", difficulty:"EASY", ammunition:3, ducks:2},
-            {name:"EXTREME", difficulty:"HARD", ammunition:30, ducks:15}
+            {name:"EXTREME", difficulty:"HARD", ammunition:5, ducks:10}
         )
     }
 
@@ -29,7 +29,6 @@ class StartScreen{
             if (this.currentModeIndex<2) {
                 this.currentModeIndex++;
             }
-
         } else {
             if (this.currentModeIndex >0) {
                 this.currentModeIndex--;
@@ -41,15 +40,12 @@ class StartScreen{
 
     displaySettingsForCurrentMode(){
         let selectedMode = this.availableModes[this.currentModeIndex];
-
         $("#modeSelect .selection").html(selectedMode.name);
         $("#diffSelect .selection").html(selectedMode.difficulty);
         $("#ammoSelect .selection").html(selectedMode.ammunition);
         $("#ducksSelect .selection").html(selectedMode.ducks);
-
         this.changeVisibilityOfArrows();
     }
-
 
 
     changeVisibilityOfArrows(){
@@ -72,8 +68,21 @@ class StartScreen{
     }
 
 
+    getDuckMovesNumberByDifficultyLevel(difficultyLevel){
+        if (difficultyLevel == "EASY") {
+            return 8;
+        } else if (difficultyLevel == "HARD") {
+            return 5;
+        }
+    }
 
 
+    getGameParametersFromUserSelect(){
+        let selectedMode = this.availableModes[this.currentModeIndex];
+        let moves = this.getDuckMovesNumberByDifficultyLevel(selectedMode.difficulty);
+        let gameParameters = {ducksNumber:selectedMode.ducks, movesNumber:moves, initialAmmo:selectedMode.ammunition};
+        return gameParameters;
+    }
 
 
     hideStartScreen(){
