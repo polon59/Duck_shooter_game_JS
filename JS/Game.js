@@ -8,6 +8,7 @@ class Game{
         this.shotHandler = new ShotHandler(initialAmmo);
         this.ducksHandler = new DucksHandler(numberOfDucks, duckMovesNumber);
         this.roundEndCountdown;
+        this.lives = 3;
     }
 
     startGame(){
@@ -38,7 +39,12 @@ class Game{
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
         setTimeout(() => this.startNewRound(), 2000);
-        if (this.mode == "EXTREME") {
+        this.addNewDuckOnExtremeMode();
+    }
+
+
+    addNewDuckOnExtremeMode(){
+        if (this.mode == "EXTREME" && this.ducksHandler.numberOfDucks < 25) {
             this.ducksHandler.createNewDuck();
         }
     }
