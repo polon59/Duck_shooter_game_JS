@@ -51,24 +51,6 @@ body{
     background-size: 100%;
 }
 
-/* #duck1{
-    animation-name: duck1;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    width: 78px;
-    height: 73px;
-    background-size: 100%;
-}
-
-#duck2{
-    animation-name: duck2;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    background-size: 100%;
-    width: 78px;
-    height: 73px;
-} */
-
 .dog{
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -101,15 +83,30 @@ body{
     animation-timing-function: linear;
 }
 
+.comboMessage{
+    display: none;
+    z-index: 7;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    animation-name: flash;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+}
 
-@keyframes dog2Show{
+@keyframes flash {
+    0% {color: red}
+    100% {color: black}
+}
+
+/* @keyframes dog2Show{
     0%  {left: 48%; bottom: 20%;}
     20%  {left: 48%; bottom: 35%;}
     80%  {left: 48%; bottom: 35%;}
     100%  {left: 48%; bottom: 20%;}
 }
 
-/* 4s */
+
 @keyframes dogWalk1 {
     0%   {left:0%; bottom:20%;}
     100% {left:20%; bottom:20%;}
@@ -120,7 +117,7 @@ body{
     100% {left:20%; bottom:20%;}
 }
 
-/* 4s */
+
 @keyframes dogWalk2 {
     0%   {left:20%; bottom:20%;}
     100% {left:40%; bottom:20%;}
@@ -129,7 +126,7 @@ body{
 @keyframes dogSniff2 {
     0%   {left:40%; bottom:20%;}
     100% {left:40%; bottom:20%;}
-}
+} */
 
 
 /* 0.7 */

@@ -10,6 +10,7 @@ class ShotHandler{
         return this.ammo;
     }
 
+
     resetAmmo(){
         this.ammo = this.initialAmmo;
         this.changeShootBoxImage();
@@ -42,9 +43,15 @@ class ShotHandler{
             }   
         }
 
-        //IF COMBO - DISPLAY MESSAGE
+        if (numberOfSuccessfulHits>1) {
+            showComboMessage(mouseX,mouseY, numberOfSuccessfulHits);
+            console.log("combo");
+        }
+
         return numberOfSuccessfulHits;
     }
+
+
 
 
     isShotOnDuck(mouseX,mouseY,duckPosition) {
@@ -80,8 +87,6 @@ class ShotHandler{
     disablehooting(){
         $("#shootBlocker").show();
     }
-
-    
-    
-    
 }
+
+

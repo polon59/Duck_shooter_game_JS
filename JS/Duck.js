@@ -26,8 +26,22 @@ class Duck{
     }
 
 
+    stopFlightAnimation(){
+        clearInterval(this.duckFlight);
+        $(this.duckId).stop();
+    }
+
+
     moveToInitialPosition(){
         $(this.duckId).css("bottom", "20%");
+    }
+
+
+    flyOut(){
+        this.stopFlightAnimation();
+        let destWidth = this.getRandomWidth(10,85);
+        this.changeDuckBackground(destWidth, 100);
+        $(this.duckId).animate({bottom: `100%`, left: `${destWidth}%`}, 500 ,function(){})
     }
 
 
@@ -45,29 +59,14 @@ class Duck{
     }
     
 
-    stopFlightAnimation(){
-        clearInterval(this.duckFlight);
-        $(this.duckId).stop();
-    }
-
-
     fly(){
         this.moveCount++;
         let destWidth = this.getRandomWidth(10,85);
         let destHeight = this.getRandomHeight(35,85);
-
         this.changeDuckBackground(destWidth, destHeight);
         $(this.duckId).animate({bottom: `${destHeight}%`, left: `${destWidth}%`}, 1000)
         this.currentWidth = destWidth;
         this.currentHeight = destHeight;
-    }
-
-
-    flyOut(){
-        this.stopFlightAnimation();
-        let destWidth = this.getRandomWidth(10,85);
-        this.changeDuckBackground(destWidth, 100);
-        $(this.duckId).animate({bottom: `100%`, left: `${destWidth}%`}, 500 ,function(){})
     }
 
 

@@ -12,7 +12,6 @@ class DucksHandler{
 
     startDucksFlight(){
         this.ducksKilledInRound = 0;
-
         this.ducks.forEach(duck => {
             duck.startFlight();
         });
