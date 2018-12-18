@@ -1,6 +1,6 @@
 @font-face {
     font-family: asset;
-    src: url('https://fonts.googleapis.com/css?family=Asset');
+    src: url('../resources/fonts/Asset/Asset-Regular.ttf');
 }
 
 h3{
