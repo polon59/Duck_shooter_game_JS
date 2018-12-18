@@ -39,7 +39,6 @@ class ShotHandler{
             if(this.isShotOnDuck(mouseX,mouseY,duckPosition) && duck.isAlive){
                 duck.fallDown();
                 numberOfSuccessfulHits++;
-                // return here if one hit = one shot
             }   
         }
 

@@ -21,10 +21,16 @@ class Game{
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
+        // this.checkIfRoundIsPassed(successfulHits);
+
         this.checkIfRoundIsFinished();
 
     }
 
+
+    // checkIfRoundIsPassed(successfulHits){
+    //     if successfulHits
+    // }
 
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
