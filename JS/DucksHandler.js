@@ -2,9 +2,11 @@ class DucksHandler{
     
     constructor(numberOfDucks, duckMovesNumber){
         this.duckMovesNumber = duckMovesNumber;
-        this.numberOfDucks = numberOfDucks;
-        this.ducks = this.createDucks();
+        this.initialDucksNumber = numberOfDucks;
+        this.numberOfDucks = 0;
+        this.ducks = new Array();
         this.ducksKilledInRound = 0;
+        this.createDucks();
     }
 
 
@@ -43,14 +45,8 @@ class DucksHandler{
 
 
     createDucks(){
-        let ducksList = new Array();
-
-        for (let id = 1; id < this.numberOfDucks+1; id++) {
-            let currentId = `duck${id}`;
-            ducksList.push(new Duck(currentId, this.duckMovesNumber));
-            $("#sky").append(`<div id="${currentId}" class="duck"></div>`);
+        for (let i = 0; i < this.initialDucksNumber; i++) {
+            this.createNewDuck();
         }
-
-        return ducksList;
     }
 }
