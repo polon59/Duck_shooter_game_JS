@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="../CSS/bar.css">
     <link rel="stylesheet" href="../CSS/overlays.css">
     <link rel="stylesheet" href="../CSS/startScreen.css">
-    <link href="https://fonts.googleapis.com/css?family=Asset" rel="stylesheet">
     <script src="../JS/JQuery/jquery-3.3.1.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     
@@ -20,34 +19,13 @@
                 <h2 id="startButton">START GAME</h2>
             </div>
 
-            <div class="startScreen__content__box">
-                <table class="startScreen__table">
-                    <tr id="modeSelect">
-                        <td class="startScreen__table__category">MODE</td>
-                        <td class="arrow" id="prevMode">⏴</td>
-                        <td class="selection" >CLASSIC</td>
-                        <td class="arrow" id="nextMode">⏵</td>
-                    </tr>
-                    <tr id="diffSelect">
-                        <td class="startScreen__table__category">DIFFICULTY</td>
-                        <td class="arrow" id="prevDiff">⏴</td>
-                        <td class="selection" >EASY</td>
-                        <td class="arrow" id="nextDiff">⏵</td>
-                    </tr>
-                    <tr id="ammoSelect">
-                        <td class="startScreen__table__category">AMMUNITION</td>
-                        <td class="arrow">⏴</td>
-                        <td class="selection" >5</td>
-                        <td class="arrow">⏵</td>
-                    </tr>
-                    <tr id="ducksSelect">
-                        <td class="startScreen__table__category">DUCKS</td>
-                        <td class="arrow">⏴</td>
-                        <td class="selection" >3</td>
-                        <td class="arrow">⏵</td>
-                    </tr>
-                </table>
+            <div class="startScreen__content__box" id="modeSelect">
+                    <div class="arrow" id="prevMode">⏴</div>
+                    <div class="selection">CLASSIC</div>
+                    <div class="arrow" id="nextMode">⏵</div>  
             </div>
+
+
 
             <!-- <div id="startScreenFooter">
                 <p>By <a href="https://github.com/Seweryn91" target="_blank" >Seweryn91</a> and <a href="https://github.com/polon59" target="_blank" >polon59</a></p>

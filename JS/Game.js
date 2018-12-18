@@ -1,6 +1,7 @@
 class Game{
 
-    constructor(numberOfDucks, duckMovesNumber, initialAmmo){
+    constructor(modeName, numberOfDucks, duckMovesNumber, initialAmmo){
+        this.mode = modeName;
         this.dog1 = new Dog("dog1");
         this.dog2 = new Dog("dog2");
         this.duckMovesNumber = duckMovesNumber;
@@ -37,6 +38,9 @@ class Game{
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
         setTimeout(() => this.startNewRound(), 2000);
+        if (this.mode == "EXTREME") {
+            this.ducksHandler.createNewDuck();
+        }
     }
 
 

@@ -16,12 +16,12 @@
 
 .startScreen__content{
     position: relative;
-    /* height: 50%; */
     top: 45%;
     margin: auto;
 }
 
 #startButton{
+    width: 100%;
     font-size: x-large;
     transition: 0.5s ease;
 }
@@ -32,18 +32,33 @@
     cursor: pointer;
 }
 
-
 .startScreen__content__box{
+    display: flex;
+    flex-wrap: nowrap;
     margin: auto;
     width: 75%;
     font-size: large;
     text-align: center;
+    color: white;
 }
 
-.startScreen__table{
-    width: 100%;
+.selection{
+    width: 70%;
 }
 
+.arrow{
+    font-size: xx-large;
+    width: 15%;
+}
+
+/* .flex-container > div {
+    background-color: #f1f1f1;
+    width:25%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  } */
 
 
 .arrow:hover{
