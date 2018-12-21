@@ -15,7 +15,7 @@ function launchApplication() {
         selectedMode = new Modern(gameParameters);
     }
     else{
-        selectedMode = new Game(gameParameters);
+        selectedMode = new Classic(gameParameters);
     }
 
     startScreen.hideStartScreen();

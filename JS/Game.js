@@ -13,7 +13,6 @@ class Game{
     startGame(){
         this.dog1.launchWalkoutAnimation();
         setTimeout(() => this.startNewRound(), 7300);
-        // $("#sky").click(this.shoot.bind(this));
     }
 
     shoot(){
@@ -108,10 +107,13 @@ class Extreme extends Game{
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
         setTimeout(() => this.startNewRound(), 2000);
         this.addNewDuck();
+        
     }
 
     addNewDuck(){
-        this.ducksHandler.createNewDuck();
+        if (this.ducksHandler.numberOfDucks < 20) {
+            this.ducksHandler.createNewDuck();
+        }
     }
 }
 
@@ -119,14 +121,27 @@ class Extreme extends Game{
 
 class Modern extends Game{
     
-        constructor(gameParameters){
-            super(gameParameters);
-            this.changeBackgroudsForCurrentMode();
-        }
-    
-        changeBackgroudsForCurrentMode(){
-            $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky2.png)");
-            $("#sky").click(this.shoot.bind(this));
-        }
-
+    constructor(gameParameters){
+        super(gameParameters);
+        this.changeBackgroudsForCurrentMode();
     }
+
+    changeBackgroudsForCurrentMode(){
+        $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky2.png)");
+        $("#sky").click(this.shoot.bind(this));
+    }
+
+}
+
+
+class Classic extends Game{
+    constructor(gameParameters){
+        super(gameParameters);
+        this.changeBackgroudsForCurrentMode();
+    }
+
+    changeBackgroudsForCurrentMode(){
+        $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky1.png)");
+        $("#sky").click(this.shoot.bind(this));
+    }
+}
