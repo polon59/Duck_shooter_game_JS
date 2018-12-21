@@ -2,10 +2,10 @@ class StartScreen{
 
     constructor(){
         this.availableModes = new Array();
-        this.currentModeIndex = -1;
+        this.currentModeIndex = 0;
         this.initializeModes();
         this.initializeButtons();
-        this.changeMode("next");
+        this.displaySettingsForCurrentMode();
     }
 
 
@@ -21,8 +21,6 @@ class StartScreen{
     initializeButtons(){
         $("#prevMode").click(()=>this.changeMode("prev"));
         $("#nextMode").click(()=>this.changeMode("next"));
-        $("#prevDiff").click(()=>this.changeDifficulty("next"));
-        $("#nextDiff").click(()=>this.changeDifficulty("next"));
     }
 
     
@@ -30,10 +28,14 @@ class StartScreen{
         if (togle == "next") {
             if (this.currentModeIndex<2) {
                 this.currentModeIndex++;
+            }else{
+                this.currentModeIndex = 0;
             }
         } else {
             if (this.currentModeIndex >0) {
                 this.currentModeIndex--;
+            }else{
+                this.currentModeIndex = 2;
             }
         }
         this.displaySettingsForCurrentMode();
@@ -43,30 +45,6 @@ class StartScreen{
     displaySettingsForCurrentMode(){
         let selectedMode = this.availableModes[this.currentModeIndex];
         $("#modeSelect .selection").html(selectedMode.name);
-        $("#diffSelect .selection").html(selectedMode.difficulty);
-        $("#ammoSelect .selection").html(selectedMode.ammunition);
-        $("#ducksSelect .selection").html(selectedMode.ducks);
-        this.changeVisibilityOfArrows();
-    }
-
-
-    changeVisibilityOfArrows(){
-        let currentModeName = this.availableModes[this.currentModeIndex].name;
-        if (currentModeName == "CLASSIC") {
-            $("#diffSelect .arrow").css("visibility","visible");
-            $("#ammoSelect .arrow").css("visibility","hidden");
-            $("#ducksSelect .arrow").css("visibility","hidden");
-        }
-        else if(currentModeName == "CUSTOM"){
-            $("#diffSelect .arrow").css("visibility","visible");
-            $("#ammoSelect .arrow").css("visibility","visible");
-            $("#ducksSelect .arrow").css("visibility","visible");
-        }
-        else{
-            $("#diffSelect .arrow").css("visibility","hidden");
-            $("#ammoSelect .arrow").css("visibility","hidden");
-            $("#ducksSelect .arrow").css("visibility","hidden");
-        }
     }
 
 
