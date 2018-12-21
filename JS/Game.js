@@ -101,6 +101,7 @@ class Extreme extends Game{
     }
 
     finishRound(){
+        this.stopAutoShooting();
         this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
