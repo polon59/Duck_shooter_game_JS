@@ -1,7 +1,5 @@
 class Game{
 
-
-
     constructor(gameParameters){
         this.dog1 = new Dog("dog1");
         this.dog2 = new Dog("dog2");
@@ -11,6 +9,7 @@ class Game{
         this.roundEndCountdown;
         this.lives = 3;
     }
+
 
     startGame(){
         this.dog1.launchWalkoutAnimation();
@@ -32,6 +31,7 @@ class Game{
     // checkIfRoundIsPassed(successfulHits){
     //     if successfulHits
     // }
+
 
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
@@ -70,6 +70,7 @@ class Game{
 
 
 
+
 class Extreme extends Game{
 
     constructor(gameParameters){
@@ -78,12 +79,12 @@ class Extreme extends Game{
 
 
     shoot(){
-
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
         // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
+
 
     finishRound(){
         this.stopCountdownToRoundEnd();
@@ -99,3 +100,20 @@ class Extreme extends Game{
         this.ducksHandler.createNewDuck();
     }
 }
+
+
+
+class Modern extends Game{
+    
+        constructor(gameParameters){
+            super(gameParameters);
+            this.initializeSprites();
+        }
+    
+
+        initializeSprites(){
+            
+        }
+
+
+    }

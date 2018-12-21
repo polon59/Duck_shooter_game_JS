@@ -6,12 +6,20 @@ var startScreen = new StartScreen();
 function launchApplication() {
     let gameParameters = startScreen.getGameParametersFromUserSelect();
     let selectedModeName = gameParameters.modeName;
+    let selectedMode;
 
-    let extr = new Extreme(gameParameters);
-    // let game = new Game(3, 6, 4);
+    if (selectedModeName == "EXTREME") {
+        selectedMode = new Extreme(gameParameters);
+    }
+    else if(selectedModeName == "MODERN"){
+        selectedMode = new Modern(gameParameters);
+    }
+    else{
+        selectedMode = new Game(gameParameters);
+    }
+
     startScreen.hideStartScreen();
-    extr.startGame();
-    // game.startGame();
+    selectedMode.startGame();
 }
 
 /*
