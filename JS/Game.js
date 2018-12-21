@@ -107,12 +107,12 @@ class Modern extends Game{
     
         constructor(gameParameters){
             super(gameParameters);
-            this.initializeSprites();
+            this.changeBackgroudsForCurrentMode();
         }
     
 
-        initializeSprites(){
-            
+        changeBackgroudsForCurrentMode(){
+
         }
 
 
