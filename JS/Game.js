@@ -10,35 +10,29 @@ class Game{
         this.lives = 3;
     }
 
-
     startGame(){
         this.dog1.launchWalkoutAnimation();
         setTimeout(() => this.startNewRound(), 7300);
-        $("#sky").click(this.shoot.bind(this));
+        // $("#sky").click(this.shoot.bind(this));
     }
 
-
     shoot(){
+        console.log(this.shotHandler.ammo);
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
         // this.checkIfRoundIsPassed(successfulHits);
-
         this.checkIfRoundIsFinished();
-
     }
-
 
     // checkIfRoundIsPassed(successfulHits){
     //     if successfulHits
     // }
-
 
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
             this.finishRound();
         }
     }
-
 
     finishRound(){
         this.stopCountdownToRoundEnd();
@@ -48,7 +42,6 @@ class Game{
         setTimeout(() => this.startNewRound(), 2000);
     }
 
-
     startNewRound(){
         this.setCountdownToRoundEnd();
         this.ducksHandler.startDucksFlight();
@@ -56,11 +49,9 @@ class Game{
         this.shotHandler.resetAmmo();
     }
 
-
     stopCountdownToRoundEnd(){
         window.clearTimeout(this.roundEndCountdown);
     }
-
 
     setCountdownToRoundEnd(){
         let timeToRoundEnd = this.duckMovesNumber*1000;
@@ -71,20 +62,43 @@ class Game{
 
 
 
+
 class Extreme extends Game{
 
     constructor(gameParameters){
         super(gameParameters);
+        this.initializeCurrentModeSettings();
+        this.shooting;
+        this.mouseX;
+        this.mouseY;
     }
 
+    initializeCurrentModeSettings(){
+        $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky3.png)");
+        $(document).mousedown(()=>this.startAutoShooting(event));
+        $(document).mouseup(()=>this.stopAutoShooting(event));
+    }
+
+    saveCurrentCoordinates(){
+        this.mouseX = event.clientX;
+        this.mouseY = event.clientY;
+    }
+
+    startAutoShooting(event){
+        $(document).on("mousemove", ()=>this.saveCurrentCoordinates());
+        this.shooting = setInterval(()=>this.shoot(), 100);
+    }
+
+    stopAutoShooting(){
+        $(document).off("mousemove");
+        clearInterval(this.shooting);
+    }
 
     shoot(){
-        let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
+        let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks, this.mouseX, this.mouseY);
         this.ducksHandler.ducksKilledInRound += successfulHits;
-        // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
-
 
     finishRound(){
         this.stopCountdownToRoundEnd();
@@ -94,7 +108,6 @@ class Extreme extends Game{
         setTimeout(() => this.startNewRound(), 2000);
         this.addNewDuck();
     }
-
 
     addNewDuck(){
         this.ducksHandler.createNewDuck();
@@ -110,10 +123,9 @@ class Modern extends Game{
             this.changeBackgroudsForCurrentMode();
         }
     
-
         changeBackgroudsForCurrentMode(){
-
+            $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky2.png)");
+            $("#sky").click(this.shoot.bind(this));
         }
-
 
     }

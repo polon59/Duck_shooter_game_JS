@@ -3,6 +3,8 @@ class ShotHandler{
     constructor(initialAmmo){
         this.initialAmmo = initialAmmo;
         this.ammo = initialAmmo;
+        this.shoot = new Audio('../resources/sounds/shoot.wav');
+        
     }
 
     
@@ -25,12 +27,14 @@ class ShotHandler{
     }
 
 
-    checkIfHitSuccessful(ducks){
-        let mouseX = event.clientX;
-        let mouseY = event.clientY;
+    checkIfHitSuccessful(ducks, mouseX, mouseY){
+        if (mouseX == undefined || mouseY==undefined) {
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+        }
+        
         let numberOfSuccessfulHits = 0;
-        this.ammo--;
-        this.changeShootBoxImage();
+        this.subtractAmmunition();
 
         for (let index = 0; index < ducks.length; index++) {
             let duck = ducks[index];
@@ -44,10 +48,16 @@ class ShotHandler{
 
         if (numberOfSuccessfulHits>1) {
             showComboMessage(mouseX,mouseY, numberOfSuccessfulHits);
-            console.log("combo");
         }
-
         return numberOfSuccessfulHits;
+    }
+
+
+    subtractAmmunition(){
+        this.shoot.currentTime = 0;
+        this.shoot.play();
+        this.ammo--;
+        this.changeShootBoxImage();
     }
 
 
@@ -68,13 +78,19 @@ class ShotHandler{
 
 
     changeShootBoxImage() {
+        let path;
+
         if (this.ammo<0) {
-            var path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
-            document.getElementById("shots").style.backgroundImage = path;
-        }else{
-            var path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
-            document.getElementById("shots").style.backgroundImage = path;
+            path = `url('../resources/sprites/scoreImages/shot/shot5.png')`;
         }
+        else if(this.ammo>5){
+            path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
+        }
+        else{
+            path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
+        }
+
+        document.getElementById("shots").style.backgroundImage = path;
     }
 
 
