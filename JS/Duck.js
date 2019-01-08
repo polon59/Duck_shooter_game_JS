@@ -27,8 +27,8 @@ class Duck{
 
 
     stopFlightAnimation(){
-        $(this.duckId).stop();
         clearInterval(this.duckFlight);
+        $(this.duckId).stop();
     }
 
 

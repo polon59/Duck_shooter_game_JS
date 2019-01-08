@@ -74,8 +74,8 @@ class Extreme extends Game{
 
     initializeCurrentModeSettings(){
         $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky3.png)");
-        $(document).mousedown(()=>this.startAutoShooting(event));
-        $(document).mouseup(()=>this.stopAutoShooting(event));
+        $(".sky").mousedown(()=>this.startAutoShooting(event));
+        $(".sky").mouseup(()=>this.stopAutoShooting(event));
     }
 
     saveCurrentCoordinates(){
@@ -84,7 +84,7 @@ class Extreme extends Game{
     }
 
     startAutoShooting(event){
-        $(document).on("mousemove", ()=>this.saveCurrentCoordinates());
+        $(".sky").on("mousemove", ()=>this.saveCurrentCoordinates());
         this.shooting = setInterval(()=>this.shoot(), 100);
     }
 

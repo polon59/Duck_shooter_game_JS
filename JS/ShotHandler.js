@@ -61,8 +61,6 @@ class ShotHandler{
     }
 
 
-
-
     isShotOnDuck(mouseX,mouseY,duckPosition) {
         let duckX = duckPosition.left;
         let duckY = duckPosition.top;
