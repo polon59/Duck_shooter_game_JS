@@ -4,7 +4,7 @@ class ShotHandler{
         this.initialAmmo = initialAmmo;
         this.ammo = initialAmmo;
         this.shoot = new Audio('../resources/sounds/shoot.wav');
-        
+        this.pointsHandler = new PointsHandler();
     }
 
     
@@ -43,11 +43,13 @@ class ShotHandler{
             if(this.isShotOnDuck(mouseX,mouseY,duckPosition) && duck.isAlive){
                 duck.fallDown();
                 numberOfSuccessfulHits++;
+                this.pointsHandler.addPoints(10);
             }   
         }
 
         if (numberOfSuccessfulHits>1) {
             showComboMessage(mouseX,mouseY, numberOfSuccessfulHits);
+            this.pointsHandler.addPoints(numberOfSuccessfulHits*10);
         }
         return numberOfSuccessfulHits;
     }
@@ -76,19 +78,21 @@ class ShotHandler{
 
 
     changeShootBoxImage() {
-        let path;
+        // let path;
 
-        if (this.ammo<0) {
-            path = `url('../resources/sprites/scoreImages/shot/shot5.png')`;
-        }
-        else if(this.ammo>5){
-            path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
-        }
-        else{
-            path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
-        }
+        $("#ammunitionAmmount").html(this.ammo)
 
-        document.getElementById("shots").style.backgroundImage = path;
+        // if (this.ammo<0) {
+        //     path = `url('../resources/sprites/scoreImages/shot/shot5.png')`;
+        // }
+        // else if(this.ammo>5){
+        //     path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
+        // }
+        // else{
+        //     path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
+        // }
+
+        // document.getElementById("shots").style.backgroundImage = path;
     }
 
 
