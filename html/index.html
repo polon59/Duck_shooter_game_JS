@@ -54,7 +54,10 @@
 
         <div class="bushes">
             <div class="row">
-                <div class="rowCell" id="shots" style="width:20%;"></div>
+                <div class="rowCell ammunitionCell" id="shots">
+                    <h2 id="ammunitionAmmount">0</h2>
+                    <h2>SHOT</h2>
+                </div>
 
                 <div class="rowCell" id="hit" style="width:50%;">
                     <div class="row" style="width:50%;">
@@ -73,8 +76,9 @@
                     </div>
                 </div>
 
-                <div class="rowCell" id="score" style="width:30%;">
-                    <h2 id="scoreCount">00</h2>
+                <div class="rowCell scoreCell" id="score">
+                    <h2 id="scoreCount">0</h2>
+                    <h2>SCORE</h2>
                 </div>
 
             </div>
@@ -111,6 +115,7 @@
         </div>
     </div>
 
+    <script src="../JS/PointsHandler.js"></script>
     <script src="../JS/DucksHandler.js"></script>
     <script src="../JS/Duck.js"></script>
     <script src="../JS/View.js"></script>
