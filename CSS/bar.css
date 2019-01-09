@@ -7,23 +7,19 @@
     width: 100%;
     table-layout: fixed;
     border-spacing: 0;
-    height: 12%;
+    height: 10%;
+    border-collapse:separate;
+    border-spacing:2vw;
 }
 
-.rowCell{
-    text-align: center;
-    display: table-cell;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
 
 #shots{
     content: url("../resources/sprites/scoreImages/shot/shot5.png") url("../resources/sprites/scoreImages/shot/shot4.png") url("../resources/sprites/scoreImages/shot/shot3.png") url("../resources/sprites/scoreImages/shot/shot2.png") url("../resources/sprites/scoreImages/shot/shot1.png") url("../resources/sprites/scoreImages/shot/shot0.png");
-    background-image: url("../resources/sprites/scoreImages/shot/shot0.png");
+    /* background-image: url("../resources/sprites/scoreImages/shot/shot0.png"); */
 }
 
 #hit{
-    background-image: url("../resources/sprites/scoreImages/hit/hit.png");
+    /* background-image: url("../resources/sprites/scoreImages/hit/hit.png"); */
 }
 
 .hitMenuOpt{
@@ -39,10 +35,45 @@
     background-size: 100% 100%;
 }
 
-#score{
-    background-image: url("../resources/sprites/scoreImages/score.png");
+.rowCell{
+    display: table-cell;
+    /* background-size: 100% 100%;
+    background-repeat: no-repeat; */
     text-align: center;
-    padding-top: 0.8vw;
+    background-color: rgb(10, 10, 10);
+    border-radius: 10px;
+    border: 3px solid rgb(0, 221, 0);
+    font-size:1.2vw;
+}
+
+/* #score{
+    background-image: url("../resources/sprites/scoreImages/score.png");
+    
+} */
+
+.scoreCell{
+    width:30%;
+}
+
+.scoreCell h2{
+    margin: 0;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
+}
+
+
+.ammunitionCell{
+    width:20%;
+    /* content: url("../resources/sprites/scoreImages/shot/shot5.png") url("../resources/sprites/scoreImages/shot/shot4.png") url("../resources/sprites/scoreImages/shot/shot3.png") url("../resources/sprites/scoreImages/shot/shot2.png") url("../resources/sprites/scoreImages/shot/shot1.png") url("../resources/sprites/scoreImages/shot/shot0.png");
+    background-image: url("../resources/sprites/scoreImages/shot/shot0.png");
+    background-size: 100% 100%; */
+}
+
+
+.ammunitionCell h2{
+    margin: 0;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
 }
 
 #pointsCounter{
