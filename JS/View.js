@@ -15,3 +15,10 @@ function hideComboMessage(){
     console.log("hide");
     $(".comboMessage").css("display", "none");
 }
+
+
+function displayProgressOnProgressBar(percent){
+    $("#roundProgress").css("width", `${percent}%`)
+    .attr("aria-valuenow", percent)
+    .text(`${percent}%`);
+}

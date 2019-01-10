@@ -8,29 +8,52 @@ class Game{
         this.pointsHandler = new PointsHandler(gameParameters.ducksNumber);
         this.ducksHandler = new DucksHandler(gameParameters.ducksNumber, gameParameters.movesNumber);
         this.roundEndCountdown;
+        this.percentProgress = 10;
         this.lives = 3;
     }
 
     startGame(){
-        this.dog1.launchWalkoutAnimation();
-        setTimeout(() => this.startNewRound(), 7300);
+        // this.dog1.launchWalkoutAnimation();
+        // setTimeout(() => this.startNewRound(), 7300);
+        this.startNewRound();
     }
 
     shoot(){
-        console.log(this.shotHandler.ammo);
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
+
+
         if (successfulHits > 0) {
             this.pointsHandler.addPoints(successfulHits);
-            this.ducksHandler.countPrecentOfDucksKilled();
+            this.percentProgress = this.ducksHandler.countPrecentOfDucksKilled();
+            displayProgressOnProgressBar(this.percentProgress);
         }
         // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
 
-    // checkIfRoundIsPassed(successfulHits){
-    //     if successfulHits
-    // }
+    checkIfRoundIsPassed(){
+        if (this.percentProgress < 90) {
+            console.log("percentProgress " + this.percentProgress)
+            this.subtractLives();
+        }
+        setTimeout(() => this.startNewRound(), 2000);
+    }
+
+
+    subtractLives(){
+        this.lives--;
+
+        console.log("LIVES  " + this.lives)
+
+        if (this.lives < 1) {
+            this.finishGame();
+        }
+    }
+
+    finishGame(){
+        alert("GAME OVER");
+    }
 
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
@@ -43,10 +66,11 @@ class Game{
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
-        setTimeout(() => this.startNewRound(), 2000);
+        this.checkIfRoundIsPassed();
     }
 
     startNewRound(){
+        displayProgressOnProgressBar(0);
         this.pointsHandler.addLevel();
         this.setCountdownToRoundEnd();
         this.ducksHandler.startDucksFlight();
@@ -104,19 +128,22 @@ class Extreme extends Game{
         this.ducksHandler.ducksKilledInRound += successfulHits;
         if (successfulHits > 0) {
             this.pointsHandler.addPoints(successfulHits);
-            this.ducksHandler.countPrecentOfDucksKilled();
+            this.percentProgress = this.ducksHandler.countPrecentOfDucksKilled();
+            displayProgressOnProgressBar(this.percentProgress);
         }
         this.checkIfRoundIsFinished();
     }
 
 
     finishRound(){
+        
         this.stopAutoShooting();
         this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
-        setTimeout(() => this.startNewRound(), 2000);
+        // setTimeout(() => this.startNewRound(), 2000);
+        this.checkIfRoundIsPassed();
         this.addNewDuck();
         
     }

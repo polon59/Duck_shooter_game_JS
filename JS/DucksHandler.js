@@ -36,8 +36,12 @@ class DucksHandler{
 
 
     countPrecentOfDucksKilled(){
-        let percent = this.ducksKilledInRound/this.numberOfDucks*100;
-        console.log(percent);
+        return Math.round(this.ducksKilledInRound/this.numberOfDucks*100);
+        
+        displayProgressOnProgressBar(percent);
+        
+        
+
     }
 
 

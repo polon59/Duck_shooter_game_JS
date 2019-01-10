@@ -39,6 +39,7 @@
     display: table-cell;
     /* background-size: 100% 100%;
     background-repeat: no-repeat; */
+    padding: 0.3vw;
     text-align: center;
     background-color: rgb(10, 10, 10);
     border-radius: 10px;
@@ -54,12 +55,19 @@
     width:30%;
 }
 
-.scoreCell h2{
+.rowCell h2{
     margin: 0;
     margin-top: 0.3vh;
     margin-bottom: 0.3vh;
     font-size:1.7vw;
 }
+
+/* .scoreCell h2{
+    margin: 0;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
+    font-size:1.7vw;
+} */
 
 
 .ammunitionCell{
@@ -70,12 +78,12 @@
 }
 
 
-.ammunitionCell h2{
+/* .ammunitionCell h2{
     margin: 0;
     margin-top: 0.3vh;
     margin-bottom: 0.3vh;
     font-size:1.7vw;
-}
+} */
 
 #pointsCounter{
     text-align: right;
