@@ -27,7 +27,7 @@ class ShotHandler{
 
 
     checkIfHitSuccessful(ducks, mouseX, mouseY){
-        if (mouseX == undefined || mouseY==undefined) {
+        if (mouseX == undefined || mouseY == undefined) {
             mouseX = event.clientX;
             mouseY = event.clientY;
         }

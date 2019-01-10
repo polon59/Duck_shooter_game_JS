@@ -20,6 +20,7 @@ class Game{
         console.log(this.shotHandler.ammo);
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
+        this.pointsHandler.addPoints(successfulHits);
         // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
@@ -99,14 +100,13 @@ class Extreme extends Game{
     }
 
     stopAutoShooting(){
-        $(document).off("mousemove");
+        $(".sky").off("mousemove");
         clearInterval(this.shooting);
     }
 
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks, this.mouseX, this.mouseY);
         this.ducksHandler.ducksKilledInRound += successfulHits;
-        this.pointsHandler.addPoints(successfulHits);
         this.checkIfRoundIsFinished();
     }
 
