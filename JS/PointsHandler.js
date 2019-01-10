@@ -6,9 +6,15 @@ class PointsHandler{
     }
 
 
-    addPoints(ammount){
-        this.pointsNumber += ammount;
-        this.displayUpdatedPointsNumber();
+    addPoints(successfulHits){
+        if (successfulHits == 1) {
+            this.pointsNumber += 10;
+            this.displayUpdatedPointsNumber();
+        }
+        else if (successfulHits > 1){
+            this.pointsNumber += 20 * successfulHits;
+            this.displayUpdatedPointsNumber();
+        }
     }
 
 

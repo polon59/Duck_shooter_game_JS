@@ -4,7 +4,6 @@ class ShotHandler{
         this.initialAmmo = initialAmmo;
         this.ammo = initialAmmo;
         this.shoot = new Audio('../resources/sounds/shoot.wav');
-        this.pointsHandler = new PointsHandler();
     }
 
     
@@ -43,13 +42,11 @@ class ShotHandler{
             if(this.isShotOnDuck(mouseX,mouseY,duckPosition) && duck.isAlive){
                 duck.fallDown();
                 numberOfSuccessfulHits++;
-                this.pointsHandler.addPoints(10);
             }   
         }
 
         if (numberOfSuccessfulHits>1) {
             showComboMessage(mouseX,mouseY, numberOfSuccessfulHits);
-            this.pointsHandler.addPoints(numberOfSuccessfulHits*10);
         }
         return numberOfSuccessfulHits;
     }

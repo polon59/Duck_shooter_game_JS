@@ -5,6 +5,7 @@ class Game{
         this.dog2 = new Dog("dog2");
         this.duckMovesNumber = gameParameters.movesNumber;
         this.shotHandler = new ShotHandler(gameParameters.initialAmmo);
+        this.pointsHandler = new PointsHandler();
         this.ducksHandler = new DucksHandler(gameParameters.ducksNumber, gameParameters.movesNumber);
         this.roundEndCountdown;
         this.lives = 3;
@@ -31,6 +32,15 @@ class Game{
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
             this.finishRound();
         }
+    }
+
+    levelUp(){
+        this.stopCountdownToRoundEnd();
+        this.shotHandler.disablehooting();
+        this.ducksHandler.removeRemainingDucks();
+        //show new level message
+        // this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
+        setTimeout(() => this.startNewRound(), 2000);
     }
 
     finishRound(){
@@ -85,7 +95,7 @@ class Extreme extends Game{
 
     startAutoShooting(event){
         $(".sky").on("mousemove", ()=>this.saveCurrentCoordinates());
-        this.shooting = setInterval(()=>this.shoot(), 100);
+        this.shooting = setInterval(()=>this.shoot(),100);
     }
 
     stopAutoShooting(){
@@ -96,8 +106,10 @@ class Extreme extends Game{
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks, this.mouseX, this.mouseY);
         this.ducksHandler.ducksKilledInRound += successfulHits;
+        this.pointsHandler.addPoints(successfulHits);
         this.checkIfRoundIsFinished();
     }
+
 
     finishRound(){
         this.stopAutoShooting();
