@@ -1,0 +1,81 @@
+.cursorChange:hover{
+    cursor: pointer;
+    color: green;
+}
+
+#startScreen{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background-image: url("../resources/sprites/background/startBackground.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.startScreen__content{
+    position: relative;
+    top: 45%;
+    margin: auto;
+}
+
+#startButton{
+    width: 100%;
+    font-size: x-large;
+    transition: 0.5s ease;
+    color: red;
+}
+
+#startButton:hover{
+    letter-spacing: 10px;
+    color: rgb(0, 215, 253);
+    cursor: pointer;
+}
+
+.startScreen__content__box{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    width: 50%;
+    font-size: large;
+    text-align: center;
+    color: white;
+}
+
+.selection{
+    width: 70%;
+    color: yellow;
+}
+
+.arrow{
+    color: rgb(0, 0, 255);
+    font-size: 35px;;
+    width: 15%;
+    transition: 0.5s ease-in-out;
+}
+
+/* .flex-container > div {
+    background-color: #f1f1f1;
+    width:25%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  } */
+
+
+.arrow:hover{
+    color: red;
+    cursor: pointer;
+}
+
+
+
+
+#startScreenFooter{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: gray;
+}

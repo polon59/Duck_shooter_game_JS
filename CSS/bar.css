@@ -1,0 +1,111 @@
+
+.row
+{
+    position: fixed;
+    bottom: 0;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+    height: 10%;
+    border-collapse:separate;
+    border-spacing:2vw;
+}
+
+.hitMenuOpt{
+    float: left;
+}
+
+.duckImage{
+    float: left;
+    margin-top: 1vw;
+    width: 6.3%;
+    height: 20px;
+    background-image: url("../resources/sprites/scoreImages/hit/duckwhite.png");
+    background-size: 100% 100%;
+}
+
+.rowCell{
+    display: table-cell;
+    padding: 0.3vw;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: 3px solid rgb(0, 221, 0);
+}
+
+.scoreCell{
+    width:30%;
+}
+
+.rowCell h2{
+    margin: 0;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
+    font-size:1.7vw;
+}
+
+.progress{
+    margin:0; 
+    background-color: rgb(10, 10, 10);
+}
+
+#roundProgress{
+    background-color: rgb(252, 172, 0);
+}
+
+.lifesIcons img{
+    width: 3vw;
+    height: 3.5vh;
+}
+
+.ammunitionCell{
+    width:20%;
+}
+
+#pointsCounter{
+    text-align: right;
+    left: 7%;
+    bottom: 15%;
+    background-image: url("../resources/sprites/scoreImages/round.png");
+    background-size: 100% 100%;
+    width: 15vw;
+    height: 5vh;
+    position: absolute;
+    z-index: 3;
+}
+
+#levelCount{
+    margin: 0;
+    margin-right: 5%;
+    margin-left: 50%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+
+#levelBox{
+    display: none;
+    z-index: 3;
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    width: 15%;
+    height: 15%;
+    border-radius: 15px;
+    background-color: black;
+    border: 5px solid white;
+    animation-name: flash;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    text-align: center;
+}
+
+@keyframes fadeIn{
+    0% {display: none; opacity: 0;}
+    1% {display: block;opacity: 0;}
+    100% {display: block;opacity: 1;}
+}
