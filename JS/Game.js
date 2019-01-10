@@ -168,7 +168,8 @@ class Modern extends Game{
     }
 
     changeBackgroudsForCurrentMode(){
-        $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky2.png)");
+        $(".sky").css("backgroundImage", "url(../resources/sprites/background/modern.png)");
+        $(".bushes").css("backgroundImage", "url(../resources/sprites/background/bushes.png)");
         $("#sky").click(this.shoot.bind(this));
     }
 
