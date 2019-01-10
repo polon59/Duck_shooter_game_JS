@@ -51,7 +51,6 @@ class Game{
 
 
     checkIfRoundIsPassed(){
-        debugger
         if (this.percentProgress < 90) {
             this.subtractLives();
         }
@@ -59,6 +58,7 @@ class Game{
 
 
     subtractLives(){
+        disableLifeIcon(this.lives);
         this.lives--;
         if (this.lives < 1) {this.finishGame();}
     }

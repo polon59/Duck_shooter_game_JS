@@ -22,3 +22,9 @@ function displayProgressOnProgressBar(percent){
     .attr("aria-valuenow", percent)
     .text(`${percent}%`);
 }
+
+
+function disableLifeIcon(lifeNumber){
+    $(`#life${lifeNumber}`).css("filter", "grayscale(100%)");
+}
+
