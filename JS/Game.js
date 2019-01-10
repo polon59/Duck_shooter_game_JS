@@ -10,6 +10,7 @@ class Game{
         this.roundEndCountdown;
         this.percentProgress = 10;
         this.lives = 3;
+        this.newRoundTimeout;
     }
 
     startGame(){
@@ -18,42 +19,19 @@ class Game{
         this.startNewRound();
     }
 
+
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
-
 
         if (successfulHits > 0) {
             this.pointsHandler.addPoints(successfulHits);
             this.percentProgress = this.ducksHandler.countPrecentOfDucksKilled();
             displayProgressOnProgressBar(this.percentProgress);
         }
-        // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
 
-    checkIfRoundIsPassed(){
-        if (this.percentProgress < 90) {
-            console.log("percentProgress " + this.percentProgress)
-            this.subtractLives();
-        }
-        setTimeout(() => this.startNewRound(), 2000);
-    }
-
-
-    subtractLives(){
-        this.lives--;
-
-        console.log("LIVES  " + this.lives)
-
-        if (this.lives < 1) {
-            this.finishGame();
-        }
-    }
-
-    finishGame(){
-        alert("GAME OVER");
-    }
 
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
@@ -61,13 +39,36 @@ class Game{
         }
     }
 
+
     finishRound(){
         this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
+        this.newRoundTimeout = setTimeout(() => this.startNewRound(), 2000);        
         this.checkIfRoundIsPassed();
     }
+
+
+    checkIfRoundIsPassed(){
+        debugger
+        if (this.percentProgress < 90) {
+            this.subtractLives();
+        }
+    }
+
+
+    subtractLives(){
+        this.lives--;
+        if (this.lives < 1) {this.finishGame();}
+    }
+    
+
+    finishGame(){
+        window.clearTimeout(this.newRoundTimeout);
+        alert("DUPA");
+    }
+    
 
     startNewRound(){
         displayProgressOnProgressBar(0);
@@ -87,8 +88,6 @@ class Game{
         this.roundEndCountdown = setTimeout(() => this.finishRound(), timeToRoundEnd);
     }
 }
-
-
 
 
 
@@ -134,18 +133,15 @@ class Extreme extends Game{
         this.checkIfRoundIsFinished();
     }
 
-
     finishRound(){
-        
         this.stopAutoShooting();
         this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
         this.ducksHandler.removeRemainingDucks();
         this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
-        // setTimeout(() => this.startNewRound(), 2000);
+        this.newRoundTimeout = setTimeout(() => this.startNewRound(), 2000);   
         this.checkIfRoundIsPassed();
         this.addNewDuck();
-        
     }
 
     addNewDuck(){
