@@ -12,16 +12,6 @@
     border-spacing:2vw;
 }
 
-
-#shots{
-    content: url("../resources/sprites/scoreImages/shot/shot5.png") url("../resources/sprites/scoreImages/shot/shot4.png") url("../resources/sprites/scoreImages/shot/shot3.png") url("../resources/sprites/scoreImages/shot/shot2.png") url("../resources/sprites/scoreImages/shot/shot1.png") url("../resources/sprites/scoreImages/shot/shot0.png");
-    /* background-image: url("../resources/sprites/scoreImages/shot/shot0.png"); */
-}
-
-#hit{
-    /* background-image: url("../resources/sprites/scoreImages/hit/hit.png"); */
-}
-
 .hitMenuOpt{
     float: left;
 }
@@ -37,19 +27,12 @@
 
 .rowCell{
     display: table-cell;
-    /* background-size: 100% 100%;
-    background-repeat: no-repeat; */
     padding: 0.3vw;
     text-align: center;
     background-color: rgb(0, 0, 0);
     border-radius: 10px;
     border: 3px solid rgb(0, 221, 0);
 }
-
-/* #score{
-    background-image: url("../resources/sprites/scoreImages/score.png");
-    
-} */
 
 .scoreCell{
     width:30%;
@@ -62,34 +45,23 @@
     font-size:1.7vw;
 }
 
+.progress{
+    margin:0; 
+    background-color: rgb(10, 10, 10);
+}
+
+#roundProgress{
+    background-color: rgb(252, 172, 0);
+}
 
 .lifesIcons img{
     width: 3vw;
     height: 3.5vh;
 }
 
-/* .scoreCell h2{
-    margin: 0;
-    margin-top: 0.3vh;
-    margin-bottom: 0.3vh;
-    font-size:1.7vw;
-} */
-
-
 .ammunitionCell{
     width:20%;
-    /* content: url("../resources/sprites/scoreImages/shot/shot5.png") url("../resources/sprites/scoreImages/shot/shot4.png") url("../resources/sprites/scoreImages/shot/shot3.png") url("../resources/sprites/scoreImages/shot/shot2.png") url("../resources/sprites/scoreImages/shot/shot1.png") url("../resources/sprites/scoreImages/shot/shot0.png");
-    background-image: url("../resources/sprites/scoreImages/shot/shot0.png");
-    background-size: 100% 100%; */
 }
-
-
-/* .ammunitionCell h2{
-    margin: 0;
-    margin-top: 0.3vh;
-    margin-bottom: 0.3vh;
-    font-size:1.7vw;
-} */
 
 #pointsCounter{
     text-align: right;
@@ -103,12 +75,10 @@
     z-index: 3;
 }
 
-
 #levelCount{
     margin: 0;
     margin-right: 5%;
     margin-left: 50%;
-    /* margin-bottom: 5%; */
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -133,12 +103,6 @@
     animation-iteration-count: infinite;
     text-align: center;
 }
-
-
-/* @keyframes flash {
-    0% {border-color: red}
-    100% {border-color: white}
-} */
 
 @keyframes fadeIn{
     0% {display: none; opacity: 0;}

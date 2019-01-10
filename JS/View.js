@@ -21,6 +21,21 @@ function displayProgressOnProgressBar(percent){
     $("#roundProgress").css("width", `${percent}%`)
     .attr("aria-valuenow", percent)
     .text(`${percent}%`);
+    changeProgressBarColor(percent)
+}
+
+
+function changeProgressBarColor(percent) {
+    let colorValue = "rgb(189, 0, 0)";
+
+    if (percent >= 90) {
+        colorValue = "rgb(51, 219, 0)";
+    }
+    else if (percent >= 80){
+        colorValue = "rgb(252, 172, 0)"
+    }
+    
+    $("#roundProgress").css("background-color", colorValue);
 }
 
 
