@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>Duck Hunt 2.0</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/sprites/duck/right1.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/bar.css">
+    <link rel="stylesheet" href="../CSS/overlays.css">
+    <link rel="stylesheet" href="../CSS/startScreen.css">
+    <script src="../JS/JQuery/jquery-3.3.1.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+</head>
+<body>
+
+    <div id="startScreen">
+        <div class="startScreen__content">
+            <br>
+            <br>
+            <div class="startScreen__content__box" onclick="launchApplication()">
+                <h2 id="startButton">START GAME</h2>
+            </div>
+            <div class="startScreen__content__box" id="modeSelect">
+                    <div class="arrow" id="prevMode">⏴</div>
+                    <div class="selection">CLASSIC</div>
+                    <div class="arrow" id="nextMode">⏵</div>  
+            </div>
+            <br>
+            <br>
+            <div class="startScreen__content__box" id="modeSelect" style="color:rgb(1, 226, 1);">
+                    <div style="width: 32%" >Tutaj</div>
+                    <div style="width: 32%">Beda</div>
+                    <div style="width: 32%">Hajskory</div>
+            </div>
+        </div>
+        <div id="startScreenFooter">
+            <p>By <a href="https://github.com/Seweryn91" target="_blank" >Seweryn91</a> and <a href="https://github.com/polon59" target="_blank" >polon59</a></p>
+        </div>
+    </div>
+
+
+    <div id="sky" class="sky">
+
+        <div class="comboMessage"></div>
+
+        <div class="dog" id="dog1">
+        </div>
+
+        <div class="dog" id="dog2">
+        </div>
+
+        <div id="pointsCounter">
+            <h2 id="levelCount">1</h2>
+        </div>
+
+        <div class="bushes">
+            <div class="row">
+                <div class="rowCell ammunitionCell" id="shots">
+                    <h2 id="ammunitionAmmount">0</h2>
+                    <h2>SHOT</h2>
+                </div>
+
+                <div class="rowCell" id="hit" style="width:50%;">
+
+                        <div class="lifesIcons">
+                            <img id="life1" src="../resources/sprites/scoreImages/life.png" alt="">
+                            <img id="life2" src="../resources/sprites/scoreImages/life.png" alt="">
+                            <img id="life3" src="../resources/sprites/scoreImages/life.png" alt="">                            
+                        </div>
+                        <div class="progress">
+                            <div id="roundProgress" class="progress-bar progress-bar-striped active" role="progressbar"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                0%
+                            </div>
+                        </div>
+                </div>
+
+                <div class="rowCell scoreCell" id="score">
+                    <h2 id="scoreCount">0</h2>
+                    <h2>SCORE</h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="levelBox">
+        <h3 id="levelBoxP">LEVEL</h3>
+    </div>
+
+    <div id="shootBlocker"></div>
+
+    <div id="overlay">
+        <div class="resultsBox">
+            <h3 style="color:rgb(0, 225, 255)">Game Over!</h3>
+            <table>
+                <tr>
+                    <td>YOUR POINTS</td>
+                    <td id="pointsSummary"></td>
+                </tr>
+                <tr>
+                    <td>ROUND</td>
+                    <td id="roundSummary"></td>
+                </tr>
+                <tr>
+                    <td>SUCCESSFUL SHOTS</td>
+                    <td id="shotsSummary"></td>
+                </tr>
+                <tr>
+                    <td>ACCURACY</td>
+                    <td id="accuracySummary"></td>
+                </tr>
+
+            </table>
+
+            <h3 id="playAgainButton" class="cursorChange" onClick="window.location.reload()">PLAY AGAIN</h3>
+        
+        </div>
+    </div>
+
+    <script src="../JS/PointsHandler.js"></script>
+    <script src="../JS/DucksHandler.js"></script>
+    <script src="../JS/Duck.js"></script>
+    <script src="../JS/View.js"></script>
+    <script src="../JS/ShotHandler.js"></script>
+    <script src="../JS/Dog.js"></script>
+    <script src="../JS/Game.js"></script>
+    <script src="../JS/StartScreen.js"></script>
+    <script src="../JS/Application.js"></script>
+
+</body>
+</html>
