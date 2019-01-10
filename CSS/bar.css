@@ -41,7 +41,7 @@
     background-repeat: no-repeat; */
     padding: 0.3vw;
     text-align: center;
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(0, 0, 0);
     border-radius: 10px;
     border: 3px solid rgb(0, 221, 0);
 }
@@ -60,6 +60,12 @@
     margin-top: 0.3vh;
     margin-bottom: 0.3vh;
     font-size:1.7vw;
+}
+
+
+.lifesIcons img{
+    width: 3vw;
+    height: 3.5vh;
 }
 
 /* .scoreCell h2{
