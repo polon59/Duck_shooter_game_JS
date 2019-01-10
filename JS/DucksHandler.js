@@ -35,6 +35,12 @@ class DucksHandler{
     }
 
 
+    countPrecentOfDucksKilled(){
+        let percent = this.ducksKilledInRound/this.numberOfDucks*100;
+        console.log(percent);
+    }
+
+
     createNewDuck(){
         this.numberOfDucks ++;
         let id = this.ducks.length;

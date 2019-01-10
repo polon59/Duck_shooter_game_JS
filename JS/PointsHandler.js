@@ -1,8 +1,9 @@
 class PointsHandler{
 
-    constructor(){
+    constructor(ducksNumber){
         this.pointsNumber = 0;
         this.level = 0;
+        this.ducksNumber = ducksNumber;
     }
 
 
@@ -18,7 +19,19 @@ class PointsHandler{
     }
 
 
+    addLevel(){
+        this.level +=1;
+        this.displayUpdatedLevelNumber();
+    }
+
+
+    displayUpdatedLevelNumber(){
+        $("#levelCount").html(this.level);
+    }
+
+
     displayUpdatedPointsNumber(){
         $("#scoreCount").html(this.pointsNumber);
     }
+
 }

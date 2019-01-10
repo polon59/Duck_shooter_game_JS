@@ -5,7 +5,7 @@ class Game{
         this.dog2 = new Dog("dog2");
         this.duckMovesNumber = gameParameters.movesNumber;
         this.shotHandler = new ShotHandler(gameParameters.initialAmmo);
-        this.pointsHandler = new PointsHandler();
+        this.pointsHandler = new PointsHandler(gameParameters.ducksNumber);
         this.ducksHandler = new DucksHandler(gameParameters.ducksNumber, gameParameters.movesNumber);
         this.roundEndCountdown;
         this.lives = 3;
@@ -20,7 +20,10 @@ class Game{
         console.log(this.shotHandler.ammo);
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
-        this.pointsHandler.addPoints(successfulHits);
+        if (successfulHits > 0) {
+            this.pointsHandler.addPoints(successfulHits);
+            this.ducksHandler.countPrecentOfDucksKilled();
+        }
         // this.checkIfRoundIsPassed(successfulHits);
         this.checkIfRoundIsFinished();
     }
@@ -35,15 +38,6 @@ class Game{
         }
     }
 
-    levelUp(){
-        this.stopCountdownToRoundEnd();
-        this.shotHandler.disablehooting();
-        this.ducksHandler.removeRemainingDucks();
-        //show new level message
-        // this.dog2.showDogWithKilledDucks(this.ducksHandler.ducksKilledInRound);
-        setTimeout(() => this.startNewRound(), 2000);
-    }
-
     finishRound(){
         this.stopCountdownToRoundEnd();
         this.shotHandler.disablehooting();
@@ -53,6 +47,7 @@ class Game{
     }
 
     startNewRound(){
+        this.pointsHandler.addLevel();
         this.setCountdownToRoundEnd();
         this.ducksHandler.startDucksFlight();
         this.shotHandler.enableShooting();
@@ -107,6 +102,10 @@ class Extreme extends Game{
     shoot(){
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks, this.mouseX, this.mouseY);
         this.ducksHandler.ducksKilledInRound += successfulHits;
+        if (successfulHits > 0) {
+            this.pointsHandler.addPoints(successfulHits);
+            this.ducksHandler.countPrecentOfDucksKilled();
+        }
         this.checkIfRoundIsFinished();
     }
 
