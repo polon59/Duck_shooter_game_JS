@@ -34,8 +34,16 @@ function changeProgressBarColor(percent) {
     else if (percent >= 80){
         colorValue = "rgb(252, 172, 0)"
     }
-    
     $("#roundProgress").css("background-color", colorValue);
+}
+
+
+function displayEndScreen(pointsHandler, totalSuccessfulHits, accuracy){
+    $("#pointsSummary").text(pointsHandler.pointsNumber);
+    $("#roundSummary").text(pointsHandler.level);
+    $("#shotsSummary").text(totalSuccessfulHits);
+    $("#accuracySummary").text(`${accuracy}%`);
+    $("#overlay").show();
 }
 
 

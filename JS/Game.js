@@ -8,9 +8,11 @@ class Game{
         this.pointsHandler = new PointsHandler(gameParameters.ducksNumber);
         this.ducksHandler = new DucksHandler(gameParameters.ducksNumber, gameParameters.movesNumber);
         this.roundEndCountdown;
-        this.percentProgress = 10;
+        this.percentProgress = 0;
         this.lives = 3;
         this.newRoundTimeout;
+        this.totalSuccessfulHits = 0;
+        this.totalShotsNumber = 0;
     }
 
     startGame(){
@@ -21,10 +23,12 @@ class Game{
 
 
     shoot(){
+        this.totalShotsNumber ++;
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks);
         this.ducksHandler.ducksKilledInRound += successfulHits;
 
         if (successfulHits > 0) {
+            this.totalSuccessfulHits += successfulHits;
             this.pointsHandler.addPoints(successfulHits);
             this.percentProgress = this.ducksHandler.countPrecentOfDucksKilled();
             displayProgressOnProgressBar(this.percentProgress);
@@ -66,7 +70,8 @@ class Game{
 
     finishGame(){
         window.clearTimeout(this.newRoundTimeout);
-        alert("DUPA");
+        let accuracy = Math.round(this.totalSuccessfulHits/this.totalShotsNumber*100);
+        displayEndScreen(this.pointsHandler, this.totalSuccessfulHits, accuracy);
     }
     
 
@@ -123,9 +128,11 @@ class Extreme extends Game{
     }
 
     shoot(){
+        this.totalShotsNumber ++;
         let successfulHits = this.shotHandler.checkIfHitSuccessful(this.ducksHandler.ducks, this.mouseX, this.mouseY);
         this.ducksHandler.ducksKilledInRound += successfulHits;
         if (successfulHits > 0) {
+            this.totalSuccessfulHits += successfulHits;
             this.pointsHandler.addPoints(successfulHits);
             this.percentProgress = this.ducksHandler.countPrecentOfDucksKilled();
             displayProgressOnProgressBar(this.percentProgress);
