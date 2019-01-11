@@ -17,8 +17,7 @@ body{
     margin: 0;
     font-family: 'Asset', cursive;
     user-select: none;
-    /* content: url("../resources/sprites/duck/flyingright.gif") url("../resources/sprites/duck/falling.gif") ; */
-    
+    content: url("../resources/sprites/duck/hit.png") url("../resources/sprites/duck/flyrightup.gif") url("../resources/sprites/duck/flyrightdown.gif") url("../resources/sprites/duck/flyleftup.gif") url("../resources/sprites/duck/flyleftdown.gif") url("../resources/sprites/duck/flyright.gif") url("../resources/sprites/duck/flyleft.gif") url("../resources/sprites/duck/falling.gif") ;
 }
 
 .sky { 
