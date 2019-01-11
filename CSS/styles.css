@@ -66,6 +66,7 @@ body{
     animation-duration: 0.7s;
     animation-iteration-count: 1;
     animation-timing-function: linear;
+    content: url("../resources/sprites/dog/dogeWalking.gif") url("../resources/sprites/dog/snif.gif") url("../resources/sprites/dog/pawelJumper.gif");
 }
 
 #dog2{
@@ -73,6 +74,7 @@ body{
     height: 8vw;
     left: 48%;
     bottom: 10%;
+    content: url("../resources/sprites/dog/gotOne.png") url("../resources/sprites/dog/gotTwo.png") url("../resources/sprites/dog/bk.gif");
 }
 
 .easingOut{
