@@ -55,23 +55,10 @@
     transition: 0.5s ease-in-out;
 }
 
-/* .flex-container > div {
-    background-color: #f1f1f1;
-    width:25%;
-    margin: 10px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-  } */
-
-
 .arrow:hover{
     color: red;
     cursor: pointer;
 }
-
-
-
 
 #startScreenFooter{
     position: absolute;
