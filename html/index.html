@@ -21,16 +21,9 @@
                 <h2 id="startButton">START GAME</h2>
             </div>
             <div class="startScreen__content__box" id="modeSelect">
-                    <div class="arrow" id="prevMode">⏴</div>
-                    <div class="selection">CLASSIC</div>
-                    <div class="arrow" id="nextMode">⏵</div>  
-            </div>
-            <br>
-            <br>
-            <div class="startScreen__content__box" id="modeSelect" style="color:rgb(1, 226, 1);">
-                    <div style="width: 32%" >Tutaj</div>
-                    <div style="width: 32%">Beda</div>
-                    <div style="width: 32%">Hajskory</div>
+                <div class="arrow" id="prevMode">⏴</div>
+                <div class="selection">CLASSIC</div>
+                <div class="arrow" id="nextMode">⏵</div>  
             </div>
         </div>
         <div id="startScreenFooter">
@@ -54,13 +47,26 @@
         </div>
 
         <div class="bushes">
-            <div class="row">
+            <div class="barRow">
                 <div class="rowCell ammunitionCell" id="shots">
-                    <h2 id="ammunitionAmmount">0</h2>
-                    <h2>SHOT</h2>
+                        <div style="float:left;">
+                            <h2 id="ammunitionAmmount">0</h2>
+                            <h2>SHOT</h2>
+                        </div>
+                        <div >
+                            <img id="gunIcon" src="../resources/sprites/weapons/gun.png" style="width:40px; height:3vw;" alt="">
+                        </div>
+                    
+
+
+                    <!-- <div>
+                        <h2 id="ammunitionAmmount">0</h2>
+                        <h2>SHOT</h2>
+                    </div>
+                    <img id="gunIcon" src="../resources/sprites/weapons/gun.png" alt=""> -->
                 </div>
 
-                <div class="rowCell" id="hit" style="width:50%;">
+                <div class="rowCell" id="hit" style="width:40%;">
 
                         <div class="lifesIcons">
                             <img id="life1" src="../resources/sprites/scoreImages/life.png" alt="">
