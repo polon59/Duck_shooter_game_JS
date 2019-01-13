@@ -16,8 +16,8 @@ class Game{
     }
 
     startGame(){
-        // this.dog1.launchWalkoutAnimation();
-        // setTimeout(() => this.startNewRound(), 7300);
+        this.dog1.launchWalkoutAnimation();
+        setTimeout(() => this.startNewRound(), 7300);
     }
 
     shoot(){
@@ -172,7 +172,6 @@ class Modern extends Game{
         $("#sky").click(this.shoot.bind(this));
         $("#gunIcon").attr("src", "../resources/sprites/weapons/shotgun.png");
     }
-
 }
 
 
