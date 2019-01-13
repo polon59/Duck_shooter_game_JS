@@ -16,8 +16,8 @@ class Game{
     }
 
     startGame(){
-        this.dog1.launchWalkoutAnimation();
-        setTimeout(() => this.startNewRound(), 7300);
+        // this.dog1.launchWalkoutAnimation();
+        // setTimeout(() => this.startNewRound(), 7300);
     }
 
     shoot(){
@@ -108,6 +108,7 @@ class Extreme extends Game{
         $(".sky").css("backgroundImage", "url(../resources/sprites/background/sky3.png)");
         $(".sky").mousedown(()=>this.startAutoShooting(event));
         $(".sky").mouseup(()=>this.stopAutoShooting(event));
+        $("#gunIcon").attr("src", "../resources/sprites/weapons/auto.png");
     }
 
     saveCurrentCoordinates(){
@@ -169,6 +170,7 @@ class Modern extends Game{
         $(".sky").css("backgroundImage", "url(../resources/sprites/background/modern.png)");
         $(".bushes").css("backgroundImage", "url(../resources/sprites/background/bushes.png)");
         $("#sky").click(this.shoot.bind(this));
+        $("#gunIcon").attr("src", "../resources/sprites/weapons/shotgun.png");
     }
 
 }
