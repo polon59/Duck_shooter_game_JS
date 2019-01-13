@@ -75,6 +75,7 @@ class Game{
 
     startNewRound(){
         displayProgressOnProgressBar(0);
+        this.percentProgress = 0;
         this.pointsHandler.addLevel();
         this.setCountdownToRoundEnd();
         this.ducksHandler.startDucksFlight();
