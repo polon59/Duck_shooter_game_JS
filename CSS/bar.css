@@ -9,7 +9,7 @@
     border-spacing: 0;
     height: 10%;
     border-collapse:separate;
-    border-spacing:2vw;
+    border-spacing:10px;
 }
 
 .hitMenuOpt{
@@ -63,9 +63,16 @@
     width:30%;
 }
 
-/* #gunIcon{
-    
-} */
+.ammunitionCell__info{
+    float:left;
+    width: 40%;
+}
+
+
+#gunIcon{
+    width: 50%;
+    height: 4vw;
+}
 
 #pointsCounter{
     text-align: right;
