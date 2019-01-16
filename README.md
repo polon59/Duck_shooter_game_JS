@@ -11,8 +11,8 @@ The game has three modes:
 The player receives points upon shooting each duck. High scores are stored in browser Local Storage.
 To pass each round You must take down more than 80% of ducks. 
 
-![dh3](https://user-images.githubusercontent.com/34944174/51280762-d47f6c00-19e0-11e9-81b1-34687c169178.png)
+![dh3](https://user-images.githubusercontent.com/34944174/51281258-2aa0df00-19e2-11e9-95f7-2557d40a81ee.png)
 
-![dh2](https://user-images.githubusercontent.com/34944174/51280852-0c86af00-19e1-11e9-9688-88e0256a4beb.png)
+![dh2](https://user-images.githubusercontent.com/34944174/51281239-1e1c8680-19e2-11e9-972d-ff1c8080af12.png)
 
-![dh5](https://user-images.githubusercontent.com/34944174/51280866-190b0780-19e1-11e9-9f61-c07691676900.png)
+![dh5](https://user-images.githubusercontent.com/34944174/51281214-0e04a700-19e2-11e9-9ed6-ff4e03880392.png)
