@@ -1,11 +1,18 @@
-## Duck hunt game
-First project created with Vanilla JavaScript. Inspired by popular 'Duck Hunt' game
+## Duck hunt game 2.0
+First project created with JavaScript. Inspired by popular 'Duck Hunt' game
 developed and published by Nintendo in 1984.
 
 ### How to play:
-The ducks appear one or two at a time, and the player is given three shots to shoot them down. 
+The game has three modes:
+1. Classic - two ducks, three shots - just like in the original game version
+2. Modern - three ducks, five shots - this game mode contains new HQ graphics
+3. EXTREME - after each round one more duck is added (up to 20), You have 50 shots to take them down. This mode provides full auto shooting.
+
 The player receives points upon shooting each duck. High scores are stored in browser Local Storage.
+To pass each round You must take down more than 80% of ducks. 
 
-![screenshot from 2018-11-29 22-22-32](https://user-images.githubusercontent.com/34944174/49252839-5f060f00-f425-11e8-8900-7f4015c27e19.png)
+![dh3](https://user-images.githubusercontent.com/34944174/51281258-2aa0df00-19e2-11e9-95f7-2557d40a81ee.png)
 
-![screenshot from 2018-11-29 22-29-01](https://user-images.githubusercontent.com/34944174/49253152-3df1ee00-f426-11e8-9b5b-8d62dec89bb0.png)
+![dh2](https://user-images.githubusercontent.com/34944174/51281239-1e1c8680-19e2-11e9-972d-ff1c8080af12.png)
+
+![dh5](https://user-images.githubusercontent.com/34944174/51281214-0e04a700-19e2-11e9-9ed6-ff4e03880392.png)
