@@ -1,6 +1,3 @@
-
-// $(document).ready(displayMenu());
-
 var startScreen = new StartScreen();
 
 function launchApplication() {
@@ -9,13 +6,13 @@ function launchApplication() {
     let selectedMode;
 
     if (selectedModeName == "EXTREME") {
-        selectedMode = new Extreme(gameParameters);
+        selectedMode = new ExtremeGame(gameParameters);
     }
     else if(selectedModeName == "MODERN"){
-        selectedMode = new Modern(gameParameters);
+        selectedMode = new ModernGame(gameParameters);
     }
     else{
-        selectedMode = new Classic(gameParameters);
+        selectedMode = new ClassicGame(gameParameters);
     }
 
     startScreen.hideStartScreen();

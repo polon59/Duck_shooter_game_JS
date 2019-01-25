@@ -95,7 +95,7 @@ class Game{
 
 
 
-class Extreme extends Game{
+class ExtremeGame extends Game{
 
     constructor(gameParameters){
         super(gameParameters);
@@ -160,7 +160,7 @@ class Extreme extends Game{
 
 
 
-class Modern extends Game{
+class ModernGame extends Game{
     
     constructor(gameParameters){
         super(gameParameters);
@@ -176,7 +176,7 @@ class Modern extends Game{
 }
 
 
-class Classic extends Game{
+class ClassicGame extends Game{
     constructor(gameParameters){
         super(gameParameters);
         this.changeBackgroudsForCurrentMode();
