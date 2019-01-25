@@ -6,17 +6,14 @@ class ShotHandler{
         this.shoot = new Audio('../resources/sounds/shoot.wav');
     }
 
-    
     getAmmoNumber(){
         return this.ammo;
     }
-
 
     resetAmmo(){
         this.ammo = this.initialAmmo;
         this.changeShootBoxImage();
     }
-
 
     checkIsNoAmmoLeft(){
         if (this.ammo == 0) {
@@ -25,13 +22,11 @@ class ShotHandler{
         return false;
     }
 
-
     checkIfHitSuccessful(ducks, mouseX, mouseY){
         if (mouseX == undefined || mouseY == undefined) {
             mouseX = event.clientX;
             mouseY = event.clientY;
         }
-        
         let numberOfSuccessfulHits = 0;
         this.subtractAmmunition();
 
@@ -44,13 +39,11 @@ class ShotHandler{
                 numberOfSuccessfulHits++;
             }   
         }
-
         if (numberOfSuccessfulHits>1) {
             showComboMessage(mouseX,mouseY, numberOfSuccessfulHits);
         }
         return numberOfSuccessfulHits;
     }
-
 
     subtractAmmunition(){
         this.shoot.currentTime = 0;
@@ -58,7 +51,6 @@ class ShotHandler{
         this.ammo--;
         this.changeShootBoxImage();
     }
-
 
     isShotOnDuck(mouseX,mouseY,duckPosition) {
         let duckX = duckPosition.left;
@@ -73,30 +65,14 @@ class ShotHandler{
         return false;
     }
 
-
     changeShootBoxImage() {
-        // let path;
-
+        //add displaying images on classic and modern game mode;
         $("#ammunitionAmmount").html(this.ammo)
-
-        // if (this.ammo<0) {
-        //     path = `url('../resources/sprites/scoreImages/shot/shot5.png')`;
-        // }
-        // else if(this.ammo>5){
-        //     path = `url('../resources/sprites/scoreImages/shot/shot0.png')`;
-        // }
-        // else{
-        //     path = `url('../resources/sprites/scoreImages/shot/shot${this.ammo}.png')`;
-        // }
-
-        // document.getElementById("shots").style.backgroundImage = path;
     }
-
 
     enableShooting(){
         $("#shootBlocker").hide();
     }
-
 
     disablehooting(){
         $("#shootBlocker").show();

@@ -10,12 +10,10 @@ function showComboMessage(posX,posY, comboValue){
     console.log("show");
 }
 
-
 function hideComboMessage(){
     console.log("hide");
     $(".comboMessage").css("display", "none");
 }
-
 
 function displayProgressOnProgressBar(percent){
     $("#roundProgress").css("width", `${percent}%`)
@@ -23,7 +21,6 @@ function displayProgressOnProgressBar(percent){
     .text(`${percent}%`);
     changeProgressBarColor(percent)
 }
-
 
 function changeProgressBarColor(percent) {
     let colorValue = "rgb(189, 0, 0)";
@@ -37,7 +34,6 @@ function changeProgressBarColor(percent) {
     $("#roundProgress").css("background-color", colorValue);
 }
 
-
 function displayEndScreen(pointsHandler, totalSuccessfulHits, accuracy){
     $("#pointsSummary").text(pointsHandler.pointsNumber);
     $("#roundSummary").text(pointsHandler.level);
@@ -45,7 +41,6 @@ function displayEndScreen(pointsHandler, totalSuccessfulHits, accuracy){
     $("#accuracySummary").text(`${accuracy}%`);
     $("#overlay").show();
 }
-
 
 function disableLifeIcon(lifeNumber){
     $(`#life${lifeNumber}`).css("filter", "grayscale(100%)");

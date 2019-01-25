@@ -6,7 +6,6 @@ class PointsHandler{
         this.ducksNumber = ducksNumber;
     }
 
-
     addPoints(successfulHits){
         if (successfulHits == 1) {
             this.pointsNumber += 10;
@@ -18,20 +17,16 @@ class PointsHandler{
         }
     }
 
-
     addLevel(){
         this.level +=1;
         this.displayUpdatedLevelNumber();
     }
 
-
     displayUpdatedLevelNumber(){
         $("#levelCount").html(this.level);
     }
 
-
     displayUpdatedPointsNumber(){
         $("#scoreCount").html(this.pointsNumber);
     }
-
 }

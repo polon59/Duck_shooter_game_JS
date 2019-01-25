@@ -34,13 +34,11 @@ class Game{
         this.checkIfRoundIsFinished();
     }
 
-
     checkIfRoundIsFinished(){
         if (this.ducksHandler.checkAllDucksAreShot() || this.shotHandler.checkIsNoAmmoLeft()) {
             this.finishRound();
         }
     }
-
 
     finishRound(){
         this.stopCountdownToRoundEnd();
@@ -51,13 +49,11 @@ class Game{
         this.checkIfRoundIsPassed();
     }
 
-
     checkIfRoundIsPassed(){
         if (this.percentProgress < 90) {
             this.subtractLives();
         }
     }
-
 
     subtractLives(){
         disableLifeIcon(this.lives);
@@ -65,14 +61,12 @@ class Game{
         if (this.lives < 1) {this.finishGame();}
     }
     
-
     finishGame(){
         window.clearTimeout(this.newRoundTimeout);
         let accuracy = Math.round(this.totalSuccessfulHits/this.totalShotsNumber*100);
         displayEndScreen(this.pointsHandler, this.totalSuccessfulHits, accuracy);
     }
     
-
     startNewRound(){
         displayProgressOnProgressBar(0);
         this.percentProgress = 0;
@@ -92,7 +86,6 @@ class Game{
         this.roundEndCountdown = setTimeout(() => this.finishRound(), timeToRoundEnd);
     }
 }
-
 
 
 class ExtremeGame extends Game{
@@ -157,7 +150,6 @@ class ExtremeGame extends Game{
         }
     }
 }
-
 
 
 class ModernGame extends Game{
