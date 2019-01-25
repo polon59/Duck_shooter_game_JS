@@ -18,9 +18,3 @@ function launchApplication() {
     startScreen.hideStartScreen();
     selectedMode.startGame();
 }
-
-/*
-name:"CLASSIC", moves:7, ammunition:3, ducks:2},
-{name:"MODERN", moves:6, ammunition:5, ducks:3},
-{name:"EXTREME", moves:7, ammunition:5, ducks:1}
-*/
