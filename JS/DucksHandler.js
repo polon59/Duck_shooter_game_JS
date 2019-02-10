@@ -32,8 +32,8 @@ class DucksHandler{
     }
 
     countPrecentOfDucksKilled(){
-        displayProgressOnProgressBar(percent);
-        return Math.round(this.ducksKilledInRound/this.numberOfDucks*100);
+        let percent = Math.round(this.ducksKilledInRound/this.numberOfDucks*100);
+        return percent;
     }
 
     createNewDuck(){
